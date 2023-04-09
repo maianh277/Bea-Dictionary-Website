@@ -1,15 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
+import "./font/Manrope-VariableFont_wght.ttf";
+
+import HeaderBefore from "./component/header/HeaderBefore";
 
 function App() {
     return (
         <div>
-            <button
-                type="button"
-                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white bg-sky-500 m-2"
-            >
-                Hello
-            </button>
+            <HeaderBefore></HeaderBefore>
         </div>
     );
 }
