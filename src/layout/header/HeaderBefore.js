@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Search from "../Search";
-
+import Search from "../../component/search/Search";
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
     const showSearchBar = () => {
