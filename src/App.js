@@ -3,24 +3,19 @@ import "./font/Manrope-VariableFont_wght.ttf";
 
 import HeaderBefore from "./layout/header/HeaderBefore";
 import Footer from "./layout/Footer";
-import CommentBox from "./component/comment/CommentBox";
-import Comment from "./component/comment/Comment";
-import LoadMore from "./component/comment/LoadMore";
-import Word from "./component/word/Word";
-import Meaning from "./component/word/Meaning";
-import SynoAnno from "./component/word/SynoAnno";
-import Image from "./component/word/Image";
+import InputBox from "./component/translator/InputBox";
+import History from "./component/translator/History";
+
 function App() {
     return (
         <div className="">
             <HeaderBefore></HeaderBefore>
-            <Word></Word>
-            <Meaning></Meaning>
-            <SynoAnno></SynoAnno>
-            <Image></Image>
-            <CommentBox></CommentBox>
-            <Comment></Comment>
-            <LoadMore></LoadMore>
+            <div className="flex justify-around ">
+                <InputBox></InputBox>
+                <InputBox></InputBox>
+            </div>
+
+            <History></History>
             <Footer></Footer>
         </div>
     );
