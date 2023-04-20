@@ -8,10 +8,8 @@ const HeaderBefore = () => {
     return (
         <div>
             <div className="header">
-                <nav className=" flex flex-row justify-around bg-clip-padding bg-[#5FB41C] p-1">
-                    <div className="logo">
-                        <img src="" alt=""></img>
-                    </div>
+                <nav className=" flex flex-row justify-between bg-clip-padding bg-[#5FB41C] p-1">
+                    <div className="w-1/6 h-/4 bg-green-100">LOGO IS HERE</div>
                     <ul className="flex flex-row gap-12 justify-end m-3 text-white align-middle ">
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
@@ -34,13 +32,13 @@ const HeaderBefore = () => {
                             <h3>Word Lists</h3>
                         </li>
                     </ul>
-
                     {/* Search */}
                     <i
                         class="fa-solid fa-magnifying-glass fa-lg text-white hover:text-[#FFE600] mt-6"
                         onClick={showSearchBar}
                     ></i>
-
+                    {/* Setting */}
+                    <i class="fa-solid fa-gear fa-lg text-white hover:text-[#FFE600] mt-6"></i>{" "}
                     {/* Login - Signup */}
                     <ul className="flex flex-row gap-4 p-1">
                         <li className="hover:font-semibold p-2 rounded-xl text-white ">
