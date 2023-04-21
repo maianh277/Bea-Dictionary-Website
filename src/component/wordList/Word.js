@@ -2,7 +2,7 @@ import React from "react";
 
 const Word = () => {
     return (
-        <div className="mx-20 my-5 shadow-xl px-10 py-5 rounded-lg relative">
+        <div className="mx-20 shadow-xl px-10 py-5 rounded-lg relative">
             <div className="flex gap-3">
                 <div className="flex flex-row gap-3 mt-1">
                     <h1 className="text-yellow-400 font-bold text-xl">

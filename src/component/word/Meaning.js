@@ -3,9 +3,9 @@ import React from "react";
 const Meaning = () => {
     return (
         <div className="mx-20 mt-5 flex gap-5">
-            <h3>Noun</h3>
+            <h3 className="font-semibold">Noun</h3>
             <div>
-                <p>
+                <p className="italic font-semibold">
                     A feeling of energetic interest in a particular subject or
                     activity and an eagerness to be involved in it
                 </p>
