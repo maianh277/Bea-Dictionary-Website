@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "../../component/search/Search";
-import Translator from "../../pages/Translator";
-import WordLists from "../../pages/WordLists";
-import EditProfile from "../../pages/Setting/EditProfile";
-import ThemeSetting from "../../pages/Setting/ThemeSetting";
-import SignUp from "../../pages/SignUp";
 
-import LogIn from "../../pages/LogIn";
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
     const showSearchBar = () => {
@@ -21,23 +15,23 @@ const HeaderBefore = () => {
                     <ul className="flex flex-row gap-12 justify-end m-3 text-white align-middle ">
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
-                            <a href="/dictionary">Dictionary</a>
+                            <Link to="/dictionary">Dictionary</Link>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid leading-none fa-lg fa-language"></i>{" "}
-                            <a href="/translation">Translation</a>
+                            <Link to="/translation">Translation</Link>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
-                            <a href="/grammar">Grammar</a>
+                            <Link to="/grammar">Grammar</Link>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid leading-none fa-lg fa-globe"></i>
-                            <a href="community">Community</a>
+                            <Link to="community">Community</Link>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
                             <i class="fa-solid leading-none fa-lg fa-bookmark"></i>
-                            <a href="/wordlists">Word Lists</a>
+                            <Link to="/wordlists">Word Lists</Link>
                         </li>
                     </ul>
                     {/* Search */}
@@ -53,15 +47,15 @@ const HeaderBefore = () => {
                             ></i>
                         </li>
                         <li>
-                            <a href="/setting">
+                            <Link to="/setting">
                                 <i class="fa-solid fa-gear fa-lg text-white hover:text-[#FFE600] mt-6"></i>{" "}
-                            </a>
+                            </Link>
                         </li>
                         <li className="hover:font-semibold mt-3 rounded-xl text-white ">
-                            <a href="/login">Login</a>
+                            <Link to="/login">Login</Link>
                         </li>
                         <li className="hover:font-semibold p-2 my-1 hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
-                            <a href="/signup">Sign up</a>
+                            <Link to="/signup">Sign up</Link>
                         </li>
                     </ul>
                 </nav>
@@ -69,14 +63,6 @@ const HeaderBefore = () => {
                     {search ? <Search></Search> : <></>}
                 </div>
             </div>
-            <Routes>
-                <Route path="/translation" element={<Translator />} />
-                <Route path="/wordlists" element={<WordLists />} />
-                <Route path="/setting" element={<EditProfile />} />
-                <Route path="/themesetting" element={<ThemeSetting />} />
-                <Route path="/login" element={<LogIn />} />
-                <Route path="/signup" element={<SignUp />} />
-            </Routes>
         </div>
     );
 };

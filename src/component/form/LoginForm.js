@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const LoginForm = () => {
     return (
         <div className="w-full">
@@ -15,30 +15,30 @@ const LoginForm = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <p className="text-center text-sm font-light text-gray-500">
                                     Don't have an account?{" "}
-                                    <a
-                                        href="/signup"
+                                    <Link
+                                        to="/signup"
                                         className="font-medium text-[#FFB800]"
                                     >
                                         Sign up
-                                    </a>
+                                    </Link>
                                 </p>
                                 <div class="flex flex-wrap mb-6 items-center -mx-2">
                                     <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
-                                        <a className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
+                                        <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
                                             <i class="fa-brands fa-facebook fa-lg"></i>
 
                                             <span className="ml-4 text-sm font-semibold text-gray-500">
                                                 Login with Facebook
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="w-full md:w-1/2 px-2">
-                                        <a className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
+                                        <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
                                             <i class="fa-brands fa-google fa-lg"></i>
                                             <span className="ml-4 text-sm font-semibold text-gray-500">
                                                 Login with Apple
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <hr className=" h-[1px] my-8 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
@@ -93,9 +93,9 @@ const LoginForm = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    <a className=" ml-3 text-sm text-black dark:text-gray-300">
+                                    <Link className=" ml-3 text-sm text-black dark:text-gray-300">
                                         Forgot password?
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div>
                                     <button
