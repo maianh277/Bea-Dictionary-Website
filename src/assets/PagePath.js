@@ -5,7 +5,6 @@ import WordLists from "../../pages/WordLists";
 import EditProfile from "../../pages/Setting/EditProfile";
 import ThemeSetting from "../../pages/Setting/ThemeSetting";
 import SignUp from "../../pages/SignUp";
-
 import LogIn from "../../pages/LogIn";
 const PagePath = () => {
     return (
