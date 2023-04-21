@@ -28,7 +28,7 @@ const HeaderBefore = () => {
                             <a href="/translation">Translation</a>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                            <i class="fa-solid leading-none fa-lg  fa-book-blank"></i>
+                            <i class="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
                             <a href="/grammar">Grammar</a>
                         </li>
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
@@ -41,20 +41,26 @@ const HeaderBefore = () => {
                         </li>
                     </ul>
                     {/* Search */}
-                    <i
-                        class="fa-solid fa-magnifying-glass fa-lg text-white hover:text-[#FFE600] mt-6"
-                        onClick={showSearchBar}
-                    ></i>
+
                     {/* Setting */}
-                    <a href="/setting">
-                        <i class="fa-solid fa-gear fa-lg text-white hover:text-[#FFE600] mt-6"></i>{" "}
-                    </a>
+
                     {/* Login - Signup */}
-                    <ul className="flex flex-row gap-4 p-1">
-                        <li className="hover:font-semibold p-2 rounded-xl text-white ">
+                    <ul className="flex flex-row gap-4 mr-3">
+                        <li>
+                            <i
+                                class="fa-solid fa-magnifying-glass fa-lg text-white hover:text-[#FFE600] mt-6"
+                                onClick={showSearchBar}
+                            ></i>
+                        </li>
+                        <li>
+                            <a href="/setting">
+                                <i class="fa-solid fa-gear fa-lg text-white hover:text-[#FFE600] mt-6"></i>{" "}
+                            </a>
+                        </li>
+                        <li className="hover:font-semibold mt-3 rounded-xl text-white ">
                             <a href="/login">Login</a>
                         </li>
-                        <li className="hover:font-semibold p-2 hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
+                        <li className="hover:font-semibold p-2 my-1 hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
                             <a href="/signup">Sign up</a>
                         </li>
                     </ul>
