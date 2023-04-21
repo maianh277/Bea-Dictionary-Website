@@ -2,10 +2,10 @@ import React from "react";
 
 const Form = () => {
     return (
-        <div className="w-full">
+        <div className="w-full h-min">
             <section className="bg-white">
                 <div className="flex justify-between md:h-screen lg:py-0">
-                    <div className="h-full bg-white md:mt-0 xl:p-0 w-full">
+                    <div className=" bg-white md:mt-0 xl:p-0 w-full">
                         <div className="space-y-4 md:space-y-6 sm:p-8">
                             {/* <hr className=" h-[1px]  bg-gray-200 border-0 rounded dark:bg-green-500 "></hr> */}
                             <form className="space-y-4 md:space-y-6" action="#">

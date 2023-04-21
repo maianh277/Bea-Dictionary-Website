@@ -2,10 +2,10 @@ import React from "react";
 
 const LoginForm = () => {
     return (
-        <div>
+        <div className="w-full">
             <section className="bg-white">
-                <div className="flex justify-between md:h-screen lg:py-0">
-                    <div className="p-5 h-full bg-white md:mt-0 xl:p-0 w-3/4">
+                <div className="md:h-screen lg:py-0">
+                    <div className="p-5 bg-white md:mt-0 xl:p-0">
                         <div className="space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-center text-xl font-bold tracking-tight text-gray-900 md:text-2xl">
                                 {" "}
@@ -15,7 +15,10 @@ const LoginForm = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <p className="text-center text-sm font-light text-gray-500">
                                     Don't have an account?{" "}
-                                    <a className="font-medium text-[#FFB800]">
+                                    <a
+                                        href="/signup"
+                                        className="font-medium text-[#FFB800]"
+                                    >
                                         Sign up
                                     </a>
                                 </p>

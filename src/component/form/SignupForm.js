@@ -4,8 +4,8 @@ const SignupForm = () => {
     return (
         <div>
             <section className="bg-white">
-                <div className="flex justify-between md:h-screen lg:py-0">
-                    <div className="p-5 h-full bg-white md:mt-0 xl:p-0 w-3/4">
+                <div className="w-full lg:py-0">
+                    <div className="p-5 h-full bg-white md:mt-0 xl:p-0">
                         <div className="space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-center text-xl font-bold tracking-tight text-gray-900 md:text-2xl">
                                 {" "}
@@ -15,7 +15,10 @@ const SignupForm = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <p className="text-center text-sm font-light text-gray-500">
                                     You already have an account?{" "}
-                                    <a className="font-medium text-[#FFB800]">
+                                    <a
+                                        href="/login"
+                                        className="font-medium text-[#FFB800]"
+                                    >
                                         Log in
                                     </a>
                                 </p>
