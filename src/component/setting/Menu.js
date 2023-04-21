@@ -10,7 +10,7 @@ const Menu = () => {
             </div>
             <div className="flex flex-row gap-3 text-[#469F00] font-semibold ml-2 text-base">
                 <i class="fa-solid fa-brush m-1"></i>
-                <Link to="/themesetting">Theme</Link>
+                <Link to="/setting/themesetting">Theme</Link>
             </div>
         </div>
     );
