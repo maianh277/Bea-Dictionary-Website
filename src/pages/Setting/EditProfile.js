@@ -5,7 +5,7 @@ import Menu from "../../component/setting/Menu";
 
 const EditProfile = () => {
     return (
-        <div className="flex bg-white mx-20 p-10 shadow-xl">
+        <div className="flex bg-white mx-20 p-10 pt-24 shadow-xl">
             <Menu />
 
             <div className="flex-auto">

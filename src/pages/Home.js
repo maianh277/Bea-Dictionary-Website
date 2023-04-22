@@ -4,6 +4,7 @@ import yellowline from "../assets/HomePage/yellowline.png";
 import ReadingBook from "../assets/HomePage/ReadingBook.png";
 import Globe from ".././assets/HomePage/Globe.png";
 import Name from "../assets/HomePage/Name.png";
+import BackToTopButton from "../component/BackToTopButton";
 const Home = () => {
     return (
         <div className="scroll-smooth">
@@ -18,9 +19,6 @@ const Home = () => {
                     alt="Website's name"
                     className="absolute top-20 left-10"
                 />
-                {/* <p className="absolute top-[15rem] left-20 text-green-500 font-bold">
-                    One of the most suitable dictionary for English learner
-                </p> */}
                 <img
                     src={book1}
                     alt="Book1"
@@ -75,6 +73,7 @@ const Home = () => {
                 </span>
                 <img src={Globe} alt="Boy with the globe" className="w-1/3" />
             </div>
+            <BackToTopButton></BackToTopButton>
         </div>
     );
 };

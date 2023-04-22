@@ -8,7 +8,7 @@ import Comment from "./../component/comment/Comment";
 import LoadMore from "./../component/comment/LoadMore";
 const WordDictionary = () => {
     return (
-        <div className="bg-white mx-20 p-10 shadow-xl py-40">
+        <div className="bg-white mx-20 p-10 h-30 shadow-xl py-40">
             <Word></Word>
             <Meaning></Meaning>
             <SynoAnno></SynoAnno>
