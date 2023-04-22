@@ -3,7 +3,7 @@ import Menu from "./../component/wordList/Menu";
 import Word from "./../component/wordList/Word";
 const WordLists = () => {
     return (
-        <div className="bg-white mx-20 p-10 shadow-xl">
+        <div className="bg-white mx-20 p-10 pt-28 shadow-xl">
             <div className="flex">
                 <Menu></Menu>
                 <Word></Word>

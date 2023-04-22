@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const SignupForm = () => {
     return (
         <div>
-            <section className="bg-white">
+            <section className="bg-white pt-16">
                 <div className="w-full lg:py-0">
                     <div className="p-5 h-full bg-white md:mt-0 xl:p-0">
                         <div className="space-y-4 md:space-y-6 sm:p-8">

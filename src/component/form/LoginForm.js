@@ -1,8 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 const LoginForm = () => {
+    const [values, setValues] = useState({ email: "", password: "" });
+    const handleSubmit = () => {
+        console.log(values);
+    };
+    const handleChange = (e) => {};
     return (
-        <div className="w-full">
+        <div className="w-full pt-24">
             <section className="bg-white">
                 <div className="md:h-screen lg:py-0">
                     <div className="p-5 bg-white md:mt-0 xl:p-0">
@@ -12,7 +18,11 @@ const LoginForm = () => {
                                 Welcome to our Website{" "}
                             </h1>
 
-                            <form className="space-y-4 md:space-y-6" action="#">
+                            <form
+                                className="space-y-4 md:space-y-6"
+                                action="#"
+                                onSubmit={handleSubmit}
+                            >
                                 <p className="text-center text-sm font-light text-gray-500">
                                     Don't have an account?{" "}
                                     <Link
@@ -44,18 +54,19 @@ const LoginForm = () => {
                                 <hr className=" h-[1px] my-8 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
                                 <div>
                                     <label
-                                        for="Email"
+                                        htmlFor="email"
                                         className="block mb-1 text-sm font-medium text-gray-900 "
                                     >
                                         Your email
                                     </label>
                                     <input
                                         type="email"
+                                        value={values.email}
                                         name="email"
                                         id="email"
                                         className="bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
-                                        placeholder=""
                                         required=""
+                                        onChange={handleChange}
                                     />
                                 </div>
                                 <div>
@@ -66,12 +77,13 @@ const LoginForm = () => {
                                         Password
                                     </label>
                                     <input
+                                        value={values.password}
                                         type="password"
                                         name="password"
                                         id="password"
-                                        placeholder=""
                                         className="mt-1 bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
+                                        onChange={handleChange}
                                     />
                                 </div>
 
