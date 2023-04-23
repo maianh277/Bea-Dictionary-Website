@@ -44,5 +44,17 @@
   "devDependencies": {
     "tailwind-scrollbar": "^3.0.0",
     "tailwindcss": "^3.3.1"
-  }
+  },
+  "description": "Website for English language learners.",
+  "main": "tailwind.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiimdu/dictionary-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiimdu/dictionary-website/issues"
+  },
+  "homepage": "https://github.com/hiimdu/dictionary-website#readme"
 }
