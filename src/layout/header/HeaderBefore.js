@@ -108,14 +108,10 @@ const HeaderBefore = () => {
                     element={<ThemeSetting />}
                 />
                 <Route path="/login" element={<LogIn />} />
-                <Route path="/dictionary" element={<Dictionary />} />
+                <Route path="/dictionary" element={<WordDictionary />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/grammar" element={<Grammar />} />
-                <Route
-                    path="/dictionary/enthusiasm"
-                    element={<WordDictionary />}
-                />
             </Routes>
         </div>
     );

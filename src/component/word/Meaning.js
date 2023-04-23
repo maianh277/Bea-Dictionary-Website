@@ -1,28 +1,39 @@
 import React from "react";
-
-const Meaning = () => {
+import Search from "../search/Search";
+const Meaning = (props) => {
+    const definitions = props.definitions || [];
     return (
         <div className="mx-20 mt-5 flex gap-5">
-            <h3 className="font-semibold">Noun</h3>
-            <div>
-                <p className="italic font-semibold">
-                    A feeling of energetic interest in a particular subject or
-                    activity and an eagerness to be involved in it
-                </p>
-                <div className="flex flex-row gap-3 mt-3">
-                    <div className="bg-gray-500 mt-1 w-1 h-10"></div>
-                    <div>
-                        <p>
-                            One of the good things about teaching young children
-                            is their enthusiasm.
-                        </p>
-                        <p>
-                            After the accident he lost his enthusiasm for the
-                            sport.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {definitions &&
+                definitions.map((item) => {
+                    return (
+                        <div key={item.partOfSpeech}>
+                            <h3 className="font-semibold text-black">
+                                {item.partOfSpeech}
+                            </h3>
+                            {item.definitions.map((def) => {
+                                return (
+                                    <div key={def.definition}>
+                                        <p className="italic font-semibold">
+                                            {def.definitions}
+                                        </p>
+                                        {def.example && (
+                                            <div className="flex flex-row gap-3 mt-3">
+                                                <div className="bg-gray-500 mt-1 w-1 h-10"></div>
+                                                <div>
+                                                    <h1>
+                                                        Example:{def.example}
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    );
+                })}
+            <div></div>
         </div>
     );
 };
