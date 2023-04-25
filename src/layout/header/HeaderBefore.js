@@ -12,6 +12,7 @@ import Home from "../../pages/Home";
 import WordDictionary from "../../pages/WordDictionary";
 import Grammar from "../../pages/Grammar";
 import Dictionary from "../../pages/Dictionary";
+import Community from "../../pages/Community";
 import { useEffect } from "react";
 
 const HeaderBefore = () => {
@@ -57,7 +58,7 @@ const HeaderBefore = () => {
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold -ml-3">
                         <i class="fa-solid leading-none fa-lg fa-globe"></i>
                         <div className="w-[4rem]">
-                            <Link to="community">Community</Link>
+                            <Link to="/community">Community</Link>
                         </div>
                     </li>
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
@@ -112,6 +113,8 @@ const HeaderBefore = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/grammar" element={<Grammar />} />
+                
+                <Route path="/community" element={<Community />} />
             </Routes>
         </div>
     );

@@ -5,9 +5,7 @@ const Word = () => {
         <div className="mx-20 shadow-xl px-10 py-5 rounded-lg relative">
             <div className="flex gap-3">
                 <div className="flex flex-row gap-3 mt-1">
-                    <h1 className="text-yellow-400 font-bold text-xl">
-                        Enthusiasm
-                    </h1>
+                    <h1 className="text-yellow-400 font-bold text-xl"></h1>
                     <i class="fa-solid fa-volume-high mt-2"></i>
                 </div>
 

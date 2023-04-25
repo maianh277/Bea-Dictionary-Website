@@ -8,13 +8,14 @@ import CommentBox from "./../component/comment/CommentBox";
 import Comment from "./../component/comment/Comment";
 import LoadMore from "./../component/comment/LoadMore";
 import Search from "../component/search/Search";
+import SearchDemo from "../component/search/SearchDemo";
 const WordDictionary = (props) => {
     // const [definitions, setDefinitions] = useState([]);
     return (
         <div className="bg-white mx-20 p-10 h-30 shadow-xl py-28">
             {" "}
+            <SearchDemo />
             <Meaning />
-            {/* <Word></Word> */}
             {/* <Meaning></Meaning> */}
             <SynoAnno></SynoAnno>
             <Image></Image>

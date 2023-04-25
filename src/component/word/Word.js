@@ -1,18 +1,22 @@
 import React from "react";
 
-const Word = () => {
+const Word = (props) => {
+    const definitions = props.definitions;
     return (
         <div className="mx-20">
             <div>
                 <div className="flex gap-3">
                     <h1 className="text-[35px] text-green-600 font-bold">
-                        Enthusiasm
+                        {props.word}
                     </h1>
-                    <i class="far fa-heart fa-lg mt-6"></i>
+                    <i className="far fa-heart fa-lg mt-6"></i>
                 </div>
                 <div className="flex gap-3">
-                    <p>/ɪnˈθjuː.zi.æz.əm/</p>
-                    <i class="fa-solid fa-volume-high mt-1"></i>
+                    {props.phonetics &&
+                        props.phonetics.map((item) => (
+                            <p key={item.text}>{item.text}</p>
+                        ))}
+                    <i className="fa-solid fa-volume-high mt-1"></i>
                 </div>
             </div>
         </div>
