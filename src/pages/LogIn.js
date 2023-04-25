@@ -1,6 +1,5 @@
 import React from "react";
 import LoginForm from "./../component/form/LoginForm";
-
 const LogIn = () => {
     return (
         <div className="flex bg-white">
