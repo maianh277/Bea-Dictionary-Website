@@ -1,7 +1,11 @@
 import React from "react";
-
+import Meaning from "./Meaning";
+import SynoAnno from "./SynoAnno";
 const Word = (props) => {
-    const definitions = props.definitions;
+    const meanings = props.meanings;
+    const word = props.word;
+    const phonetics = props.phonetics;
+    const partOfSpeech = props.partOfSpeech;
     return (
         <div className="mx-20">
             <div>
@@ -12,15 +16,15 @@ const Word = (props) => {
                     <i className="far fa-heart fa-lg mt-6"></i>
                 </div>
                 <div className="flex gap-3">
-                    {props.phonetics &&
-                        props.phonetics.map((item) => (
+                    {phonetics &&
+                        phonetics.map((item) => (
                             <p key={item.text}>{item.text}</p>
                         ))}
                     <i className="fa-solid fa-volume-high mt-1"></i>
                 </div>
             </div>
+            <Meaning meanings={meanings} partOfSpeech={partOfSpeech} />
         </div>
     );
 };
-
 export default Word;

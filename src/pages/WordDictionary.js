@@ -15,13 +15,9 @@ const WordDictionary = (props) => {
         <div className="bg-white mx-20 p-10 h-30 shadow-xl py-28">
             {" "}
             <SearchDemo />
-            <Meaning />
-            {/* <Meaning></Meaning> */}
-            <SynoAnno></SynoAnno>
-            <Image></Image>
-            <CommentBox></CommentBox>
-            {/* <Comment></Comment> */}
-            <LoadMore></LoadMore>
+            {/* <Image></Image> */}
+            {/* <CommentBox></CommentBox> */}
+            {/* <LoadMore></LoadMore> */}
         </div>
     );
 };
