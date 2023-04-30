@@ -1,4 +1,5 @@
 import React from "react";
+import LoadMore from "./LoadMore";
 
 const Comment = (props) => {
     const comment = props.comment || [];
@@ -28,6 +29,7 @@ const Comment = (props) => {
                     </div>
                 );
             })}
+            <LoadMore />
         </div>
     );
 };
