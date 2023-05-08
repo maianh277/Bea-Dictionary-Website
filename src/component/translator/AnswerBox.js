@@ -1,10 +1,11 @@
 import React from "react";
 
-const AnswerBox = () => {
+const AnswerBox = (props) => {
+    const { translatedText } = props;
     return (
         <div className="mx-20 my-5 w-1/2">
             <div>
-                <div className="flex justify-between">
+                <div className="flex jusstify-between">
                     <form action="#" className="m-1 font-bold">
                         <select
                             name="languages"
@@ -28,13 +29,16 @@ const AnswerBox = () => {
                 </div>
                 <hr className="bg-green-600"></hr>
                 <div>
-                    <div class="relative">
-                        <textarea
-                            type="text"
-                            class="py-2 pl-8 pr-12 w-full border border-gray-300 h-[200px]"
-                            placeholder="Enter text..."
-                        ></textarea>
-                    </div>
+                    <form>
+                        <div class="relative">
+                            <textarea
+                                type="text"
+                                class="py-2 pl-8 pr-12 w-full border border-gray-300 h-[200px]"
+                                placeholder="Enter text..."
+                                value={translatedText}
+                            ></textarea>
+                        </div>
+                    </form>
                     <i class="fa-solid fa-copy"></i>{" "}
                     <i class="fa-regular fa-star ml-2"></i>
                 </div>
