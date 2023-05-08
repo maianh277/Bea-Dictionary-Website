@@ -4,7 +4,6 @@ import CommentBox from "../comment/CommentBox";
 const SynoAnno = (props) => {
     const meanings = props.meanings || [];
 
-    // Create arrays for synonyms and antonyms
     const synonymsArray = [];
     const antonymsArray = [];
 

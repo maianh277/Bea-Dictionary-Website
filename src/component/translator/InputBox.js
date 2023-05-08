@@ -1,11 +1,24 @@
 import React from "react";
 
-const InputBox = () => {
+const InputBox = (props) => {
+    const { setInputText, translateText, setTranslatedText, translatedText } =
+        props;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Call setTranslatedText with the translated text value
+        setTranslatedText(translatedText);
+        await translateText();
+    };
+
     return (
         <div className="mx-20 my-5 w-1/2">
             <div>
                 <div className="flex justify-between">
-                    <form action="#" className="m-1 font-bold">
+                    <form
+                        action="#"
+                        className="m-1 font-bold"
+                        onSubmit={handleSubmit}
+                    >
                         <select
                             name="languages"
                             id="lang"
@@ -24,23 +37,27 @@ const InputBox = () => {
                                 Vietnamese
                             </option>
                         </select>
-                    </form>
-                    <i className="fa-solid fa-arrow-right-arrow-left mt-5 mr-2"></i>
-                </div>
-                <hr className="bg-green-600"></hr>
-                <div>
-                    <div class="relative">
-                        <textarea
-                            type="text"
-                            class="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px]"
-                            placeholder="Enter text..."
-                        ></textarea>
-                        <button class="absolute right-0 top-[30%] rounded-l-full w-10 h-20 bg-green-200 transition duration-150 ease-out hover:ease-in hover:bg-green-500 hover:scale-150 hover:shadow-md hover:-translate-x-2.5">
-                            <i class="fa-solid fa-arrow-right -right-1 bottom-0 text-white relative  "></i>
-                        </button>
-                    </div>
+                        <i className="fa-solid fa-arrow-right-arrow-left mt-5 mr-2"></i>
+                        <hr className="bg-green-600"></hr>
+                        <div className="relative">
+                            <textarea
+                                type="text"
+                                class="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px]"
+                                placeholder="Enter text..."
+                                onChange={(e) => {
+                                    setInputText(e.target.value);
+                                }}
+                            ></textarea>
 
-                    <i class="fa-solid fa-volume-high"></i>
+                            <button
+                                className="absolute right-0 top-[30%] rounded-l-full w-10 h-20 bg-green-200 transition duration-150 ease-out hover:ease-in hover:bg-green-500 hover:scale-150 hover:shadow-md hover:-translate-x-2.5"
+                                type="submit"
+                            >
+                                <i className="fa-solid fa-arrow-right -right-1 bottom-0 text-white relative"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <i className="fa-solid fa-volume-high"></i>
                 </div>
             </div>
         </div>

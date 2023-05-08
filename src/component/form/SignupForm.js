@@ -109,7 +109,7 @@ const SignupForm = () => {
                                         className="mt-1 bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
                                     />
-                                    <div className="mt-4">
+                                    {/* <div className="mt-4">
                                         <label
                                             for="password"
                                             className="block mb-1 text-sm font-medium text-gray-900"
@@ -124,10 +124,10 @@ const SignupForm = () => {
                                             className="bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                             required=""
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="flex">
-                                    <div className="flex ">
+                                    <div className="flex">
                                         <input
                                             id="subscription"
                                             aria-describedby="remember"

@@ -1,6 +1,21 @@
-import React from "react";
-import SignupForm from "./../component/form/SignupForm";
+import React, { useState, useEffect } from "react";
+import SignupForm from "../component/form/SignupForm";
 const SignUp = () => {
+    // const [dataUsers, setDataUsers] = useState([]);
+
+    // useEffect(() => {
+    //     fetch("/user")
+    //         .then((response) => response.json())
+    //         .then((data) => setDataUsers(data));
+    // }, []);
+
+    // const userRows = dataUsers.map((user) => (
+    //     <tr key={user.id}>
+    //         <td>{user.id}</td>
+    //         <td>{user.name}</td>
+    //     </tr>
+    // ));
+
     return (
         <div className="flex bg-white">
             <div>
@@ -10,7 +25,15 @@ const SignUp = () => {
                     className="w-full h-full"
                 />
             </div>
-
+            {/* <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>{userRows}</tbody>
+            </table> */}
             <SignupForm></SignupForm>
         </div>
     );
