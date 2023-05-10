@@ -9,14 +9,23 @@ const SignupForm = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8080/signup", {
-                fullname: fullname,
-                email: email,
-                password: password,
+            axios({
+                method: "post",
+                url: "http://localhost:8080/api/signup",
+                data: {
+                    fullname: fullname,
+                    email: email,
+                    password: password,
+                },
             });
         } catch (e) {
             alert(e);
         }
+        console.log({
+            fullname: fullname,
+            email: email,
+            password: password,
+        });
     }
     return (
         <div>
@@ -129,15 +138,13 @@ const SignupForm = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button
-                                            type="submit"
-                                            className="text-white w-full h-10 font-[300px] bg-[#008A0E] rounded-lg"
-                                            onClick={handleSubmit}
-                                        >
-                                            Sign Up
-                                        </button>
-                                    </div>
+                                    <button
+                                        type="submit"
+                                        className="text-white w-full h-10 font-[300px] bg-[#008A0E] rounded-lg"
+                                        onClick={handleSubmit}
+                                    >
+                                        Sign Up
+                                    </button>
                                 </form>
                             </div>
                         </div>
