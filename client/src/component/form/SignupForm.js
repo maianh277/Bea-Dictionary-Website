@@ -21,11 +21,11 @@ const SignupForm = () => {
         } catch (e) {
             alert(e);
         }
-        console.log({
-            fullname: fullname,
-            email: email,
-            password: password,
-        });
+        // console.log({
+        //     fullname: fullname,
+        //     email: email,
+        //     password: password,
+        // });
     }
     return (
         <div>
@@ -65,7 +65,7 @@ const SignupForm = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <hr className=" h-[1px] my-8 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
+                                <hr className=" h-[1px] my-2 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
                                 <form>
                                     <div>
                                         <div className="my-3">
@@ -96,7 +96,7 @@ const SignupForm = () => {
                                             type="password"
                                             name="password"
                                             placeholder="Password"
-                                            className="mt-1 bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                                            className="bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                             required=""
                                             onChange={(e) => {
                                                 setPassword(e.target.value);
@@ -138,9 +138,10 @@ const SignupForm = () => {
                                             </label>
                                         </div>
                                     </div>
+
                                     <button
                                         type="submit"
-                                        className="text-white w-full h-10 font-[300px] bg-[#008A0E] rounded-lg"
+                                        className="text-white w-full mt-3 h-10 font-[300px] bg-[#008A0E] rounded-lg"
                                         onClick={handleSubmit}
                                     >
                                         Sign Up

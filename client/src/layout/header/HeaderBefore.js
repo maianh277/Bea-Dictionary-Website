@@ -11,9 +11,7 @@ import LogIn from "../../pages/LogIn";
 import Home from "../../pages/Home";
 import WordDictionary from "../../pages/WordDictionary";
 import Grammar from "../../pages/Grammar";
-import Dictionary from "../../pages/Dictionary";
 import Community from "../../pages/Community";
-import { useEffect } from "react";
 
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
@@ -113,7 +111,7 @@ const HeaderBefore = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/grammar" element={<Grammar />} />
-                
+
                 <Route path="/community" element={<Community />} />
             </Routes>
         </div>
