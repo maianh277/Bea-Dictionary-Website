@@ -1,11 +1,14 @@
-const express = require("express");
+import express from "express";
+import initWebRoute from "./route/web.js";
+
 const app = express();
-const port = 3000;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get("/api", (req, res) => {
-    res.send("Hello World!");
-});
+const port = 8080;
 
+// app.use(cors);
+initWebRoute(app);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

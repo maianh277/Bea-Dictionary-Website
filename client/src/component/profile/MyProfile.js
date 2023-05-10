@@ -77,7 +77,7 @@ const MyProfile = () => {
                         <tr>
                             <img
                                 className="h-5 w-5"
-                                src={require("./imageprofile/link.png")}
+                                // src={require("./imageprofile/link.png")}
                                 alt="Display"
                             />
                             <td class="px-6 py-3 text-[15px] font-bold">
