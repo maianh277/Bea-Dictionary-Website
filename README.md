@@ -1,2 +1,23 @@
-# dictionary-website
-A website designed to help English language learners look up words in Vietnamese or English definitions. Along with standard searching method, users can also translate long sentences and save your own favorite terms in lists.
+# Dictionary Website
+
+## Table of content
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General info
+This project is ...
+	
+## Technologies
+Project is created with:
+* Frontend: ReactJS
+* Backend: ExpressJS + MySQL
+	
+## Setup
+* For running frontend: 
+`cd client`
+`npm start`
+* For running backend:
+`cd server`
+`npm start`
+* Database: Using XAMPP to run MySQL 
