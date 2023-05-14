@@ -1,7 +1,6 @@
 import pool from "../configs/connectDB.js";
-import userService from "../services/userService.js";
-
-let handleSignup = (req, res) => {
+import bcrypt from "bcrypt";
+let handleSignup = async (req, res) => {
     let { fullname, email, password } = req.body;
     if (!fullname || !email || !password) {
         return res.status(500).json({
@@ -9,17 +8,32 @@ let handleSignup = (req, res) => {
             errMessage: "missing params",
         });
     }
-    return new Promise((resolve, reject) => {
-        try {
-            pool.execute(
-                "INSERT INTO users_login (fullname, email, password) VALUES (?,?,?)",
-                [fullname, email, password]
-            );
-            console.log("Input successfull");
-        } catch (e) {
-            reject(e);
+    try {
+        // console.log("before pool.execute");
+        let users = await pool.execute(
+            "INSERT INTO users_login (fullname, email, password) VALUES (?,?,?)",
+            [fullname, email, password]
+        );
+        // console.log("after pool.execute");
+        res.json({
+            errCode: 1,
+            errMessage: "SignUp Successfully",
+        });
+    } catch (e) {
+        if (e.code === "ER_DUP_ENTRY") {
+            console.log("email exist");
+            res.json({
+                errCode: 0,
+                errMessage: "Email exist. Pleaser use another email.",
+            });
+        } else {
+            console.error(e);
+            res.status(500).json({
+                errCode: -1,
+                errMessage: "Unknown error",
+            });
         }
-    });
+    }
 };
 
 let handleLogin = async (req, res) => {
@@ -47,28 +61,26 @@ let handleLogin = async (req, res) => {
                 ),
             ]);
 
-            // let dbPassword = user[0][0].password;
             for (let user of users) {
                 if (user) {
                     if (user[0] && user[0].length > 0) {
-                        console.log(user[0][0]["password"]);
-                        console.log(password);
                         if (user[0][0]["password"] === password) {
                             res.json({
-                                errCode: 0,
-                                errMessage: "email exist & correct password",
+                                errCode: 1,
+                                errMessage: "Login Successfully",
                             });
                         } else {
                             res.json({
-                                errCode: 1,
-                                errMessage: "wrong password",
+                                errCode: 0,
+                                errMessage: "Wrong password",
                             });
                         }
                     } else {
                         res.json({
                             errCode: 1,
-                            errMessage: "mail not exist",
+                            errMessage: "Mail does not exist",
                         });
+                        console.log("mail not exist: ", email);
                     }
                 }
             }

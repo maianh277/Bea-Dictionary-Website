@@ -1,32 +1,41 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const SignupForm = () => {
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate();
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            axios({
+            const url = "http://localhost:8080/api/signup";
+            let response = await axios({
                 method: "post",
-                url: "http://localhost:8080/api/signup",
+                url: url,
                 data: {
                     fullname: fullname,
                     email: email,
                     password: password,
                 },
             });
+            console.log("after response");
+            console.log(response.data);
+            if (response.data.errCode === 1) {
+                setSuccessMessage(response.data.errMessage);
+                navigate("/login");
+            } else {
+                setErrorMessage(response.data.errMessage);
+            }
         } catch (e) {
             alert(e);
         }
-        // console.log({
-        //     fullname: fullname,
-        //     email: email,
-        //     password: password,
-        // });
     }
+
     return (
         <div>
             <section className="bg-white pt-16">
@@ -103,8 +112,13 @@ const SignupForm = () => {
                                             }}
                                         />
                                     </div>
+                                    {(errorMessage || successMessage) && (
+                                        <div className="text-red-500 text-sm mb-2">
+                                            {errorMessage || successMessage}
+                                        </div>
+                                    )}
                                     <div className="flex">
-                                        <div className="">
+                                        <div>
                                             <input
                                                 aria-describedby="remember"
                                                 type="checkbox"
