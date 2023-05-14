@@ -1,12 +1,39 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const LoginForm = () => {
-    const [values, setValues] = useState({ email: "", password: "" });
-    const handleSubmit = () => {
-        console.log(values);
-    };
-    const handleChange = (e) => {};
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+            const url = "http://localhost:8080/api/login";
+            const response = await axios({
+                method: "post",
+                url: url,
+                mode: "cors",
+                data: {
+                    email: email,
+                    password: password,
+                },
+            });
+            console.log(response.data);
+            if (response.data.errCode === 1) {
+                setSuccessMessage(response.data.errMessage);
+                navigate("/");
+            } else {
+                setErrorMessage(response.data.errMessage);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
         <div className="w-full pt-24">
             <section className="bg-white">
@@ -18,11 +45,7 @@ const LoginForm = () => {
                                 Welcome to our Website{" "}
                             </h1>
 
-                            <form
-                                className="space-y-4 md:space-y-6"
-                                action="#"
-                                onSubmit={handleSubmit}
-                            >
+                            <form className="space-y-4 md:space-y-6">
                                 <p className="text-center text-sm font-light text-gray-500">
                                     Don't have an account?{" "}
                                     <Link
@@ -53,54 +76,44 @@ const LoginForm = () => {
                                 </div>
                                 <hr className=" h-[1px] my-8 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
                                 <div>
-                                    <label
-                                        htmlFor="email"
-                                        className="block mb-1 text-sm font-medium text-gray-900 "
-                                    >
-                                        Your email
-                                    </label>
                                     <input
-                                        type="email"
-                                        value={values.email}
                                         name="email"
-                                        id="email"
                                         className="bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
-                                        onChange={handleChange}
+                                        placeholder="Email"
+                                        onChange={(e) => {
+                                            return setEmail(e.target.value);
+                                        }}
                                     />
                                 </div>
                                 <div>
-                                    <label
-                                        for="password"
-                                        className="block text-sm font-medium text-gray-900"
-                                    >
-                                        Password
-                                    </label>
                                     <input
-                                        value={values.password}
                                         type="password"
                                         name="password"
-                                        id="password"
                                         className="mt-1 bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
-                                        onChange={handleChange}
+                                        placeholder="Password"
+                                        onChange={(e) => {
+                                            return setPassword(e.target.value);
+                                        }}
                                     />
+                                    {(errorMessage || successMessage) && (
+                                        <div className="text-red-500 text-sm mt-2">
+                                            {errorMessage || successMessage}
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="flex justify-between">
-                                    <div className="flex ">
+                                    <div className="flex">
                                         <input
-                                            id="subscription"
                                             aria-describedby="remember"
                                             type="checkbox"
                                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
                                             required=""
                                         />
                                         <div className="ml-3 text-sm">
-                                            <label
-                                                for="subscription"
-                                                className="text-black dark:text-gray-300"
-                                            >
+                                            <label className="text-black dark:text-gray-300">
                                                 Keep me logged in
                                             </label>
                                         </div>
@@ -113,6 +126,7 @@ const LoginForm = () => {
                                     <button
                                         type="submit"
                                         className="text-white w-full h-10 font-[300px] bg-[#008A0E] rounded-lg"
+                                        onClick={handleSubmit}
                                     >
                                         Log in
                                     </button>
