@@ -10,7 +10,7 @@ This project is ...
 	
 ## Technologies
 Project is created with:
-* Frontend: ReactJS
+* Frontend: ReactJS + TailwindCSS
 * Backend: ExpressJS + MySQL
 	
 ## Setup
