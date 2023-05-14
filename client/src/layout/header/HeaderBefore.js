@@ -18,7 +18,7 @@ const HeaderBefore = () => {
             <nav
                 className={`${
                     navBar ? "" : "py-3"
-                } bg-[#5FB41C] text-white fixed transparent top-0 w-full flex flex-row justify-between  p-1 z-50  transition-all duration-500 ease-in-out`}
+                } bg-green-500 text-white fixed transparent top-0 w-full flex flex-row justify-between  p-1 z-50  transition-all duration-500 ease-in-out`}
             >
                 <Link to="/" className="w-1/6 h-/4 bg-green-100">
                     LOGO IS HERE

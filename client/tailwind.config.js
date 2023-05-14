@@ -9,6 +9,11 @@ module.exports = {
             lg: ["20px", "28px"],
             xl: ["24px", "32px"],
         },
+        fontFamily: {
+            Lilita: ['"LilitaOne"'],
+            Manrope: ['"Manrope'],
+            Comfortaa: ['"Comfortaa'],
+        },
         borderWidth: {
             DEFAULT: "1px",
             0: "0",
