@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +9,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
@@ -22,9 +23,9 @@ const LoginForm = () => {
                     password: password,
                 },
             });
-            console.log(response.data);
             if (response.data.errCode === 1) {
                 setSuccessMessage(response.data.errMessage);
+                localStorage.setItem("user", JSON.stringify(response.data));
                 navigate("/");
             } else {
                 setErrorMessage(response.data.errMessage);
@@ -35,14 +36,14 @@ const LoginForm = () => {
     }
 
     return (
-        <div className="w-full pt-24">
-            <section className="bg-white">
-                <div className="md:h-screen lg:py-0">
-                    <div className="p-5 bg-white md:mt-0 xl:p-0">
-                        <div className="space-y-4 md:space-y-6 sm:p-8">
-                            <h1 className="text-center text-xl font-bold tracking-tight text-gray-900 md:text-2xl">
+        <div className="w-1/3 pt-24">
+            <section>
+                <div className="md:h-screen ">
+                    <div className="py-20">
+                        <div>
+                            <h1 className="text-center text-[2rem] tracking-tight text-gray-900 font-Lilita">
                                 {" "}
-                                Welcome to our Website{" "}
+                                WELCOME TO OUR WEBSITE
                             </h1>
 
                             <form className="space-y-4 md:space-y-6">
@@ -78,7 +79,7 @@ const LoginForm = () => {
                                 <div>
                                     <input
                                         name="email"
-                                        className="bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                                        className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
                                         placeholder="Email"
                                         onChange={(e) => {
@@ -90,7 +91,7 @@ const LoginForm = () => {
                                     <input
                                         type="password"
                                         name="password"
-                                        className="mt-1 bg-[#D9FFBB] border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                                        className="mt-1 px-5 py-4 bg-gray-100 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
                                         required=""
                                         placeholder="Password"
                                         onChange={(e) => {
@@ -125,10 +126,10 @@ const LoginForm = () => {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="text-white w-full h-10 font-[300px] bg-[#008A0E] rounded-lg"
+                                        className="text-white w-1/3 h-10 font-[300px] bg-green-400 font-bold rounded-lg"
                                         onClick={handleSubmit}
                                     >
-                                        Log in
+                                        LOGIN
                                     </button>
                                 </div>
                             </form>
