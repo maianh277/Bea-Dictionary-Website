@@ -37,7 +37,7 @@ let handleSignup = async (req, res) => {
 };
 
 let handleLogin = async (req, res) => {
-    let { email, password } = req.body;
+    let { fullname, email, password } = req.body;
     if (!email || !password) {
         return res.status(500).json({
             errCode: 1,
@@ -68,6 +68,10 @@ let handleLogin = async (req, res) => {
                             res.json({
                                 errCode: 1,
                                 errMessage: "Login Successfully",
+                                data: {
+                                    email: email,
+                                    fullname: fullname,
+                                },
                             });
                         } else {
                             res.json({

@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 import Search from "../../component/search/Search";
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
-
+    const [user, setUser] = useState(localStorage.getItem("user"));
     const showSearchBar = () => {
         setSearch(!search);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        setUser(null);
+    };
+
     const [navBar, setNavBar] = useState(false);
     const changeNavbarWidth = () => {
         if (window.scrollY >= 60) setNavBar(true);
         else setNavBar(false);
     };
     window.addEventListener("scroll", changeNavbarWidth);
+
     return (
         <div>
             <nav
@@ -48,12 +55,16 @@ const HeaderBefore = () => {
                             <Link to="/community">Community</Link>
                         </div>
                     </li>
-                    <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                        <i class="fa-solid leading-none fa-lg fa-bookmark"></i>
-                        <div className="w-[5rem]">
-                            <Link to="/wordlists">Word Lists</Link>
-                        </div>
-                    </li>
+                    {user == null ? (
+                        <></>
+                    ) : (
+                        <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
+                            <i class="fa-solid leading-none fa-lg fa-bookmark"></i>
+                            <div className="w-[5rem]">
+                                <Link to="/wordlists">Word Lists</Link>
+                            </div>
+                        </li>
+                    )}
                 </ul>
 
                 {/* Login - Signup */}
@@ -64,21 +75,44 @@ const HeaderBefore = () => {
                             onClick={showSearchBar}
                         ></i>
                     </li>
-                    <li>
-                        <Link to="/setting">
-                            <i class="fa-solid fa-gear fa-lg hover:text-[#FFE600] mt-6"></i>{" "}
-                        </Link>
-                    </li>
-                    <li className="hover:font-semibold mt-3 rounded-xl ">
-                        <div className="w-[2.5rem]">
-                            <Link to="/login">Login</Link>
-                        </div>
-                    </li>
-                    <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
-                        <div className="w-[4rem]">
-                            <Link to="/signup">Sign up</Link>
-                        </div>
-                    </li>
+
+                    {user == null ? (
+                        <ul className="flex gap-4">
+                            <li className="hover:font-semibold mt-3 rounded-xl ">
+                                <div className="w-[2.5rem]">
+                                    <Link to="/login">Login</Link>
+                                </div>
+                            </li>
+                            <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
+                                <div className="w-[4rem]">
+                                    <Link to="/signup">Sign up</Link>
+                                </div>
+                            </li>
+                        </ul>
+                    ) : (
+                        <ul className="flex gap-4">
+                            <li>
+                                <Link to="/setting">
+                                    <i class="fa-solid fa-gear fa-lg hover:text-[#FFE600] mt-6"></i>{" "}
+                                </Link>
+                            </li>
+                            <div>
+                                <div>Welcome </div>
+                                <Link to="/profile">
+                                    {
+                                        JSON.parse(localStorage.getItem("user"))
+                                            .data.email
+                                    }
+                                </Link>
+                            </div>
+
+                            <li className="hover:font-semibold mt-3 ">
+                                <Link to="/login" onClick={handleLogout}>
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </Link>
+                            </li>
+                        </ul>
+                    )}
                 </ul>
             </nav>
             <div className="ease-in-out delay-150">

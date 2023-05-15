@@ -1,9 +1,6 @@
 import React from "react";
-import book1 from "../assets/HomePage/book1.png";
 import yellowline from "../assets/HomePage/yellowline.png";
-import ReadingBook from "../assets/HomePage/ReadingBook.png";
 import Globe from ".././assets/HomePage/Globe.png";
-import Name from "../assets/HomePage/Name.png";
 import BackToTopButton from "../component/BackToTopButton";
 const Home = () => {
     return (

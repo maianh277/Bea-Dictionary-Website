@@ -10,10 +10,12 @@ import WordDictionary from "../pages/WordDictionary";
 import Grammar from "../pages/Grammar";
 import Community from "../pages/Community";
 import React from "react";
+import MyProfile from "../component/profile/MyProfile";
 const MyRoutes = () => {
     return (
         <div>
             <Routes>
+                <Route path="/profile" element={<MyProfile />} />
                 <Route path="/translation" element={<Translator />} />
                 <Route path="/wordlists" element={<WordLists />} />
                 <Route path="/setting" element={<EditProfile />} />

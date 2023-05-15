@@ -1,15 +1,13 @@
 import SignupForm from "../component/form/SignupForm";
+import loginBg from "../assets/LoginPage/LoginBg.png";
+
 const SignUp = () => {
     return (
         <div className="flex bg-white">
-            <div>
-                <img
-                    src="https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    alt="SignUp"
-                    className="w-full h-full"
-                />
+            <div className="absolute left-1/3 w-full transform">
+                <SignupForm></SignupForm>
             </div>
-            <SignupForm></SignupForm>
+            <img src={loginBg} alt="Dictionary" />
         </div>
     );
 };
