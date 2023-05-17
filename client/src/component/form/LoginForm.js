@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 const LoginForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -12,8 +13,10 @@ const LoginForm = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+
+        // axios.post(url, data, { withCredentials: true });
         try {
-            const url = "http://localhost:8080/api/login";
+            const url = "http://localhost:8080/login";
             const response = await axios({
                 method: "post",
                 url: url,
@@ -22,10 +25,11 @@ const LoginForm = () => {
                     email: email,
                     password: password,
                 },
+                withCredntials: true,
+                credentials: "include",
             });
             if (response.data.errCode === 1) {
                 setSuccessMessage(response.data.errMessage);
-                localStorage.setItem("user", JSON.stringify(response.data));
                 navigate("/");
             } else {
                 setErrorMessage(response.data.errMessage);
@@ -126,7 +130,7 @@ const LoginForm = () => {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="text-white w-1/3 h-10 font-[300px] bg-green-400 font-bold rounded-lg"
+                                        className="text-white w-1/3 h-10 bg-green-400 font-bold rounded-lg"
                                         onClick={handleSubmit}
                                     >
                                         LOGIN

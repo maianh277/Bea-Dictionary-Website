@@ -1,17 +1,60 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Cookies, useCookies } from "react-cookie";
+
 import Search from "../../component/search/Search";
+import jwt from "jwt-decode";
+// import Cookies from "js-cookie";
+
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
-    const [user, setUser] = useState(localStorage.getItem("user"));
+    const [auth, setAuth] = useState(true);
+    const [decodedToken, setDecodedToken] = useState(null);
+    const navigate = useNavigate();
+
+    const [cookies] = useCookies(["token"]);
+
     const showSearchBar = () => {
         setSearch(!search);
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        setUser(null);
-    };
+    // useEffect(() => {
+    //     const token = cookies.token;
+    //     if (token) {
+    //         const decoded = jwt_decode(token);
+    //         setDecodedToken(decoded);
+    //         // Use the decoded token data or perform any necessary actions
+    //     } else {
+    //         console.error("Error decoding token:");
+    //         setDecodedToken(null);
+    //         // Handle invalid token here (e.g., redirect to login)
+    //     }
+    // }, [cookies]);
+    async function handleLogout(e) {
+        e.preventDefault();
+        try {
+            await fetch("http://localhost:8080/logout", {
+                method: "post",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                withCredntials: true,
+                credentials: "include",
+            });
+            setAuth(false);
+            navigate("/login");
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        if (cookies.token) {
+            const decoded = jwt(cookies.token);
+            setDecodedToken(decoded);
+        }
+    }, [cookies]);
 
     const [navBar, setNavBar] = useState(false);
     const changeNavbarWidth = () => {
@@ -25,7 +68,7 @@ const HeaderBefore = () => {
             <nav
                 className={`${
                     navBar ? "" : "py-3"
-                } bg-green-500 text-white fixed transparent top-0 w-full flex flex-row justify-between  p-1 z-50  transition-all duration-500 ease-in-out`}
+                } bg-green-500 text-white fixed transparent top-0 w-full flex flex-row justify-between p-1 z-50 transition-all duration-500 ease-in-out`}
             >
                 <Link to="/" className="w-1/6 h-/4 bg-green-100">
                     LOGO IS HERE
@@ -55,7 +98,7 @@ const HeaderBefore = () => {
                             <Link to="/community">Community</Link>
                         </div>
                     </li>
-                    {user == null ? (
+                    {!auth ? (
                         <></>
                     ) : (
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
@@ -76,42 +119,41 @@ const HeaderBefore = () => {
                         ></i>
                     </li>
 
-                    {user == null ? (
-                        <ul className="flex gap-4">
-                            <li className="hover:font-semibold mt-3 rounded-xl ">
-                                <div className="w-[2.5rem]">
-                                    <Link to="/login">Login</Link>
-                                </div>
-                            </li>
-                            <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-white rounded-xl text-[#5FB41C]">
-                                <div className="w-[4rem]">
-                                    <Link to="/signup">Sign up</Link>
-                                </div>
-                            </li>
-                        </ul>
+                    {!auth ? (
+                        <>
+                            <ul className="flex gap-4">
+                                <li className="hover:font-semibold mt-3 rounded-xl ">
+                                    <div className="w-[2.5rem]">
+                                        <Link to="/login">Login</Link>
+                                    </div>
+                                </li>
+                                <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-[#FFE600] rounded-xl">
+                                    <div className="w-full">
+                                        <Link to="/register">Sign Up</Link>
+                                    </div>
+                                </li>
+                            </ul>
+                        </>
                     ) : (
-                        <ul className="flex gap-4">
-                            <li>
-                                <Link to="/setting">
-                                    <i class="fa-solid fa-gear fa-lg hover:text-[#FFE600] mt-6"></i>{" "}
-                                </Link>
-                            </li>
+                        <>
                             <div>
-                                <div>Welcome </div>
                                 <Link to="/profile">
-                                    {
-                                        JSON.parse(localStorage.getItem("user"))
-                                            .data.email
-                                    }
+                                    <div>
+                                        Welcome{" "}
+                                        {decodedToken ? decodedToken.email : ""}
+                                        {console.log(
+                                            "decoded Token >>>>",
+                                            decodedToken
+                                        )}
+                                    </div>
                                 </Link>
                             </div>
-
                             <li className="hover:font-semibold mt-3 ">
-                                <Link to="/login" onClick={handleLogout}>
+                                <div onClick={handleLogout}>
                                     <i class="fa-solid fa-right-from-bracket"></i>
-                                </Link>
+                                </div>
                             </li>
-                        </ul>
+                        </>
                     )}
                 </ul>
             </nav>

@@ -16,10 +16,11 @@ const MyProfile = () => {
 
                     <div>
                         <h2 className="text-[2rem] inline-block md:mr-2 mt-20 sm:mb-0 font-Lilita">
-                            {
+                            hi
+                            {/* {
                                 JSON.parse(localStorage.getItem("user")).data
                                     .fullname
-                            }
+                            } */}
                         </h2>
                         <h5 className="text-sm italic">@Quynhhuong150322</h5>
                     </div>
@@ -43,10 +44,11 @@ const MyProfile = () => {
                                     Email
                                 </td>
                                 <td class="px-3 py-3 text-[15px] font-bold">
-                                    {
+                                    hi
+                                    {/* {
                                         JSON.parse(localStorage.getItem("user"))
                                             .data.email
-                                    }
+                                    } */}
                                 </td>
                             </tr>
                         </tbody>

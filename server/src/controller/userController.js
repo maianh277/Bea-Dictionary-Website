@@ -1,30 +1,32 @@
+// controller/userController.js
 import pool from "../configs/connectDB.js";
-import bcrypt from "bcrypt";
-let handleSignup = async (req, res) => {
-    let { fullname, email, password } = req.body;
+import jwt from "jsonwebtoken";
+
+const handleSignup = async (req, res) => {
+    const { fullname, email, password } = req.body;
     if (!fullname || !email || !password) {
         return res.status(500).json({
             errCode: 1,
-            errMessage: "missing params",
+            errMessage: "Missing params",
         });
     }
+
     try {
-        // console.log("before pool.execute");
-        let users = await pool.execute(
+        await pool.execute(
             "INSERT INTO users_login (fullname, email, password) VALUES (?,?,?)",
             [fullname, email, password]
         );
-        // console.log("after pool.execute");
+
         res.json({
             errCode: 1,
             errMessage: "SignUp Successfully",
         });
     } catch (e) {
         if (e.code === "ER_DUP_ENTRY") {
-            console.log("email exist");
+            console.log("Email exists");
             res.json({
                 errCode: 0,
-                errMessage: "Email exist. Pleaser use another email.",
+                errMessage: "Email exists. Please use another email.",
             });
         } else {
             console.error(e);
@@ -36,65 +38,70 @@ let handleSignup = async (req, res) => {
     }
 };
 
-let handleLogin = async (req, res) => {
-    let { fullname, email, password } = req.body;
+const handleLogin = async (req, res) => {
+    const { email, password } = req.body;
     if (!email || !password) {
         return res.status(500).json({
             errCode: 1,
-            errMessage: "missing params",
+            errMessage: "Missing parameters",
         });
-    } else {
-        try {
-            // Use Promise.all() to send multiple requests at once
-            let users = await Promise.all([
-                pool.execute(
-                    "Select password from users_login where `email` = ?",
-                    [email]
-                ),
-                pool.execute(
-                    "Select password from users_login where `email` = ?",
-                    [email + "1"]
-                ),
-                pool.execute(
-                    "Select password from users_login where `email` = ?",
-                    [email + "2"]
-                ),
-            ]);
+    }
 
-            for (let user of users) {
-                if (user) {
-                    if (user[0] && user[0].length > 0) {
-                        if (user[0][0]["password"] === password) {
-                            res.json({
-                                errCode: 1,
-                                errMessage: "Login Successfully",
-                                data: {
-                                    email: email,
-                                    fullname: fullname,
-                                },
-                            });
-                        } else {
-                            res.json({
-                                errCode: 0,
-                                errMessage: "Wrong password",
-                            });
-                        }
-                    } else {
-                        res.json({
-                            errCode: 1,
-                            errMessage: "Mail does not exist",
-                        });
-                        console.log("mail not exist: ", email);
-                    }
-                }
+    try {
+        const [users] = await pool.execute(
+            "SELECT * FROM users_login WHERE email = ?",
+            [email]
+        );
+
+        if (users.length > 0) {
+            if (users[0].password === password) {
+                const email = users[0].email;
+                const token = jwt.sign({ email }, "secret", {
+                    expiresIn: "1h",
+                });
+
+                res.cookie("token", token, {
+                    httpOnly: true,
+                    sameSite: "none",
+                    secure: true,
+                });
+
+                res.json({
+                    errCode: 1,
+                    errMessage: "Login Successfully",
+                    data: {
+                        email: email,
+                        token: token,
+                    },
+                });
+            } else {
+                res.json({
+                    errCode: 0,
+                    errMessage: "Wrong password",
+                });
             }
-        } catch (e) {
-            res.status(500).json({
-                errCode: 2,
-                errMessage: e.message,
+        } else {
+            res.json({
+                errCode: 1,
+                errMessage: "Email does not exist",
             });
+            console.log("Email does not exist: ", email);
         }
+    } catch (e) {
+        res.status(500).json({
+            errCode: 2,
+            errMessage: e.message,
+        });
     }
 };
 
-export default { handleSignup, handleLogin };
+const handleLogout = (req, res) => {
+    res.clearCookie("token");
+    return res.status(200).json({
+        errCode: 1,
+        message: "Logout successful",
+        email: req.email,
+    });
+};
+
+export default { handleSignup, handleLogin, handleLogout };
