@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 import Search from "../../component/search/Search";
 import jwt from "jwt-decode";
 // import Cookies from "js-cookie";
-
+import axios from "axios";
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
     const [auth, setAuth] = useState(true);
     const [decodedToken, setDecodedToken] = useState(null);
     const navigate = useNavigate();
-
     const [cookies] = useCookies(["token"]);
 
     const showSearchBar = () => {
         setSearch(!search);
     };
-
-    // useEffect(() => {
-    //     const token = cookies.token;
-    //     if (token) {
-    //         const decoded = jwt_decode(token);
-    //         setDecodedToken(decoded);
-    //         // Use the decoded token data or perform any necessary actions
-    //     } else {
-    //         console.error("Error decoding token:");
-    //         setDecodedToken(null);
-    //         // Handle invalid token here (e.g., redirect to login)
+    // axios.get("http://localhost:8080/login").then((res) => {
+    //     try {
+    //         if (cookies.token) {
+    //             const decoded = jwt(cookies.token);
+    //             setDecodedToken(decoded);
+    //         }
+    //     } catch (res) {
+    //         console.log(res);
     //     }
-    // }, [cookies]);
+    // });
+    useEffect(() => {
+        if (cookies.token) {
+            const decoded = jwt(cookies.token);
+            setDecodedToken(decoded);
+        }
+    }, [cookies.token]);
     async function handleLogout(e) {
         e.preventDefault();
         try {
@@ -39,7 +41,6 @@ const HeaderBefore = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                withCredntials: true,
                 credentials: "include",
             });
             setAuth(false);
@@ -48,13 +49,6 @@ const HeaderBefore = () => {
             console.error(error);
         }
     }
-
-    useEffect(() => {
-        if (cookies.token) {
-            const decoded = jwt(cookies.token);
-            setDecodedToken(decoded);
-        }
-    }, [cookies]);
 
     const [navBar, setNavBar] = useState(false);
     const changeNavbarWidth = () => {
@@ -75,25 +69,25 @@ const HeaderBefore = () => {
                 </Link>
                 <ul className="flex flex-row gap-12 justify-end m-3 align-middle">
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                        <i class="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
+                        <i className="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
                         <div className="w-[4rem]">
                             <Link to="/dictionary">Dictionary</Link>
                         </div>
                     </li>
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                        <i class="fa-solid leading-none fa-lg fa-language"></i>{" "}
+                        <i className="fa-solid leading-none fa-lg fa-language"></i>{" "}
                         <div className="w-[4rem]">
                             <Link to="/translation">Translation</Link>
                         </div>
                     </li>
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                        <i class="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
+                        <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
                         <div className="w-[4rem]">
                             <Link to="/grammar">Grammar</Link>
                         </div>
                     </li>
                     <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold -ml-3">
-                        <i class="fa-solid leading-none fa-lg fa-globe"></i>
+                        <i className="fa-solid leading-none fa-lg fa-globe"></i>
                         <div className="w-[4rem]">
                             <Link to="/community">Community</Link>
                         </div>
@@ -102,7 +96,7 @@ const HeaderBefore = () => {
                         <></>
                     ) : (
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
-                            <i class="fa-solid leading-none fa-lg fa-bookmark"></i>
+                            <i className="fa-solid leading-none fa-lg fa-bookmark"></i>
                             <div className="w-[5rem]">
                                 <Link to="/wordlists">Word Lists</Link>
                             </div>
@@ -150,7 +144,7 @@ const HeaderBefore = () => {
                             </div>
                             <li className="hover:font-semibold mt-3 ">
                                 <div onClick={handleLogout}>
-                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <i className="fa-solid fa-right-from-bracket"></i>
                                 </div>
                             </li>
                         </>

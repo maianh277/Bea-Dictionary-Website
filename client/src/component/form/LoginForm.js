@@ -25,7 +25,7 @@ const LoginForm = () => {
                     email: email,
                     password: password,
                 },
-                withCredntials: true,
+                withCredentials: true,
                 credentials: "include",
             });
             if (response.data.errCode === 1) {

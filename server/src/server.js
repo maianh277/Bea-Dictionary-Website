@@ -8,8 +8,8 @@ app.use(express.json());
 
 const port = process.env.PORT || 8080;
 
-app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser());
+app.use(cors({ credentials: true, origin: true }));
 initWebRoute(app);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

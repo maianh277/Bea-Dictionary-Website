@@ -59,11 +59,9 @@ const handleLogin = async (req, res) => {
                 const token = jwt.sign({ email }, "secret", {
                     expiresIn: "1h",
                 });
-
                 res.cookie("token", token, {
                     httpOnly: true,
-                    sameSite: "none",
-                    secure: true,
+                    domain: "http://localhost:8080/",
                 });
 
                 res.json({
@@ -73,6 +71,7 @@ const handleLogin = async (req, res) => {
                         email: email,
                         token: token,
                     },
+                    withCredentials: true,
                 });
             } else {
                 res.json({
