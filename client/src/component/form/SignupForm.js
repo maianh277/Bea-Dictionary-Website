@@ -13,7 +13,7 @@ const SignupForm = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/api/signup";
+            const url = "http://localhost:8080/signup";
             let response = await axios({
                 method: "post",
                 url: url,
