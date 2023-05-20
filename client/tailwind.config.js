@@ -3,6 +3,13 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     plugins: [require("tailwind-scrollbar")],
     theme: {
+        extend: {
+            colors: {
+                baseBlue: "#00CEAB",
+                baseDarkBlue: "#002A30",
+                hoverDarkBlue: "#0E185F",
+            },
+        },
         fontSize: {
             sm: ["14px", "20px"],
             base: ["16px", "24px"],

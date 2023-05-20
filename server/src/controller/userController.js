@@ -27,7 +27,6 @@ const handleSignup = async (req, res) => {
         });
     } catch (e) {
         if (e.code === "ER_DUP_ENTRY") {
-            // console.log(e);
             res.status(500).json({
                 message: "Email exists. Please use another email.",
             });
@@ -118,6 +117,7 @@ const getDetailUser = async (req, res) => {
         if (users.length > 0) {
             const result = {
                 fullname: users[0].fullname,
+                email: users[0].email,
             };
             res.status(200).json({
                 message: "Get detail Successfully",

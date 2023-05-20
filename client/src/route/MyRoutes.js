@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Translator from "../pages/Translator";
 import WordLists from "../pages/WordLists";
 import EditProfile from "../pages/Setting/EditProfile";
-import ThemeSetting from "../pages/Setting/ThemeSetting";
 import SignUp from "../pages/SignUp";
 import LogIn from "../pages/LogIn";
 import Home from "../pages/Home";
@@ -19,10 +18,6 @@ const MyRoutes = () => {
                 <Route path="/translation" element={<Translator />} />
                 <Route path="/wordlists" element={<WordLists />} />
                 <Route path="/setting" element={<EditProfile />} />
-                <Route
-                    path="/setting/themesetting"
-                    element={<ThemeSetting />}
-                />
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/dictionary" element={<WordDictionary />} />
                 <Route path="/signup" element={<SignUp />} />
