@@ -44,25 +44,25 @@ const HeaderBefore = () => {
           LOGO IS HERE
         </Link>
         <ul className="flex flex-row gap-12 justify-end m-3 align-middle">
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
             <i className="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
             <div className="w-[4rem]">
               <Link to="/dictionary">Dictionary</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
             <i className="fa-solid leading-none fa-lg fa-language"></i>{" "}
             <div className="w-[4rem]">
               <Link to="/translation">Translation</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
             <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
             <div className="w-[4rem]">
               <Link to="/grammar">Grammar</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold -ml-3">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold -ml-3 ease-in-out transition-all">
             <i className="fa-solid leading-none fa-lg fa-globe"></i>
             <div className="w-[4rem]">
               <Link to="/community">Community</Link>
@@ -71,7 +71,7 @@ const HeaderBefore = () => {
           {!localStorage.getItem("id") ? (
             <></>
           ) : (
-            <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold">
+            <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
               <i className="fa-solid leading-none fa-lg fa-bookmark"></i>
               <div className="w-[5rem]">
                 <Link to="/wordlists">Word Lists</Link>
@@ -83,7 +83,7 @@ const HeaderBefore = () => {
         <ul className="flex flex-row gap-4 mr-3">
           <li>
             <i
-              className="fa-solid fa-magnifying-glass fa-lg hover:text-hoverDarkBlue mt-6"
+              className="fa-solid fa-magnifying-glass fa-lg hover:text-hoverDarkBlue mt-6 ease-in-out transition-all"
               onClick={showSearchBar}
             ></i>
           </li>
@@ -91,16 +91,14 @@ const HeaderBefore = () => {
           {!localStorage.getItem("id") ? (
             <>
               <ul className="flex gap-4">
-                <li className="hover:font-semibold mt-3 rounded-xl ">
+                <li className="hover:text-hoverDarkBlue hover:font-bold mt-3 rounded-xl ease-in-out transition-all">
                   <div className="w-[2.5rem]">
                     <Link to="/login">Login</Link>
                   </div>
                 </li>
-                <li className="hover:font-semibold p-2 my-1 text-center hover:text-hoverDarkBlue bg-white rounded-xl">
+                <li className="p-2 my-1 text-center text-black hover:text-white hover:font-bold hover:bg-hoverDarkBlue bg-white rounded-lg ease-in-out transition-all">
                   <div className="w-[4rem]">
-                    <Link to="/signup" className="text-black">
-                      Sign Up
-                    </Link>
+                    <Link to="/signup">Sign Up</Link>
                   </div>
                 </li>
               </ul>
