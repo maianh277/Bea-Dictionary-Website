@@ -9,7 +9,7 @@ const MyProfile = () => {
         getDetailUser({
             setUser,
         });
-    });
+    },[]);
     return (
         <div>
             <div className="font-serif w-full h-[300px] bg-[#FAF7F0]">
@@ -38,9 +38,7 @@ const MyProfile = () => {
                 </h3>
                 <hr className="mb-3"></hr>
                 <div className="text-sm">
-                    Hello, my name is Mai. I am 8 years old. I live in Hai Phong
-                    city. I go to Hoa Binh primary school. I like swimming. I
-                    don't like playing badminton. That's me.
+                    {user.bio}
                 </div>
                 <div>
                     <table className="text-xs text-left ">
@@ -51,6 +49,14 @@ const MyProfile = () => {
                                 </td>
                                 <td className="px-3 py-3 text-[15px] font-bold">
                                     {user.email}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-10 pb-3 text-gray-400 font-semibold text-md">
+                                    Phone
+                                </td>
+                                <td className="px-3 pb-3 text-[15px] font-bold">
+                                    {user.phone}
                                 </td>
                             </tr>
                         </tbody>
