@@ -1,59 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-
 import Search from "../../component/search/Search";
-import jwt from "jwt-decode";
-// import Cookies from "js-cookie";
-import axios from "axios";
 const HeaderBefore = () => {
     const [search, setSearch] = useState(false);
-    const [auth, setAuth] = useState(true);
-    const [decodedToken, setDecodedToken] = useState(null);
     const navigate = useNavigate();
-    const [cookies] = useCookies(["token"]);
-
     const showSearchBar = () => {
         setSearch(!search);
     };
-    // axios.get("http://localhost:8080/login").then((res) => {
-    //     try {
-    //         if (cookies.token) {
-    //             const decoded = jwt(cookies.token);
-    //             setDecodedToken(decoded);
-    //         }
-    //     } catch (res) {
-    //         console.log(res);
-    //     }
-    // });
-    useEffect(() => {
-        if (cookies.token) {
-            const decoded = jwt(cookies.token);
-            setDecodedToken(decoded);
-        }
-    }, [cookies.token]);
+
     async function handleLogout(e) {
         e.preventDefault();
-        try {
-            await fetch("http://localhost:8080/logout", {
-                method: "post",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                credentials: "include",
-            });
-            setAuth(false);
-            navigate("/login");
-        } catch (error) {
-            console.error(error);
-        }
+        localStorage.removeItem("auth");
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        navigate("/login");
     }
 
     const [navBar, setNavBar] = useState(false);
     const changeNavbarWidth = () => {
-        if (window.scrollY >= 60) setNavBar(true);
-        else setNavBar(false);
+        if (window.scrollY >= 60) {
+            setNavBar(true);
+        } else {
+            setNavBar(false);
+        }
     };
     window.addEventListener("scroll", changeNavbarWidth);
 
@@ -92,7 +61,7 @@ const HeaderBefore = () => {
                             <Link to="/community">Community</Link>
                         </div>
                     </li>
-                    {!auth ? (
+                    {!localStorage.getItem("id") ? (
                         <></>
                     ) : (
                         <li className="flex gap-3 hover:text-[#FFE600] hover:font-semibold">
@@ -108,12 +77,12 @@ const HeaderBefore = () => {
                 <ul className="flex flex-row gap-4 mr-3">
                     <li>
                         <i
-                            class="fa-solid fa-magnifying-glass fa-lg hover:text-[#FFE600] mt-6"
+                            className="fa-solid fa-magnifying-glass fa-lg hover:text-[#FFE600] mt-6"
                             onClick={showSearchBar}
                         ></i>
                     </li>
 
-                    {!auth ? (
+                    {!localStorage.getItem("id") ? (
                         <>
                             <ul className="flex gap-4">
                                 <li className="hover:font-semibold mt-3 rounded-xl ">
@@ -121,9 +90,14 @@ const HeaderBefore = () => {
                                         <Link to="/login">Login</Link>
                                     </div>
                                 </li>
-                                <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-[#FFE600] rounded-xl">
+                                <li className="hover:font-semibold p-2 my-1 text-center hover:bg-[#FFE600] bg-white rounded-xl">
                                     <div className="w-full">
-                                        <Link to="/register">Sign Up</Link>
+                                        <Link
+                                            to="/signup"
+                                            className="text-black"
+                                        >
+                                            Sign Up
+                                        </Link>
                                     </div>
                                 </li>
                             </ul>
@@ -133,12 +107,7 @@ const HeaderBefore = () => {
                             <div>
                                 <Link to="/profile">
                                     <div>
-                                        Welcome{" "}
-                                        {decodedToken ? decodedToken.email : ""}
-                                        {console.log(
-                                            "decoded Token >>>>",
-                                            decodedToken
-                                        )}
+                                        {/* Welcome {user.email ? user.email : ""} */}
                                     </div>
                                 </Link>
                             </div>

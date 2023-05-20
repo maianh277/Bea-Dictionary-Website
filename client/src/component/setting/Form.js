@@ -9,7 +9,7 @@ const Form = () => {
                         <div className="space-y-4 md:space-y-6 sm:p-8">
                             {/* <hr className=" h-[1px]  bg-gray-200 border-0 rounded dark:bg-green-500 "></hr> */}
                             <form className="space-y-4 md:space-y-6" action="#">
-                                <div class=" grid grid-cols-2 gap-3">
+                                <div className=" grid grid-cols-2 gap-3">
                                     {/* Fullname */}
                                     <div className="mb-1">
                                         <label
@@ -41,7 +41,7 @@ const Form = () => {
                                         />
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-2 gap-3">
+                                <div className="grid grid-cols-2 gap-3">
                                     {/* Username */}
                                     <div className="mb-1">
                                         <label
@@ -76,14 +76,14 @@ const Form = () => {
                                 <div className="mb-1">
                                     <label
                                         for="bio"
-                                        class="block mb-2 text-sm font-medium text-gray-900"
+                                        className="block mb-2 text-sm font-medium text-gray-900"
                                     >
                                         Bio
                                     </label>
                                     <textarea
                                         id="bio"
                                         rows="4"
-                                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                                         placeholder="Write something about yourself..."
                                     ></textarea>
                                 </div>

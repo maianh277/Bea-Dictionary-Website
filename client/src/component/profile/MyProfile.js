@@ -37,13 +37,13 @@ const MyProfile = () => {
                     don't like playing badminton. That's me.
                 </div>
                 <div>
-                    <table class="text-xs text-left ">
+                    <table className="text-xs text-left ">
                         <tbody>
                             <tr>
-                                <td class="px-10 py-3 text-gray-400 font-semibold text-md">
+                                <td className="px-10 py-3 text-gray-400 font-semibold text-md">
                                     Email
                                 </td>
-                                <td class="px-3 py-3 text-[15px] font-bold">
+                                <td className="px-3 py-3 text-[15px] font-bold">
                                     hi
                                     {/* {
                                         JSON.parse(localStorage.getItem("user"))
@@ -66,7 +66,7 @@ const MyProfile = () => {
                                 // src={require("./imageprofile/link.png")}
                                 alt="Display"
                             />
-                            <td class="text-[15px] font-bold">
+                            <td className="text-[15px] font-bold">
                                 https://course.uit.edu.vn/
                             </td>
                         </tr>

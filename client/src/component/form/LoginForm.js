@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Cookies from "universal-cookie";
 
 const LoginForm = () => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -13,26 +11,24 @@ const LoginForm = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-
-        // axios.post(url, data, { withCredentials: true });
         try {
-            const url = "http://localhost:8080/login";
             const response = await axios({
                 method: "post",
-                url: url,
+                url: "http://localhost:8080/login",
                 mode: "cors",
                 data: {
                     email: email,
                     password: password,
                 },
-                withCredentials: true,
-                credentials: "include",
             });
-            if (response.data.errCode === 1) {
-                setSuccessMessage(response.data.errMessage);
+            if (response.status === 200) {
+                // console.log(response.data);
+                localStorage.setItem("token", response.data.data.token);
+                localStorage.setItem("id", response.data.data.id);
+                setSuccessMessage(response.data.message);
                 navigate("/");
             } else {
-                setErrorMessage(response.data.errMessage);
+                setErrorMessage(response.data.message);
             }
         } catch (error) {
             console.error(error);
@@ -60,10 +56,10 @@ const LoginForm = () => {
                                         Sign up
                                     </Link>
                                 </p>
-                                <div class="flex flex-wrap mb-6 items-center -mx-2">
+                                <div className="flex flex-wrap mb-6 items-center -mx-2">
                                     <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
                                         <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
-                                            <i class="fa-brands fa-facebook fa-lg"></i>
+                                            <i className="fa-brands fa-facebook fa-lg"></i>
 
                                             <span className="ml-4 text-sm font-semibold text-gray-500">
                                                 Login with Facebook
@@ -72,7 +68,7 @@ const LoginForm = () => {
                                     </div>
                                     <div className="w-full md:w-1/2 px-2">
                                         <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
-                                            <i class="fa-brands fa-google fa-lg"></i>
+                                            <i className="fa-brands fa-google fa-lg"></i>
                                             <span className="ml-4 text-sm font-semibold text-gray-500">
                                                 Login with Apple
                                             </span>

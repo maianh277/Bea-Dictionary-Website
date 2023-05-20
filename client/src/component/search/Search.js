@@ -37,11 +37,11 @@ const Search = () => {
             <form className="w-full">
                 <label
                     for="default-search"
-                    class="text-sm font-medium text-gray-900 sr-only dark:text-black"
+                    className="text-sm font-medium text-gray-900 sr-only dark:text-black"
                 >
                     Search
                 </label>
-                <div class="relative">
+                <div className="relative">
                     <input
                         type="search"
                         id="default-search"
@@ -53,7 +53,7 @@ const Search = () => {
                     ></input>
                     <button
                         type="submit"
-                        class="text-white absolute right-2.5 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+                        className="text-white absolute right-2.5 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
                     >
                         Search
                     </button>

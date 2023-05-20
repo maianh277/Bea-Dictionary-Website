@@ -6,7 +6,6 @@ const BackToTopButton = () => {
     const BackToTop = () => {
         if (window.scrollY > 200) setScrollUp(true);
         else setScrollUp(false);
-        console.log(window.scrollY);
     };
     window.addEventListener("scroll", BackToTop);
     const handleBackToTop = () => {
@@ -24,7 +23,7 @@ const BackToTopButton = () => {
             }`}
             onClick={handleBackToTop}
         >
-            <i class="fa-solid fa-arrow-up fa-xl"></i>
+            <i className="fa-solid fa-arrow-up fa-xl"></i>
         </div>
     );
 };
