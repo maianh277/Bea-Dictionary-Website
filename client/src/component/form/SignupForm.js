@@ -25,7 +25,6 @@ const SignupForm = () => {
             });
             console.log(response);
             if (response.status === 200) {
-                // setSuccessMessage(response.data.message);
                 navigate("/login");
             } else {
                 // setErrorMessage(response.data.message);

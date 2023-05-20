@@ -1,7 +1,18 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import getDetailUser from "../../api/user";
+
 const MyProfile = () => {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        getDetailUser({
+            setUser,
+        });
+    });
     return (
         <div>
-            <div className="font-serif w-full h-[300px] bg-[#F0FFE3]">
+            <div className="font-serif w-full h-[300px] bg-[#FAF7F0]">
                 <h3 className="ps-[150px] text-left text-2xl  py-4 font-bold">
                     My profile
                 </h3>
@@ -13,16 +24,11 @@ const MyProfile = () => {
                             alt="logo"
                         />
                     </div>
-
                     <div>
                         <h2 className="text-[2rem] inline-block md:mr-2 mt-20 sm:mb-0 font-Lilita">
-                            hi
-                            {/* {
-                                JSON.parse(localStorage.getItem("user")).data
-                                    .fullname
-                            } */}
+                            {user.fullname}
                         </h2>
-                        <h5 className="text-sm italic">@Quynhhuong150322</h5>
+                        <h5 className="text-sm italic">{user.email}</h5>
                     </div>
                 </div>
             </div>
@@ -44,11 +50,7 @@ const MyProfile = () => {
                                     Email
                                 </td>
                                 <td className="px-3 py-3 text-[15px] font-bold">
-                                    hi
-                                    {/* {
-                                        JSON.parse(localStorage.getItem("user"))
-                                            .data.email
-                                    } */}
+                                    {user.email}
                                 </td>
                             </tr>
                         </tbody>
@@ -72,6 +74,14 @@ const MyProfile = () => {
                         </tr>
                     </table>
                 </div>
+                <Link to="/setting">
+                    <button
+                        type="submit"
+                        className="text-white w-1/4 h-10 bg-baseBlue font-bold rounded-lg"
+                    >
+                        EDIT PROFILE
+                    </button>
+                </Link>
             </div>
         </div>
     );

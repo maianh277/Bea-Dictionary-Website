@@ -91,7 +91,7 @@ const Form = () => {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="text-white w-1/6 h-10 font-[300px] bg-[#5FB41C] rounded-lg"
+                                        className="text-white w-1/6 h-10 font-[300px] bg-baseBlue rounded-lg"
                                     >
                                         Update Profile
                                     </button>
