@@ -10,7 +10,7 @@ function authenticateToken(req, res, next) {
         });
     }
 
-    jwt.verify(token, "secret", (err, decoded) => {
+    jwt.verify(token, process.env.TOKEN, (err, decoded) => {
         if (err) {
             return res.status(403).json({
                 errCode: 0,

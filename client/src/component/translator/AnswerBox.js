@@ -30,17 +30,17 @@ const AnswerBox = (props) => {
                 <hr className="bg-green-600"></hr>
                 <div>
                     <form>
-                        <div class="relative">
+                        <div className="relative">
                             <textarea
                                 type="text"
-                                class="py-2 pl-8 pr-12 w-full border border-gray-300 h-[200px]"
+                                className="py-2 pl-8 pr-12 w-full border border-gray-300 h-[200px]"
                                 placeholder="Enter text..."
                                 value={translatedText}
                             ></textarea>
                         </div>
                     </form>
-                    <i class="fa-solid fa-copy"></i>{" "}
-                    <i class="fa-regular fa-star ml-2"></i>
+                    <i className="fa-solid fa-copy"></i>{" "}
+                    <i className="fa-regular fa-star ml-2"></i>
                 </div>
             </div>
         </div>

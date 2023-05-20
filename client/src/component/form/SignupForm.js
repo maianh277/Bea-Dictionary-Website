@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 const SignupForm = () => {
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
@@ -13,26 +14,24 @@ const SignupForm = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/signup";
             let response = await axios({
                 method: "post",
-                url: url,
+                url: "http://localhost:8080/signup",
                 data: {
                     fullname: fullname,
                     email: email,
                     password: password,
                 },
             });
-            console.log("after response");
-            console.log(response.data);
-            if (response.data.errCode === 1) {
-                setSuccessMessage(response.data.errMessage);
+            console.log(response);
+            if (response.status === 200) {
+                // setSuccessMessage(response.data.message);
                 navigate("/login");
             } else {
-                setErrorMessage(response.data.errMessage);
+                // setErrorMessage(response.data.message);
             }
         } catch (e) {
-            alert(e);
+            console.log(e);
         }
     }
 
@@ -153,7 +152,7 @@ const SignupForm = () => {
 
                             <button
                                 type="submit"
-                                className="text-white w-1/3 h-10 font-[300px] bg-green-400 font-bold rounded-lg"
+                                className="text-white w-1/3 h-10 bg-green-400 font-bold rounded-lg"
                                 onClick={handleSubmit}
                             >
                                 SIGNUP

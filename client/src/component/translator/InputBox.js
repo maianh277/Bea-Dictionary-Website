@@ -42,7 +42,7 @@ const InputBox = (props) => {
                         <div className="relative">
                             <textarea
                                 type="text"
-                                class="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px]"
+                                className="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px]"
                                 placeholder="Enter text..."
                                 onChange={(e) => {
                                     setInputText(e.target.value);
