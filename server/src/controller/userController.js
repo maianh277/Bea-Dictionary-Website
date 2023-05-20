@@ -113,11 +113,17 @@ const getDetailUser = async (req, res) => {
             "SELECT * FROM users_login WHERE id = ?",
             [id]
         );
+        const [users_detail] = await pool.execute(
+            "SELECT * FROM users_info WHERE id = ?",
+            [id]
+        )
 
         if (users.length > 0) {
             const result = {
                 fullname: users[0].fullname,
                 email: users[0].email,
+                phone: users_detail[0].phone,
+                bio: users_detail[0].bio,
             };
             res.status(200).json({
                 message: "Get detail Successfully",
