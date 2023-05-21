@@ -24,7 +24,7 @@ const handleSignup = async (req, res) => {
     );
     // console.log(result);
     const insertId = result.insertId;
-    const [info] = await pool.execute(
+    await pool.execute(
       "INSERT INTO users_info (id, phone, bio) VALUES (?,?,?)",
       [insertId, 0, ""]
     );

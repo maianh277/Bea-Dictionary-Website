@@ -6,7 +6,7 @@ export const editUser = (data) => {
   try {
     axios({
       method: "post",
-      url: url + "edit",
+      url: url + "editUser",
       mode: "cors",
       data: {
         fullname: data.fullname,
