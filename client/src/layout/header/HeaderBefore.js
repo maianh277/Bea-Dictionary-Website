@@ -87,8 +87,8 @@ const HeaderBefore = () => {
               onClick={showSearchBar}
             ></i>
           </li>
-
           {!localStorage.getItem("id") ? (
+            //TODO: chỉnh để ko phải refresh
             <>
               <ul className="flex gap-4">
                 <li className="hover:text-hoverDarkBlue hover:font-bold mt-3 rounded-xl ease-in-out transition-all">

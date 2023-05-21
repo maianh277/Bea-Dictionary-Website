@@ -18,10 +18,17 @@ const handleSignup = async (req, res) => {
     const hashed = await bcrypt.hash(password, salt);
 
     //SQL adding user into database
-    await pool.execute(
+    const [result] = await pool.execute(
       "INSERT INTO users_login (fullname, email, password) VALUES (?,?,?)",
       [fullname, email, hashed]
     );
+    // console.log(result);
+    const insertId = result.insertId;
+    const [info] = await pool.execute(
+      "INSERT INTO users_info (id, phone, bio) VALUES (?,?,?)",
+      [insertId, 0, ""]
+    );
+
     res.status(200).json({
       message: "SignUp Successfully",
     });
