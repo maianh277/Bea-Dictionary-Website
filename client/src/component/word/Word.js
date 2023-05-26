@@ -30,12 +30,17 @@ const Word = (props) => {
             {word}
           </h1>
           <div>
-            <i
-              className={`far fa-heart fa-lg mt-6 transition-all ease-in-out ${
-                isSaved ? "text-red-500" : ""
-              }`}
-              onClick={handleClick}
-            ></i>
+            {" "}
+            {localStorage.getItem("id") ? (
+              <i
+                className={`far fa-heart fa-lg mt-6 transition-all ease-in-out ${
+                  isSaved ? "text-red-500" : ""
+                }`}
+                onClick={handleClick}
+              ></i>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="flex gap-3">
