@@ -20,6 +20,7 @@ const HeaderBefore = () => {
     localStorage.removeItem("auth");
     localStorage.removeItem("id");
     localStorage.removeItem("token");
+    localStorage.removeItem("savedWords");
     navigate("/login");
   }
 
