@@ -10,7 +10,8 @@ const initWebRoute = (app) => {
   router.post("/signup", userController.handleSignup);
   router.post("/login", userController.handleLogin);
   router.post("/editUser", userController.handleEditUser);
-  // router.post("/wordlists", dictController.savedWords);
+  router.post("/wordlists", dictController.handleSaveWords);
+  router.post("/getword", dictController.handleGetWords);
   app.use("/", router);
 };
 
