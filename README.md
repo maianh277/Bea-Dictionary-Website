@@ -22,6 +22,4 @@ Project is created with:
 `cd server`
 `npm start`
 * Database: Using XAMPP to run MySQL 
-##### AFter logging into phpMyAdmin for MySQL:
-1. Create a database named `dictionary` with a table called `users_login`.
-2. The `users_login` table should consist of four columns: `id` (auto-increment), `fullname`, `email` (UNIQUE), and `password`.
+
