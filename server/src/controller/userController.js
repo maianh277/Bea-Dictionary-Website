@@ -24,9 +24,10 @@ const handleSignup = async (req, res) => {
     );
     // console.log(result);
     const insertId = result.insertId;
+    const saveWords = {};
     await pool.execute(
-      "INSERT INTO users_info (id, phone, bio) VALUES (?,?,?)",
-      [insertId, 0, ""]
+      "INSERT INTO users_info (id, phone, bio, save_words) VALUES (?,?,?,?)",
+      [insertId, 0, "", JSON.stringify(saveWords)]
     );
 
     res.status(200).json({
@@ -154,6 +155,7 @@ const handleEditUser = async (req, res) => {
       "UPDATE users_login SET `fullname` = ?, `email`= ? WHERE `id` = ?",
       [fullname, email, id]
     );
+
     await pool.execute(
       "UPDATE users_info SET `phone` = ?, `bio`= ? WHERE `id` = ?",
       [phone, bio, id]

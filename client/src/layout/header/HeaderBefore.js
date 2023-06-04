@@ -57,12 +57,12 @@ const HeaderBefore = () => {
               <Link to="/translation">Translation</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
+          {/* <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
             <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
             <div className="w-[4rem]">
               <Link to="/grammar">Grammar</Link>
             </div>
-          </li>
+          </li> */}
           <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold -ml-3 ease-in-out transition-all">
             <i className="fa-solid leading-none fa-lg fa-globe"></i>
             <div className="w-[4rem]">
