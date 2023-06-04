@@ -56,11 +56,10 @@ const Word = (props) => {
         <div className="flex gap-3">
           {phonetics &&
             phonetics.map((item, index) => <p key={index}>{item.text}</p>)}
-          <i className="fa-solid fa-volume-high mt-1"></i>
+          {/* <i className="fa-solid fa-volume-high mt-1"></i> */}
         </div>
       </div>
       <Meaning meanings={meanings} partOfSpeech={partOfSpeech} />
-      <WordLists savedWord={savedWord} />
     </div>
   );
 };
