@@ -28,4 +28,5 @@ const handleGetWords = async (req, res) => {
     res.status(500);
   }
 };
+
 export default { handleSaveWords, handleGetWords };
