@@ -2,7 +2,7 @@ import React from "react";
 import yellowline from "../assets/HomePage/yellowline.png";
 import Globe from ".././assets/HomePage/Globe.png";
 import BackToTopButton from "../component/BackToTopButton";
-import logo from "../assets/Header/Logo_BeaDictionary.png"
+import logo from "../assets/Header/Logo_BeaDictionary.png";
 const Home = () => {
   return (
     <div className=" ">
@@ -17,7 +17,7 @@ const Home = () => {
           ALL-IN-ONE-DICTIONARY{" "}
         </div>
         <div className="absolute top-[120px] sm:top-[100px]  md:top-[105px] md:w-[100%] sm:w-[100%] md:text-center sm:text-center my-[15px] left-1/2 sm:left-1/5 transform -translate-x-1/2 text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
-          BeA Dictionary
+          Bea Dictionary
         </div>
         <div className=" absolute my-[15px] top-[230px] sm:top-[290px] md:top-[230px]  sm:w-[80%] max-[414px]:text-center left-1/2 transform -translate-x-1/2 text-[19px] sm:text-[15px] md:text-[17px] w-1/2 text-green-800 font-semibold text-center md:max-w-[90%]">
           Our dictionary is a comprehensive resource for all your language
