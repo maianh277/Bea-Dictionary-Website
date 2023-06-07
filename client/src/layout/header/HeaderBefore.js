@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoMenu, IoClose } from "react-icons/io5";
 import Search from "../../component/search/Search";
 import getDetailUser from "../../api/user";
-import logo from "../../assets/Header/Logo_BeaDictionary.png"
+import logo from "../../assets/Header/Logo_BeaDictionary.png";
 
 const HeaderBefore = () => {
   const [search, setSearch] = useState(false);
@@ -50,15 +50,15 @@ const HeaderBefore = () => {
       >
         <Link to="/">
           <span className="flex gap-2 cursor-pointer m-1 mx-1 font-bold items-center">
-            <div className="h-[55px] ps-[50px]">
+            <div className="h-[45px] ps-[45px]">
               <img
                 className="h-full w-full  align-middle text-[20px]"
                 src={logo}
                 alt="logo"
               />
             </div>
-            <div className="text-[25px] self-center whitespace-nowrap  font-bold  font-Lilita">
-              BeA Dictionary
+            <div className="text-[25px] self-center whitespace-nowrap font-normal text-white font-Lilita">
+              Bea Dictionary
             </div>
           </span>
         </Link>
