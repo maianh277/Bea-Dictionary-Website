@@ -21,7 +21,7 @@ const Dictionary = () => {
     };
 
     return (
-        <div className="bg-white mx-20 p-10 shadow-xl py-40 ">
+        <div className="bg-white  p-10 shadow-xl py-40 ">
             <h1 className="text-center text-[3rem] mb-2 font-bold bg-gradient-to-r from-teal-200 to-green-600 text-transparent bg-clip-text">
                 Search for Words
             </h1>
