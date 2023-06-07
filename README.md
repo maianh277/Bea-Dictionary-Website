@@ -1,4 +1,4 @@
-# Dictionary Website
+# Bea Dictionary Website
 
 ## Table of content
 * [General info](#general-info)
