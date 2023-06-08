@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import InputBox from "../component/translator/InputBox";
 import AnswerBox from "../component/translator/AnswerBox";
+import History from "../component/translator/History";
 import axios from "axios";
 
 const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
+  const [showHistory, setShowHistory] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleTranslation = async () => {
     try {
@@ -16,12 +19,16 @@ const Translator = () => {
       setTranslatedText(response.data.translation);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
+      setShowHistory(true);
     }
   };
 
-  useEffect(() => {
+  const handleSubmit = () => {
+    setIsLoading(true);
     handleTranslation();
-  }, [inputText]);
+  };
 
   return (
     <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
@@ -31,13 +38,16 @@ const Translator = () => {
             Translator
           </h1>
           <div className="flex">
-            <InputBox setInputText={setInputText} />
+            <InputBox setInputText={setInputText} handleSubmit={handleSubmit} />
             <AnswerBox translatedText={translatedText} />
           </div>
-          {/* <h3 className="mx-20 -mb-5 text-lg text-green-400 italic font-semibold">
-            History
-          </h3> */}
-          {/* <History /> */}
+          {isLoading ? null : (
+            <History
+              inputText={inputText}
+              translatedText={translatedText}
+              setInputText={setInputText}
+            />
+          )}
         </div>
       </div>
     </div>
