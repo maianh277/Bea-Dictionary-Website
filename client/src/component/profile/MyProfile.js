@@ -21,7 +21,7 @@ const MyProfile = () => {
           <div>
             <img
               src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-              className=" pr-0 md:w-[180px] md:h-[180px] object-cover rounded-full border-2 border-pink-600 p-1 mt-10 ml-20"
+              className=" pr-0 w-[180px] h-[180px] object-cover rounded-full border-2 border-pink-600 p-1 mt-10 ml-20"
               alt="logo"
             />
           </div>

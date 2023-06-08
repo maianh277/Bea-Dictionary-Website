@@ -71,7 +71,7 @@ const Home = () => {
         </div>
         <div className="sm:h-[350px] sm:w-[350px] md:h-[300px] md:w-[300px] h-[200px] w-[200px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
-            <i className="fa-solid fa-book fa-lg mt-2.5 ml-2.5 text-white md:text-[30px] md:mt-[1.5rem] md:ml-[0.7rem] sm:text-[40px] sm:mt-[1.7rem] sm:ml-[0.7rem]"></i>
+            <i className="fa-solid fa-book fa-lg mt-3 ml-2.5 text-white md:text-[30px] md:mt-[1.5rem] md:ml-[0.7rem] sm:text-[40px] sm:mt-[1.7rem] sm:ml-[0.7rem]"></i>
           </div>
           <h1 className="text-center font-bold mt-4 mb-0 md:text-[20px] sm:text-[25px]">
             Grammar

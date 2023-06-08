@@ -62,26 +62,21 @@ const HeaderBefore = () => {
             </div>
           </span>
         </Link>
-        <ul className="  flex-row gap-5 justify-end m-1 align-middle sm:hidden flex items-center ">
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-5 my-1 md:my-0">
+        <ul className="  flex-row gap-3 justify-end m-1 align-middle sm:hidden flex items-center ">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
             <i className="fa-solid leading-none fa-lg  fa-magnifying-glass md:hidden sm:hidden "></i>
             <div className="w-[4rem]">
               <Link to="/dictionary">Dictionary</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
             <i className="fa-solid leading-none fa-lg fa-language md:hidden sm:hidden"></i>{" "}
             <div className="w-[4rem]">
               <Link to="/translation">Translation</Link>
             </div>
           </li>
+
           <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
-            <i className="fa-solid fa-book fa-lg mt-2.5 md:hidden sm:hidden"></i>{" "}
-            <div className="w-[4rem]">
-              <Link to="/grammar">Grammar</Link>
-            </div>
-          </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold -ml-3 ease-in-out transition-all mx-4 my-1 md:my-0">
             <i className="fa-solid leading-none fa-lg fa-globe md:hidden sm:hidden"></i>
             <div className="w-[4rem]">
               <Link to="/community">Community</Link>
