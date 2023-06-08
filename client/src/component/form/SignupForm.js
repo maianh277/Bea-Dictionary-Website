@@ -17,6 +17,8 @@ const SignupForm = () => {
       fullname,
       email,
       password,
+      setErrorMessage,
+      setSuccessMessage,
       navigate,
     });
   }

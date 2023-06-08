@@ -8,7 +8,7 @@ const handleSignup = async (req, res) => {
   if (!fullname || !email || !password) {
     return res.status(500).json({
       errCode: 1,
-      errMessage: "Missing params",
+      message: "Missing params",
     });
   }
 
@@ -35,7 +35,7 @@ const handleSignup = async (req, res) => {
     });
   } catch (e) {
     if (e.code === "ER_DUP_ENTRY") {
-      res.status(500).json({
+      res.status(400).json({
         message: "Email exists. Please use another email.",
       });
     } else {
@@ -51,8 +51,7 @@ const handleLogin = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(500).json({
-      errCode: 1,
-      errMessage: "Missing parameters",
+      message: "Missing parameters",
     });
   }
 
@@ -88,17 +87,17 @@ const handleLogin = async (req, res) => {
         });
       } else {
         res.status(403).json({
-          errMessage: "Wrong password",
+          message: "Wrong password",
         });
       }
     } else {
       res.status(404).json({
-        errMessage: "Email does not exist",
+        message: "Email does not exist",
       });
     }
   } catch (e) {
     res.status(500).json({
-      errMessage: e.message,
+      message: e.message,
     });
   }
 };

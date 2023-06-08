@@ -5,11 +5,10 @@ import getDetailUser from "../../api/user";
 const MyProfile = () => {
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    getDetailUser({
-      setUser,
-    });
-  }, []);
+  getDetailUser({
+    setUser,
+    user,
+  });
 
   return (
     <div>
