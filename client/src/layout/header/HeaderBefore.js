@@ -4,7 +4,6 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import Search from "../../component/search/Search";
 import getDetailUser from "../../api/user";
 import logo from "../../assets/Header/Logo_BeaDictionary.png";
-
 const HeaderBefore = () => {
   const [search, setSearch] = useState(false);
   const [user, setUser] = useState({});
@@ -12,11 +11,12 @@ const HeaderBefore = () => {
   const showSearchBar = () => {
     setSearch(!search);
   };
-  useEffect(() => {
-    getDetailUser({
-      setUser,
-    });
-  }, []);
+
+  getDetailUser({
+    setUser,
+    user,
+  });
+
   async function handleLogout(e) {
     e.preventDefault();
     setUser({});
@@ -102,7 +102,6 @@ const HeaderBefore = () => {
             ></i>
           </li>
           {!localStorage.getItem("id") ? (
-            //TODO: chỉnh để ko phải refresh
             <>
               <ul className="flex gap-4">
                 <li className="hover:text-hoverDarkBlue hover:font-bold mt-3 rounded-xl ease-in-out transition-all md:hidden sm:hidden">

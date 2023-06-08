@@ -22,7 +22,11 @@ export const login = async (data) => {
       data.setErrorMessage(response.data.message);
     }
   } catch (error) {
-    console.error(error);
+    if (error.response) {
+      data.setErrorMessage(error.response.data.message);
+    } else {
+      data.setErrorMessage("An error occurred. Please try again.");
+    }
   }
 };
 
@@ -41,9 +45,13 @@ export const signup = async (data) => {
     if (response.status === 200) {
       data.navigate("/login");
     } else {
-      // setErrorMessage(response.data.message);
+      data.setErrorMessage(response.data.message);
     }
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    if (error.response) {
+      data.setErrorMessage(error.response.data.message);
+    } else {
+      data.setErrorMessage("Unknown error occurred.");
+    }
   }
 };
