@@ -6,9 +6,9 @@ const Community = () => {
     return (
         <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
             <div className="flex">
-                <div className="w-1/5">
+                {/* <div className="w-1/5">
                     <CommunitySidebar />
-                </div>
+                </div> */}
                 <div className="w-4/5">
                     <CommunitySearch />
                     <CommunityPost />
