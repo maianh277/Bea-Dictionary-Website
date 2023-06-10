@@ -2,13 +2,13 @@ const CommunityPost = () => {
     return (
         <div>
             <div className="w-full">
-                <div className="right-14  h-60 bg-white shadow-lg border-black-50 rounded-[20px] border-2">
+                <div className="right-14  h-60 bg-white shadow-lg border-black-50 rounded-[20px] border-2 mx-[100px]">
                     <div className="">
                         <div className=" gap-2 grid-cols-4 flex justify-start items-center pt-3 ">
                             <div>
                                 <img
                                     src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                                    className="ml-10 pr-0 md:w-12 md:h-12 object-cover rounded-full border-2 border-pink-600 p-1   "
+                                    className="ml-10 pr-0 w-12 h-12 object-cover rounded-full border-2 border-pink-600 p-1   "
                                     alt="logo"
                                 />
                             </div>

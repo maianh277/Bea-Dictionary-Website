@@ -1,16 +1,14 @@
 import CommunityPost from "./../component/community/CommunityPost";
 import CommunitySearch from "../component/community/CommunitySearch";
-import CommunitySidebar from "../component/community/CommunitySidebar";
+import CommunityCreatePost from "../component/community/CommunityCreatePost";
 
 const Community = () => {
     return (
-        <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
-            <div className="flex">
-                {/* <div className="w-1/5">
-                    <CommunitySidebar />
-                </div> */}
-                <div className="w-4/5">
-                    <CommunitySearch />
+        <div className="bg-white h-[600px] mx-[200px] p-10 pt-24 shadow-xl ">
+            <div className="">
+                <CommunitySearch />
+                <div className="">
+                    <CommunityCreatePost/>
                     <CommunityPost />
                 </div>
             </div>
