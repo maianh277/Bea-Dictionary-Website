@@ -43,6 +43,9 @@ const WordLists = () => {
 
   return (
     <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
+      <h1 className="text-[2.25rem] font-bold text-center text-green-500">
+        Your Wordlists
+      </h1>
       {savedWords.length > 0 ? (
         savedWords.map((word, index) => (
           <div

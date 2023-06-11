@@ -25,25 +25,26 @@ const handleSignup = async (req, res) => {
     // console.log(result);
     const insertId = result.insertId;
     const saveWords = {};
+    const saveTranslation = {};
     await pool.execute(
-      "INSERT INTO users_info (id, phone, bio, save_words) VALUES (?,?,?,?)",
-      [insertId, 0, "", JSON.stringify(saveWords)]
+      "INSERT INTO users_info (id, phone, bio, save_words, save_translation) VALUES (?,?,?,?,?)",
+      [
+        insertId,
+        0,
+        "",
+        JSON.stringify(saveWords),
+        JSON.stringify(saveTranslation),
+      ]
     );
 
     res.status(200).json({
       message: "SignUp Successfully",
     });
   } catch (e) {
-    if (e.code === "ER_DUP_ENTRY") {
-      res.status(400).json({
-        message: "Email exists. Please use another email.",
-      });
-    } else {
-      console.error(e);
-      res.status(500).json({
-        message: "Unknown error",
-      });
-    }
+    console.error(e);
+    res.status(500).json({
+      message: "Error occurred during signup",
+    });
   }
 };
 
