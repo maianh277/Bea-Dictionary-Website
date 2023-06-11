@@ -7,8 +7,19 @@ import axios from "axios";
 const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
-  const [showHistory, setShowHistory] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [translationHistory, setTranslationHistory] = useState(() => {
+    // Load translation history from localStorage on component mount
+    const savedHistory = localStorage.getItem("translationHistory");
+    return savedHistory ? JSON.parse(savedHistory) : [];
+  });
+
+  useEffect(() => {
+    // Save translation history to localStorage whenever it changes
+    localStorage.setItem(
+      "translationHistory",
+      JSON.stringify(translationHistory)
+    );
+  }, [translationHistory]);
 
   const handleTranslation = async () => {
     try {
@@ -16,17 +27,22 @@ const Translator = () => {
         para: inputText,
       });
 
-      setTranslatedText(response.data.translation);
+      const translation = response.data.translation;
+
+      const newTranslation = {
+        inputText: inputText,
+        translatedText: translation,
+        date: new Date().toLocaleString(),
+      };
+
+      setTranslationHistory((prevHistory) => [...prevHistory, newTranslation]);
+      setTranslatedText(translation);
     } catch (error) {
       console.error(error);
-    } finally {
-      setIsLoading(false);
-      setShowHistory(true);
     }
   };
 
   const handleSubmit = () => {
-    setIsLoading(true);
     handleTranslation();
   };
 
@@ -41,13 +57,7 @@ const Translator = () => {
             <InputBox setInputText={setInputText} handleSubmit={handleSubmit} />
             <AnswerBox translatedText={translatedText} />
           </div>
-          {isLoading ? null : (
-            <History
-              inputText={inputText}
-              translatedText={translatedText}
-              setInputText={setInputText}
-            />
-          )}
+          <History translationHistory={translationHistory} />
         </div>
       </div>
     </div>

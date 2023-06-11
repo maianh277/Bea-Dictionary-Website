@@ -4,6 +4,7 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import Search from "../../component/search/Search";
 import getDetailUser from "../../api/user";
 import logo from "../../assets/Header/Logo_BeaDictionary.png";
+
 const HeaderBefore = () => {
   const [search, setSearch] = useState(false);
   const [user, setUser] = useState({});
@@ -23,6 +24,8 @@ const HeaderBefore = () => {
     localStorage.removeItem("auth");
     localStorage.removeItem("id");
     localStorage.removeItem("token");
+    localStorage.removeItem("translationHistory");
+    localStorage.removeItem("savedWords");
     navigate("/login");
   }
 
@@ -38,7 +41,7 @@ const HeaderBefore = () => {
 
   const [open, setOpen] = useState(false);
   const handleMenu = () => {
-    setOpen = (open) => !open;
+    setOpen(!open);
   };
 
   return (
@@ -124,7 +127,10 @@ const HeaderBefore = () => {
                     {localStorage.getItem("id") ? (
                       <div>
                         <h1 className="font-semibold">Welcome,</h1>
-                        {user.fullname}
+                        <span className="hover:text-hoverDarkBlue ease-in-out transition-all">
+                          {" "}
+                          {user.fullname}
+                        </span>
                       </div>
                     ) : (
                       ""
@@ -132,7 +138,7 @@ const HeaderBefore = () => {
                   </div>
                 </Link>
               </div>
-              <li className="hover:font-semibold mt-3 ">
+              <li className=" hover:text-hoverDarkBlue ease-in-out transition-all hover:font-semibold mt-3 ">
                 <div onClick={handleLogout}>
                   <i className="fa-solid fa-right-from-bracket"></i>
                 </div>
@@ -144,12 +150,12 @@ const HeaderBefore = () => {
               {open ? (
                 <IoClose
                   className="text-[40px] font-[600] cursor-pointer"
-                  onClick={() => setOpen(!open)}
+                  onClick={handleMenu}
                 />
               ) : (
                 <IoMenu
                   className="text-[40px] font-[600] cursor-pointer"
-                  onClick={() => setOpen(!open)}
+                  onClick={handleMenu}
                 />
               )}
               {open && (

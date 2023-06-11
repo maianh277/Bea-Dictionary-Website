@@ -128,6 +128,7 @@ const getDetailUser = async (req, res) => {
         email: users[0].email,
         phone: users_detail[0].phone,
         bio: users_detail[0].bio,
+        avatar: users_detail[0].avatar,
       };
       res.status(200).json({
         message: "Get detail Successfully",
@@ -167,10 +168,40 @@ const handleEditUser = async (req, res) => {
   }
 };
 
+import mime from "mime";
+
+const handleAvatar = async (req, res) => {
+  const { id } = req.body;
+  const imagePath = req.file.path;
+  try {
+    if (id !== undefined) {
+      const [result] = await pool.execute(
+        "UPDATE users_info SET avatar = ? WHERE id = ?",
+        [imagePath, id]
+      );
+
+      // Get the mime type of the image file
+      const mimeType = mime.getType(imagePath);
+
+      // Set the Content-Type header to indicate the correct mime type
+      res.set("Content-Type", mimeType);
+
+      // Send the image file as the response
+      res.sendFile(imagePath);
+    } else {
+      res.status(400).json({ error: "Missing required parameter: id" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to upload avatar image" });
+  }
+};
+
 export default {
   handleSignup,
   handleLogin,
   handleLogout,
   getDetailUser,
   handleEditUser,
+  handleAvatar,
 };

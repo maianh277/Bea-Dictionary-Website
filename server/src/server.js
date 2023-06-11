@@ -3,9 +3,11 @@ import initWebRoute from "./route/web.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
 import translate from "translate-google";
-
+import multer from "multer";
 const app = express();
+import userController from "../src/controller/userController.js";
 
 app.use(cors({ credentials: true, origin: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -14,7 +16,22 @@ app.use(cookieParser());
 dotenv.config();
 const port = process.env.PORT || 8080;
 
-// fix : optimize
+// multer storage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({
+  storage: storage,
+});
+
+app.post("/upload", upload.single("avatar"), userController.handleAvatar);
+
+// Translate
 app.post("/translate", async (req, res) => {
   const { para } = req.body;
   try {
