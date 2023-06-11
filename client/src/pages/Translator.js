@@ -8,13 +8,11 @@ const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [translationHistory, setTranslationHistory] = useState(() => {
-    // Load translation history from localStorage on component mount
     const savedHistory = localStorage.getItem("translationHistory");
     return savedHistory ? JSON.parse(savedHistory) : [];
   });
 
   useEffect(() => {
-    // Save translation history to localStorage whenever it changes
     localStorage.setItem(
       "translationHistory",
       JSON.stringify(translationHistory)
@@ -41,9 +39,24 @@ const Translator = () => {
       console.error(error);
     }
   };
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     handleTranslation();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/translatehistory",
+        {
+          id: localStorage.getItem("id"),
+          para: localStorage.getItem("translationHistory"),
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("Translation saved successfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

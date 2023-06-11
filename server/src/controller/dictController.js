@@ -28,5 +28,36 @@ const handleGetWords = async (req, res) => {
     res.status(500);
   }
 };
-
-export default { handleSaveWords, handleGetWords };
+const handleSaveTranslation = async (req, res) => {
+  const { id, para } = req.body;
+  try {
+    await pool.execute(
+      "UPDATE users_info SET `save_translation` = ? WHERE `id` = ?",
+      [para, id]
+    );
+    res.sendStatus(200);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+};
+const handleGetTranslation = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const [rows] = await pool.execute(
+      "SELECT save_translation FROM users_info WHERE id = ?",
+      [id]
+    );
+    const saveTranslationArray = JSON.parse(rows[0].save_translation);
+    res.status(200).json({ save_translation: saveTranslationArray });
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+  }
+};
+export default {
+  handleSaveWords,
+  handleGetWords,
+  handleSaveTranslation,
+  handleGetTranslation,
+};

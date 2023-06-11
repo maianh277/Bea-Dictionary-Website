@@ -12,7 +12,8 @@ const initWebRoute = (app) => {
   router.post("/editUser", userController.handleEditUser);
   router.post("/wordlists", dictController.handleSaveWords);
   router.post("/getword", dictController.handleGetWords);
-
+  router.post("/translatehistory", dictController.handleSaveTranslation);
+  router.post("/getTranslation", dictController.handleGetTranslation);
   app.use("/", router);
 };
 
