@@ -21,8 +21,8 @@ const Dictionary = () => {
   };
 
   return (
-    <div className="bg-white  p-10 shadow-xl py-40 ">
-      <h1 className="mx-20 -mb-3 text-[35px] text-green-600 font-bold">
+    <div className="bg-white  min-h-screen p-10 shadow-xl py-40 ">
+      <h1 className="mx-20 md:mx-[80px] sm:mx-[30px] -mb-3 text-[35px] text-green-600 font-bold">
         Dictionary
       </h1>
       <form className="w-3/4 m-auto" onSubmit={handleSubmit}>

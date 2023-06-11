@@ -31,7 +31,7 @@ const Translator = () => {
   };
 
   return (
-    <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
+    <div className="bg-white min-h-screen mx-20 p-10 pt-24 shadow-xl">
       <div className="flex">
         <div className="flex-auto">
           <h1 className="mx-20 -mb-3 text-[35px] text-green-600 font-bold">

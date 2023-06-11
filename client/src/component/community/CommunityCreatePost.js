@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 const CommunityCreatePost = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [postContent, setPostContent] = useState("");
 
   useEffect(() => {
     if (isFormVisible) {
@@ -19,6 +20,9 @@ const CommunityCreatePost = () => {
 
   const handlePostClick = () => {
     // Xử lý việc đăng bài
+    console.log("Đã đăng bài:", postContent);
+    // Reset nội dung bài viết sau khi đăng
+    setPostContent("");
   };
 
   const handleCancelClick = () => {
@@ -31,7 +35,7 @@ const CommunityCreatePost = () => {
 
   return (
     <div className="mt-[10px]">
-      <div className="h-[60px] mx-[100px] bg-white shadow-lg border-black-50 rounded-[20px] border-2">
+      <div className="h-[60px] mx-[100px] md:mx-[80px] sm:mx-[50px] bg-white shadow-lg border-black-50 rounded-[20px] border-2">
         {!isFormVisible && (
           <div className="flex py-2 px-10 items-center">
             <div>

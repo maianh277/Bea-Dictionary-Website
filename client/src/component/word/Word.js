@@ -33,10 +33,10 @@ const Word = (props) => {
   };
 
   return (
-    <div className="mx-20">
+    <div className="mx-20 md:mx-[50px] sm:mx-[10px]">
       <div>
         <div className="flex gap-3">
-          <h1 className="text-[35px] text-green-600 font-bold capitalize">
+          <h1 className="text-[35px] md:text-[25px] sm:text-[25px] text-green-600 font-bold capitalize">
             {word}
           </h1>
           <div>

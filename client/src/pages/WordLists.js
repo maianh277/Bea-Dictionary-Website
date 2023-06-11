@@ -42,11 +42,11 @@ const WordLists = () => {
   };
 
   return (
-    <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
+    <div className="bg-white  mx-20 md:mx-15 sm:mx-10 p-10 pt-24 shadow-xl">
       {savedWords.length > 0 ? (
         savedWords.map((word, index) => (
           <div
-            className="mx-20 shadow-xl px-10 py-5 rounded-lg relative mt-6"
+            className="mx-20 md:mx-15 sm:mx-10 shadow-xl px-10 py-5 rounded-lg relative mt-6"
             key={index}
           >
             <div className="flex justify-between items-center gap-3">

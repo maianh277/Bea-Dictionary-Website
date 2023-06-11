@@ -26,7 +26,7 @@ const SearchDemo = () => {
 
   return (
     <div>
-      <form className="flex my-2">
+      <form className="flex my-2 mt-10">
         <label className="mx-2"></label>
         <input
           name="word"

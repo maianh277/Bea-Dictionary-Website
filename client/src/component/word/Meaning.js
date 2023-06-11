@@ -4,7 +4,7 @@ import SynoAnno from "./SynoAnno";
 const Meaning = (props) => {
     const meanings = props.meanings || [];
     return (
-        <div className="mx-10 mt-5  mb-5 gap-5">
+        <div className="mx-10 md:mx-7 sm:mx-0 mt-5  mb-5 gap-5">
             {meanings &&
                 meanings.map((item) => {
                     return (
