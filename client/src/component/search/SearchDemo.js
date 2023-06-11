@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Word from "../../component/word/Word";
 
@@ -8,20 +8,29 @@ const SearchDemo = () => {
   const [meanings, setMeanings] = useState([]);
   const [phonetics, setPhonetics] = useState([]);
   const [partOfSpeech, setPartOfSpeech] = useState([]);
-  const [definition, setDefinition] = useState([]);
+
+  useEffect(() => {
+    if (word) {
+      axios
+        .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then((res) => {
+          if (res.data.length === 0) {
+            setMeanings([]);
+            setPhonetics([]);
+            setPartOfSpeech([]);
+          } else {
+            setMeanings(res.data[0].meanings);
+            setPhonetics(res.data[0].phonetics);
+            setPartOfSpeech(res.data[0].partOfSpeech);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [word]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setWord(searchedWord);
-    axios
-      .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`)
-      .then((res) => {
-        setMeanings(res.data[0].meanings);
-        setPhonetics(res.data[0].phonetics);
-        setPartOfSpeech(res.data[0].partOfSpeech);
-        setDefinition(res.data[0].definition);
-      })
-      .catch((err) => console.log(err));
   };
 
   return (
@@ -48,7 +57,6 @@ const SearchDemo = () => {
           meanings={meanings}
           phonetics={phonetics}
           partOfSpeech={partOfSpeech}
-          definition={definition}
         />
       )}
     </div>

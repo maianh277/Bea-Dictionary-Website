@@ -120,9 +120,15 @@ const HeaderBefore = () => {
             <>
               <div>
                 <Link to="/profile">
-                  <h1>Welcome,</h1>
                   <div className="font-bold">
-                    {user.fullname ? `${user.fullname}` : ""}
+                    {localStorage.getItem("id") ? (
+                      <div>
+                        <h1 className="font-semibold">Welcome,</h1>
+                        {user.fullname}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </Link>
               </div>

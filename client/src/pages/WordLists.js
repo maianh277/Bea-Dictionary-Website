@@ -62,7 +62,9 @@ const WordLists = () => {
           </div>
         ))
       ) : (
-        <p>No saved words</p>
+        <p className="text-xl font-bold text-center my-5">
+          You have no saved words :(
+        </p>
       )}
     </div>
   );

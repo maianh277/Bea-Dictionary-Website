@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Meaning from "./Meaning";
 import WordLists from "../../pages/WordLists";
 import axios from "axios";
+
 const Word = (props) => {
   const [savedWord, setSavedWord] = useState([]);
   const { word, meanings, phonetics, partOfSpeech } = props;
   const [isSaved, setIsSaved] = useState(false);
+  const [wordNotFound, setWordNotFound] = useState(false);
+
+  useEffect(() => {
+    const savedWords = JSON.parse(localStorage.getItem("savedWords")) || [];
+    setIsSaved(savedWords.includes(word));
+  }, [word]);
 
   const handleClick = async () => {
+    if (wordNotFound || meanings.length === 0) {
+      return;
+    }
+
     setIsSaved(!isSaved);
     const savedWords = JSON.parse(localStorage.getItem("savedWords")) || [];
     let updatedSavedWords = [];
@@ -29,8 +40,19 @@ const Word = (props) => {
     } catch (error) {
       console.log(error);
     }
-    // console.log(updatedSavedWords);
   };
+
+  useEffect(() => {
+    setWordNotFound(false); // Reset wordNotFound when a new word is received
+  }, [word]);
+
+  if (wordNotFound || meanings.length === 0) {
+    return (
+      <div className="text-center text-xl font-bold">
+        This word is not found.
+      </div>
+    );
+  }
 
   return (
     <div className="mx-20">
@@ -40,7 +62,6 @@ const Word = (props) => {
             {word}
           </h1>
           <div>
-            {" "}
             {localStorage.getItem("id") ? (
               <i
                 className={`far fa-heart fa-lg mt-6 transition-all ease-in-out ${
@@ -56,7 +77,6 @@ const Word = (props) => {
         <div className="flex gap-3">
           {phonetics &&
             phonetics.map((item, index) => <p key={index}>{item.text}</p>)}
-          {/* <i className="fa-solid fa-volume-high mt-1"></i> */}
         </div>
       </div>
       <Meaning meanings={meanings} partOfSpeech={partOfSpeech} />
