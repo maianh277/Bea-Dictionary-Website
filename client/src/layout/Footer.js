@@ -1,5 +1,6 @@
 import React from "react";
 import Bealogo from "../assets/Bea.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -73,9 +74,12 @@ const Footer = () => {
               </h2>
               <ul className="text-baseBlue font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
-                  </a>
+                  <Link to ="/Policy">
+                    <a  className="hover:underline">
+                      Privacy Policy
+                    </a>
+                  </Link>
+                    
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
