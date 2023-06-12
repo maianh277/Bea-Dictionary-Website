@@ -1,22 +1,23 @@
 import axios from "axios";
+
 const url = "http://localhost:8080/";
 
-export const editUser = (data) => {
+export const editUser = async (data) => {
   const id = localStorage.getItem("id");
+
   try {
-    axios({
-      method: "post",
-      url: url + "editUser",
-      mode: "cors",
-      data: {
-        fullname: data.fullname,
-        email: data.email,
-        bio: data.bio,
-        phone: data.phone,
-        id: id,
-      },
+    const response = await axios.post(url + "editUser", {
+      fullname: data.fullname,
+      email: data.email,
+      bio: data.bio,
+      phone: data.phone,
+      avatar: data.avatar,
+      id: id,
     });
-  } catch (e) {
-    console.log(e);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 };

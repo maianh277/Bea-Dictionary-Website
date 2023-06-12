@@ -17,6 +17,8 @@ const SignupForm = () => {
       fullname,
       email,
       password,
+      setErrorMessage,
+      setSuccessMessage,
       navigate,
     });
   }
@@ -66,6 +68,7 @@ const SignupForm = () => {
                     onChange={(e) => {
                       setFullname(e.target.value);
                     }}
+                    autoComplete="given-name"
                   />
                 </div>
 
@@ -78,6 +81,7 @@ const SignupForm = () => {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
+                  autoComplete="email"
                 />
               </div>
               <div className="my-3">
@@ -90,6 +94,7 @@ const SignupForm = () => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                  autoComplete="new-password"
                 />
               </div>
               {(errorMessage || successMessage) && (

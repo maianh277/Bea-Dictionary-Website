@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IoMenu, IoClose } from "react-icons/io5";
 import Search from "../../component/search/Search";
 import getDetailUser from "../../api/user";
+import logo from "../../assets/Header/Logo_BeaDictionary.png";
+
 const HeaderBefore = () => {
   const [search, setSearch] = useState(false);
   const [user, setUser] = useState({});
@@ -9,17 +12,19 @@ const HeaderBefore = () => {
   const showSearchBar = () => {
     setSearch(!search);
   };
-  useEffect(() => {
-    getDetailUser({
-      setUser,
-    });
-  }, []);
+
+  getDetailUser({
+    setUser,
+    user,
+  });
+
   async function handleLogout(e) {
     e.preventDefault();
     setUser({});
     localStorage.removeItem("auth");
     localStorage.removeItem("id");
     localStorage.removeItem("token");
+    localStorage.removeItem("translationHistory");
     localStorage.removeItem("savedWords");
     navigate("/login");
   }
@@ -34,37 +39,48 @@ const HeaderBefore = () => {
   };
   window.addEventListener("scroll", changeNavbarWidth);
 
+  const [open, setOpen] = useState(false);
+  const handleMenu = () => {
+    setOpen(!open);
+  };
+
   return (
     <div>
       <nav
         className={`${
           navBar ? "" : "py-3"
-        } bg-baseBlue text-white fixed transparent top-0 w-full flex flex-row justify-between p-1 z-50 transition-all duration-500 ease-in-out`}
+        } bg-baseBlue text-white fixed transparent top-0 w-full flex flex-row justify-between p-1 z-50 transition-all duration-500 ease-in-out items-center`}
       >
-        <Link to="/" className="w-1/6 h-/4 bg-green-100">
-          LOGO IS HERE
+        <Link to="/">
+          <span className="flex gap-2 cursor-pointer m-1 mx-1 font-bold items-center">
+            <div className="h-[45px] ps-[45px]">
+              <img
+                className="h-full w-full  align-middle text-[20px]"
+                src={logo}
+                alt="logo"
+              />
+            </div>
+            <div className="text-[25px] self-center whitespace-nowrap font-normal text-white font-Lilita">
+              Bea Dictionary
+            </div>
+          </span>
         </Link>
-        <ul className="flex flex-row gap-12 justify-end m-3 align-middle">
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
-            <i className="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
+        <ul className="  flex-row gap-3 justify-end m-1 align-middle sm:hidden flex items-center ">
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
+            <i className="fa-solid leading-none fa-lg  fa-magnifying-glass md:hidden sm:hidden "></i>
             <div className="w-[4rem]">
               <Link to="/dictionary">Dictionary</Link>
             </div>
           </li>
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
-            <i className="fa-solid leading-none fa-lg fa-language"></i>{" "}
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
+            <i className="fa-solid leading-none fa-lg fa-language md:hidden sm:hidden"></i>{" "}
             <div className="w-[4rem]">
               <Link to="/translation">Translation</Link>
             </div>
           </li>
-          {/* <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
-            <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
-            <div className="w-[4rem]">
-              <Link to="/grammar">Grammar</Link>
-            </div>
-          </li> */}
-          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold -ml-3 ease-in-out transition-all">
-            <i className="fa-solid leading-none fa-lg fa-globe"></i>
+
+          <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
+            <i className="fa-solid leading-none fa-lg fa-globe md:hidden sm:hidden"></i>
             <div className="w-[4rem]">
               <Link to="/community">Community</Link>
             </div>
@@ -72,8 +88,8 @@ const HeaderBefore = () => {
           {!localStorage.getItem("id") ? (
             <></>
           ) : (
-            <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all">
-              <i className="fa-solid leading-none fa-lg fa-bookmark"></i>
+            <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-1 md:my-0">
+              <i className="fa-solid leading-none fa-lg fa-bookmark "></i>
               <div className="w-[5rem]">
                 <Link to="/wordlists">Word Lists</Link>
               </div>
@@ -81,19 +97,18 @@ const HeaderBefore = () => {
           )}
         </ul>
 
-        <ul className="flex flex-row gap-4 mr-3">
+        <ul className="flex flex-row gap-4 mr-3 items-center">
           <li>
             <i
-              className="fa-solid fa-magnifying-glass fa-lg hover:text-hoverDarkBlue mt-6 ease-in-out transition-all"
+              className="fa-solid fa-magnifying-glass fa-lg hover:text-hoverDarkBlue mt-4 ease-in-out transition-all"
               onClick={showSearchBar}
             ></i>
           </li>
           {!localStorage.getItem("id") ? (
-            //TODO: chỉnh để ko phải refresh
             <>
               <ul className="flex gap-4">
-                <li className="hover:text-hoverDarkBlue hover:font-bold mt-3 rounded-xl ease-in-out transition-all">
-                  <div className="w-[2.5rem]">
+                <li className="hover:text-hoverDarkBlue hover:font-bold mt-3 rounded-xl ease-in-out transition-all md:hidden sm:hidden">
+                  <div className="w-[2.5rem] items-center z-[-1] ">
                     <Link to="/login">Login</Link>
                   </div>
                 </li>
@@ -108,21 +123,89 @@ const HeaderBefore = () => {
             <>
               <div>
                 <Link to="/profile">
-                  <h1>Welcome,</h1>
                   <div className="font-bold">
-                    {user.fullname ? `${user.fullname}` : ""}
+                    {localStorage.getItem("id") ? (
+                      <div>
+                        <h1 className="font-semibold">Welcome,</h1>
+                        <span className="hover:text-hoverDarkBlue ease-in-out transition-all">
+                          {" "}
+                          {user.fullname}
+                        </span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </Link>
               </div>
-              <li className="hover:font-semibold mt-3 ">
+              <li className=" hover:text-hoverDarkBlue ease-in-out transition-all hover:font-semibold mt-3 ">
                 <div onClick={handleLogout}>
                   <i className="fa-solid fa-right-from-bracket"></i>
                 </div>
               </li>
             </>
           )}
+          <li>
+            <div className=" w-[2.5rem] ml-1 text-sm text-gray-100 rounded-lg  hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-gray-200 items-center gap-x-5 md:hidden lg:hidden xl:hidden 2xl:hidden relative z-10 select-none ">
+              {open ? (
+                <IoClose
+                  className="text-[40px] font-[600] cursor-pointer"
+                  onClick={handleMenu}
+                />
+              ) : (
+                <IoMenu
+                  className="text-[40px] font-[600] cursor-pointer"
+                  onClick={handleMenu}
+                />
+              )}
+              {open && (
+                <div className="bg-baseBlue fixed shadow-2xl gap-x-5  flex-col border-r top-[60px] w-[200px] py-3 rounded-[12px] right-0 text-[20px]">
+                  <ul className="">
+                    <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
+                      <i className="fa-solid leading-none fa-lg  fa-magnifying-glass"></i>
+                      <div className="w-[4rem]">
+                        <Link onClick={handleMenu} to="/dictionary">
+                          Dictionary
+                        </Link>
+                      </div>
+                    </li>
+                    <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
+                      <i className="fa-solid leading-none fa-lg fa-language"></i>{" "}
+                      <div className="w-[4rem]">
+                        <Link onClick={handleMenu} to="/translation">
+                          Translation
+                        </Link>
+                      </div>
+                    </li>
+                    <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
+                      <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
+                      <div className="w-[4rem]">
+                        <Link onClick={handleMenu} to="/grammar">
+                          Grammar
+                        </Link>
+                      </div>
+                    </li>
+                    <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
+                      <i className="fa-solid leading-none fa-lg fa-globe"></i>
+                      <div className="w-[4rem]">
+                        <Link onClick={handleMenu} to="/community">
+                          Community
+                        </Link>
+                      </div>
+                    </li>
+                    <li className="hover:text-hoverDarkBlue hover:font-bold flex gap-3  ease-in-out transition-all mx-4 my-6 md:my-0">
+                      <div className="w-[2.5rem] items-center z-[-1] ">
+                        <Link to="/login">Login</Link>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </li>
         </ul>
       </nav>
+
       <div className="ease-in-out delay-150">
         {search ? <Search></Search> : <></>}
       </div>

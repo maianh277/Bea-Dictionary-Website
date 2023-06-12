@@ -1,24 +1,33 @@
 import React from "react";
+import Bealogo from "../assets/Bea.png";
 
 const Footer = () => {
   return (
     <footer className="bg-baseDarkMint">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
-            <a href="#" className="flex items-center">
-              <span className="self-center text-2xl font-semibold  dark:text-white">
-                Dictionary
-              </span>
-            </a>
+        <div className="flex gap-[200px] lg:gap-[150px] md:gap-[100px] sm:gap-[50px]">
+          <div className="mb-6 ml-10 sm:ml-5">
+            <div href="#" className="items-center grid grid-rows-2 grid-flow-col " >
+              <div className=" self-center text-2xl font-semibold  dark:text-white text-[25px] sm:text-[20px] whitespace-nowrap text-white font-Lilita">
+                Bea Dictionary 
+              </div>
+              <div>
+                <img
+                  className="h-[100px] w-[100px] sm:h-[70px] sm:w-[70px] align-middle text-[20px]"
+                  src={Bealogo}
+                  alt="logo"
+                />
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-4 gap-8 sm:gap-6 sm:grid-cols-4">
+          <div className="">
+          <div className="grid grid-cols-4 gap-8 md:gap-4 sm:gap-4 sm:grid-cols-3 ">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Overview
               </h2>
               <ul className="text-baseBlue font-medium">
-                <li className="mb-4">
+                <li className="mb-4 ">
                   <a href="#" className="hover:underline">
                     About us
                   </a>
@@ -36,7 +45,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
                 Services
               </h2>
               <ul className="text-baseBlue font-medium">
@@ -63,7 +72,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
                 Legal
               </h2>
               <ul className="text-baseBlue font-medium">
@@ -79,14 +88,15 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="ml-10 w-[500px] lg:ml-3 md:ml-3 sm:ml-0" >
               <ul>
                 <li>
-                  <i className="fa-brands fa-facebook fa-2xl mr-5 text-white"></i>
-                  <i className="fa-brands fa-instagram fa-2xl mr-5 text-white"></i>
-                  <i className="fa-brands fa-github fa-2xl mr-5 text-white"></i>
+                  <i className="fa-brands fa-facebook fa-2xl sm:fa-2x mr-5 md:mr-3 text-white"></i>
+                  <i className="fa-brands fa-instagram fa-2xl mr-5 md:mr-3 text-white"></i>
+                  <i className="fa-brands fa-github fa-2xl mr-5 md:mr-3 text-white"></i>
                 </li>
               </ul>
+            </div>
             </div>
           </div>
         </div>

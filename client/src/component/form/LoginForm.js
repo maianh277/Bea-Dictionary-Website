@@ -7,6 +7,8 @@ const LoginForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -69,11 +71,11 @@ const LoginForm = () => {
                     }}
                   />
                 </div>
-                <div>
+                <div class="relative">
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
-                    className="mt-1 px-5 py-4 bg-gray-100 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                    class="mt-1 px-5 py-4 bg-gray-100 border focus:border-teal-500 focus:outline-none sm:text-sm rounded-lg block w-full p-2.5 pr-12"
                     required=""
                     placeholder="Password"
                     onChange={(e) => {
@@ -81,10 +83,23 @@ const LoginForm = () => {
                     }}
                   />
                   {(errorMessage || successMessage) && (
-                    <div className="text-red-500 text-sm mt-2">
+                    <div class="text-red-500 text-sm mt-2">
                       {errorMessage || successMessage}
                     </div>
                   )}
+                  <button
+                    type="button"
+                    className={`absolute right-3 top-1/2 transform -translate-y-1/2 ${
+                      errorMessage ? "-mt-3" : ""
+                    }`}
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <i class="fa-solid fa-eye-slash"></i>
+                    ) : (
+                      <i class="fa-solid fa-eye"></i>
+                    )}
+                  </button>
                 </div>
 
                 <div className="flex justify-between">
