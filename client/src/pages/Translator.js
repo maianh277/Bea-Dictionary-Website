@@ -66,9 +66,13 @@ const Translator = () => {
           <h1 className="text-[2.25rem] -mb-4 font-bold text-center text-green-500">
             Translator
           </h1>
-          <div className="flex">
-            <InputBox setInputText={setInputText} handleSubmit={handleSubmit} />
-            <AnswerBox translatedText={translatedText} />
+          <div className="flex sm:flex-col flex-row">
+            <div className="w-full ">
+              <InputBox setInputText={setInputText} handleSubmit={handleSubmit} />
+            </div>
+            <div className="w-full ">
+              <AnswerBox translatedText={translatedText} />
+            </div>
           </div>
           <History translationHistory={translationHistory} />
         </div>
