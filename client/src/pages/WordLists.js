@@ -42,7 +42,7 @@ const WordLists = () => {
   };
 
   return (
-    <div className="bg-white  mx-20 md:mx-15 sm:mx-10 p-10 pt-24 shadow-xl">
+    <div className="bg-white min-h-screen mx-20 md:mx-15 sm:mx-10 p-10 pt-24 shadow-xl">
     <h1 className="text-[2.25rem] font-bold text-center text-green-500">
         Your Wordlists
       </h1>
