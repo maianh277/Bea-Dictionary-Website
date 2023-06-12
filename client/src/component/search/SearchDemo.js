@@ -40,7 +40,7 @@ const SearchDemo = () => {
           Find your words
         </h1>
       )}
-      <form className="flex my-2">
+      <form className="flex my-2 mt-10">
         <label className="mx-2"></label>
         <input
           name="word"

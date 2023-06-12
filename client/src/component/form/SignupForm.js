@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../api/auth";
@@ -24,10 +23,13 @@ const SignupForm = () => {
   }
 
   return (
-    <div>
-      <section className="bg-white pt-16 w-1/3">
+<div className="w-1/3 md:w-3/4 sm:w-1/2 mx-auto">
+      <section className="bg-white pt-16">
         <div className="my-10">
-          <h1 className="text-center text-[2rem] tracking-tight text-gray-900 md:text-2xl font-Lilita">
+          <div className="max-w-[500px] mx-auto">
+
+          
+            <h1 className="text-center text-[30px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-8">
             {" "}
             CREATE NEW ACCOUNT
           </h1>
@@ -135,14 +137,15 @@ const SignupForm = () => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="text-white w-1/3 h-10 bg-green-400 font-bold rounded-lg"
-                onClick={handleSubmit}
-              >
-                SIGNUP
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className=" text-white w-1/3 h-10 bg-green-400 font-bold rounded-lg mx-auto block"
+                  onClick={handleSubmit}
+                >
+                  SIGNUP
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
