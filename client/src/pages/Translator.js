@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import InputBox from "../component/translator/InputBox";
 import AnswerBox from "../component/translator/AnswerBox";
 import History from "../component/translator/History";
+import { history } from "../api/translation";
 import axios from "axios";
 
 const Translator = () => {
@@ -42,21 +43,7 @@ const Translator = () => {
   const handleSubmit = async () => {
     handleTranslation();
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/translatehistory",
-        {
-          id: localStorage.getItem("id"),
-          para: localStorage.getItem("translationHistory"),
-        }
-      );
-
-      if (response.status === 200) {
-        console.log("Translation saved successfully");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    history();
   };
 
   return (
@@ -68,7 +55,10 @@ const Translator = () => {
           </h1>
           <div className="flex sm:flex-col flex-row">
             <div className="w-full ">
-              <InputBox setInputText={setInputText} handleSubmit={handleSubmit} />
+              <InputBox
+                setInputText={setInputText}
+                handleSubmit={handleSubmit}
+              />
             </div>
             <div className="w-full ">
               <AnswerBox translatedText={translatedText} />

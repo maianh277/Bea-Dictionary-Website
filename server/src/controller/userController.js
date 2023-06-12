@@ -36,6 +36,10 @@ const handleSignup = async (req, res) => {
         JSON.stringify(saveTranslation),
       ]
     );
+    await pool.execute(
+      "INSERT INTO community_post (id, image, content, hashtag) VALUES (?,?,?,?)",
+      [insertId, "", "", ""]
+    );
 
     res.status(200).json({
       message: "SignUp Successfully",
