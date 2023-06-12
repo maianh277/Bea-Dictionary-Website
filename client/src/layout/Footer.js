@@ -29,9 +29,12 @@ const Footer = () => {
               </h2>
               <ul className="text-baseBlue font-medium">
                 <li className="mb-4 ">
-                  <a href="#" className="hover:underline">
-                    About us
-                  </a>
+                  <Link to = "/aboutus">
+                    <a href="#" className="hover:underline">
+                      About us
+                    </a>
+                  </Link>
+                    
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">

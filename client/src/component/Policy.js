@@ -1,6 +1,6 @@
 import React  from "react";
 import { IoCalendar } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
 const Policy = () => {
 

@@ -7,6 +7,7 @@ import LogIn from "../pages/LogIn";
 import Home from "../pages/Home";
 import WordDictionary from "../pages/WordDictionary";
 import Policy from "../component/Policy";
+import Us from "../component/AboutUs/Us"
 import Community from "../pages/Community";
 import React from "react";
 import MyProfile from "../component/profile/MyProfile";
@@ -24,6 +25,7 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/community" element={<Community />} />
         <Route path="/policy" element={<Policy />} />
+        <Route path="/aboutus" element={<Us />} />
       </Routes>
     </div>
   );
