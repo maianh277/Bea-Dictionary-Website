@@ -10,7 +10,7 @@ const Meaning = (props) => {
                     return (
                         <div key={item.partOfSpeech}>
                             <h3 className="font-semibold text-blue-500 text-lg flex mt-3 uppercase">
-                            {item.partOfSpeech || partOfSpeech}
+                            {item.partOfSpeech}
                             </h3>
                             <hr></hr>
                             {item.definitions.map((def) => {
