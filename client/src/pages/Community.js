@@ -4,7 +4,7 @@ import CommunityCreatePost from "../component/community/CommunityCreatePost";
 
 const Community = () => {
     return (
-        <div className="bg-white min-h-screen mx-[200px] md:mx-[80px] sm:mx-[30px] p-10 pt-24 shadow-xl ">
+        <div className="bg-white min-h-screen mx-[200px] lg:mx-[100px] md:mx-[80px] sm:mx-[30px] p-10 pt-24 shadow-xl ">
             <div className="">
                 <CommunitySearch />
                 <div className="">

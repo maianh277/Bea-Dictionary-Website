@@ -35,13 +35,13 @@ const CommunityCreatePost = () => {
 
   return (
     <div className="mt-[10px]">
-      <div className="h-[60px] mx-[100px] md:mx-[80px] sm:mx-[50px] bg-white shadow-lg border-black-50 rounded-[20px] border-2">
+      <div className="h-[60px] mx-[100px] lg:mx[90px] md:mx-[50px] sm:mx-[30px] bg-white shadow-lg border-black-50 rounded-[20px] border-2">
         {!isFormVisible && (
           <div className="flex py-2 px-10 items-center">
             <div>
               <img
                 src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                className="object-left mr-5 pt-0 smw-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
+                className="object-left mr-5 pt-0 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
                 alt="logo"
               />
             </div>
@@ -63,7 +63,7 @@ const CommunityCreatePost = () => {
                   <div className="panel-post flex order-last">
                     <img
                       src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                      className="object-left mr-5 pt-0 ml-10 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
+                      className="object-left mr-5 pt-0 ml-10 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px] cursor-pointer"
                       alt="avt"
                     />
                     <textarea
