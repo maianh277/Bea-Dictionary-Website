@@ -60,7 +60,7 @@ const Translator = () => {
   };
 
   return (
-    <div className="bg-white mx-20 p-10 pt-24 shadow-xl">
+    <div className="bg-white min-h-screen mx-20 p-10 pt-24 shadow-xl">
       <div className="flex">
         <div className="flex-auto">
           <h1 className="text-[2.25rem] -mb-4 font-bold text-center text-green-500">

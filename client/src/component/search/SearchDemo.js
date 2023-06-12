@@ -35,12 +35,16 @@ const SearchDemo = () => {
 
   return (
     <div>
+    <<<<<<< HEAD
       {!searchedWord && (
         <h1 className="text-[2.25rem] font-bold text-center -mt-4 text-green-500">
           Find your words
         </h1>
       )}
       <form className="flex my-2">
+=======
+      <form className="flex my-2 mt-10">
+>>>>>>> update_new
         <label className="mx-2"></label>
         <input
           name="word"

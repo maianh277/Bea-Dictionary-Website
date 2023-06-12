@@ -19,7 +19,7 @@ const SynoAnno = (props) => {
   });
 
   return (
-    <div className="flex justify-around mx-20 my-5 flex-col">
+    <div className="flex justify-around mx-20 md:mx-[20px] sm:mx-[10px] my-5 flex-col">
       {!synonymsArray ? (
         <div>
           <div className="flex flex-row gap-3 mb-4">
