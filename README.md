@@ -6,7 +6,7 @@
 * [Setup](#setup)
 
 ## General info
-This project is an online resource that provides definitions and other information about words in various languages. This type of website can be useful for anyone who wants to learn more about a particular word or for people who need to look up the meaning of words they come across while reading or writing.
+This project is an online dictionary platform that allows to look up words, translate paragraphs, and discuss in our community on a variety of topics such as IELTS, TOEIC, and so on.
 	
 ## Technologies
 Project is created with:
