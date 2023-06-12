@@ -4,7 +4,6 @@ const InputBox = ({ setInputText, handleSubmit }) => {
   return (
     <div className="mx-20 my-5 w-1/2">
       <div>
-        {/* <hr className="bg-green-600"></hr> */}
         <div className="relative">
           <span>From: </span>
           <span className="font-bold">English</span>

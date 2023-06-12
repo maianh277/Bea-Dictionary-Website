@@ -43,6 +43,9 @@ const WordLists = () => {
 
   return (
     <div className="bg-white  mx-20 md:mx-15 sm:mx-10 p-10 pt-24 shadow-xl">
+    <h1 className="text-[2.25rem] font-bold text-center text-green-500">
+        Your Wordlists
+      </h1>
       {savedWords.length > 0 ? (
         savedWords.map((word, index) => (
           <div
@@ -62,7 +65,9 @@ const WordLists = () => {
           </div>
         ))
       ) : (
-        <p>No saved words</p>
+        <p className="text-xl font-bold text-center my-5">
+          You have no saved words :(
+        </p>
       )}
     </div>
   );
