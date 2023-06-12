@@ -2,7 +2,7 @@ import React from "react";
 
 const InputBox = ({ setInputText, handleSubmit }) => {
   return (
-    <div className="mx-20 my-5 w-1/2">
+    <div className="mx-20 my-5">
       <div>
         <div className="relative">
           <span>From: </span>

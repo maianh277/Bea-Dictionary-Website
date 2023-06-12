@@ -40,7 +40,7 @@ const SearchDemo = () => {
           Find your words
         </h1>
       )}
-      <form className="flex my-2 mt-10">
+      <form className="flex my-2 mt-3">
         <label className="mx-2"></label>
         <input
           name="word"
@@ -61,7 +61,7 @@ const SearchDemo = () => {
         <Word
           word={word}
           meanings={meanings}
-          phonetics={phonetics}   
+          phonetics={phonetics}
           partOfSpeech={partOfSpeech}
         />
       )}

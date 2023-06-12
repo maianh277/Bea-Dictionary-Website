@@ -177,14 +177,7 @@ const HeaderBefore = () => {
                         </Link>
                       </div>
                     </li>
-                    <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
-                      <i className="fa-solid fa-book fa-lg mt-2.5"></i>{" "}
-                      <div className="w-[4rem]">
-                        <Link onClick={handleMenu} to="/grammar">
-                          Grammar
-                        </Link>
-                      </div>
-                    </li>
+
                     <li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
                       <i className="fa-solid leading-none fa-lg fa-globe"></i>
                       <div className="w-[4rem]">
@@ -193,11 +186,15 @@ const HeaderBefore = () => {
                         </Link>
                       </div>
                     </li>
-                    <li className="hover:text-hoverDarkBlue hover:font-bold flex gap-3  ease-in-out transition-all mx-4 my-6 md:my-0">
-                      <div className="w-[2.5rem] items-center z-[-1] ">
-                        <Link to="/login">Login</Link>
-                      </div>
-                    </li>
+                    {!localStorage.getItem("id") ? (
+                      <li className="hover:text-hoverDarkBlue hover:font-bold flex gap-3  ease-in-out transition-all mx-4 my-6 md:my-0">
+                        <div className="w-[2.5rem] items-center z-[-1] ">
+                          <Link to="/login">Login</Link>
+                        </div>
+                      </li>
+                    ) : (
+                      ""
+                    )}
                   </ul>
                 </div>
               )}
