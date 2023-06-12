@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { upload } from "../../api/community";
 const CommunityCreatePost = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [postContent, setPostContent] = useState("");
@@ -18,16 +19,10 @@ const CommunityCreatePost = () => {
   }, [isFormVisible]);
 
   const handlePostClick = async () => {
-    try {
-      const response = await axios.post("http://localhost:8080/uploadPost", {
-        id: localStorage.getItem("id"),
-        content: content,
-        hashtag: hashtag,
-      });
-      console.log("Post uploaded successfully");
-    } catch (error) {
-      console.log(error);
-    }
+    upload({
+      content,
+      hashtag,
+    });
     // Xử lý việc đăng bài
     console.log("Đã đăng bài:", postContent);
     // Reset nội dung bài viết sau khi đăng
@@ -41,22 +36,7 @@ const CommunityCreatePost = () => {
   const handleCreatePostClick = () => {
     setIsFormVisible(true);
   };
-  // useEffect(() => {
-  //   const fetchPost = async () => {
-  //     try {
-  //       const id = localStorage.getItem("id");
-  //       const response = await axios.post("http://localhost:8080/uploadPost", {
-  //         id: localStorage.getItem("id"),
-  //         content: content,
-  //         hashtag: hashtag,
-  //       });
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
 
-  //   fetchPost();
-  // }, []);
   return (
     <div className="mt-[10px]">
       {localStorage.getItem("id") ? (

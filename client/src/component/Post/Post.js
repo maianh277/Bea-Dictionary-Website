@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import getDetailUser from "../../api/user";
+import { getpost } from "../../api/community";
 import {
   IoHeart,
   IoChatboxEllipsesOutline,
@@ -20,7 +21,11 @@ const CommunityPost = () => {
     setUser,
     user,
   });
-
+  useEffect(() => {
+    getpost({
+      setIsComment,
+    });
+  }, []);
   const handleShareClick = () => {
     // Xử lý chia sẻ
     // Điều hướng đến trang chia sẻ trên Facebook
@@ -53,27 +58,7 @@ const CommunityPost = () => {
     setComment("");
     setShowCommentForm(false);
   };
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const id = localStorage.getItem("id");
-        const response = await axios.post(
-          "http://localhost:8080/getPost",
-          { id },
-          { mode: "cors" }
-        );
-        const results = response.data;
-        if (results.length > 0) {
-          setIsComment(results);
-          //   console.log(results);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
 
-    fetchPost();
-  }, []);
   return (
     <div>
       {isComment &&
