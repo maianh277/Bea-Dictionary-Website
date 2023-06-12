@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoHeart, IoChatboxEllipsesOutline, IoShareSocial, IoEllipsisHorizontal } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
 const CommunityPost = () => {
   const [isLiked, setIsLiked] = useState(false);
@@ -19,6 +20,24 @@ const CommunityPost = () => {
     setShowOptions(!showOptions);
   };
   
+  const [showCommentForm, setShowCommentForm] = useState(false);
+  const [comment, setComment] = useState("");
+  const handleCommentClick = () => {
+    setShowCommentForm(!showCommentForm);
+  };
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    // Xử lý logic khi người dùng nhấn gửi comment
+    console.log("Submitted comment:", comment);
+    setComment("");
+    setShowCommentForm(false);
+  };
+
 
   return (
     <div>
@@ -27,11 +46,13 @@ const CommunityPost = () => {
                 <div className="">
                     <div className=" gap-3 grid-cols-3 flex justify-start items-center pt-3 ">
                         <div>
-                            <img
-                            src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                            className="object-left mr-1 pt-0 ml-10 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px] cursor-pointer"
-                            alt="logo"
-                            />
+                            <Link to="/profile">
+                                <img
+                                src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
+                                className="object-left mr-1 pt-0 ml-10 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px] cursor-pointer"
+                                alt="logo"
+                                />
+                            </Link>
                         </div>
                         <div className="ml-1 text-left content-center">
                             <h2 className="text-[15px] font-bold inline-block md:mr-2 mb-2 sm:mb-0 cursor-pointer">
@@ -146,8 +167,6 @@ const CommunityPost = () => {
                             
                     </form>
                 )}
-                </div>
-                
             </div>
         </div>
     </div>
@@ -155,4 +174,3 @@ const CommunityPost = () => {
 };
 
 export default CommunityPost;
-
