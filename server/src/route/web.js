@@ -1,6 +1,7 @@
 import express from "express";
 import userController from "../controller/userController.js";
 import dictController from "../controller/dictController.js";
+import communityController from "../controller/communityController.js";
 import middleware from "../middleware/middleware.js";
 
 const initWebRoute = (app) => {
@@ -14,6 +15,9 @@ const initWebRoute = (app) => {
   router.post("/getword", dictController.handleGetWords);
   router.post("/translatehistory", dictController.handleSaveTranslation);
   router.post("/getTranslation", dictController.handleGetTranslation);
+
+  router.post("/uploadPost", communityController.handleUploadPost);
+  router.post("/getPost", communityController.handleGetPost)
   app.use("/", router);
 };
 
