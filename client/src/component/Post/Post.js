@@ -102,20 +102,50 @@ const CommunityPost = () => {
                                 </button>
                                 <span>Like</span>
                             </div>
-                            <div className="cursor-pointer flex gap-2 items-center font-semibold mr-[150px] md:mr-[90px] sm:mr-[30px]">
+                            <div
+                                className="cursor-pointer flex gap-2 items-center font-semibold mr-[150px] md:mr-[90px] sm:mr-[30px]"
+                                onClick={handleCommentClick}
+                            >
                                 <button className="mr-0.5 text-gray-500">
-                                    <IoChatboxEllipsesOutline className="w-9 h-9 md:w-6 md:h-6 sm:w-5 sm:h-5" />
+                                <IoChatboxEllipsesOutline className="w-9 h-9 md:w-6 md:h-6 sm:w-5 sm:h-5" />
                                 </button>
-                                <span>Like</span>
+                                <span>Comment</span>
                             </div>
                             <div className="cursor-pointer flex gap-2 items-center font-semibold">
                                 <button className="text-gray-500" onClick={handleShareClick}>
                                     <IoShareSocial className="w-9 h-9  md:w-6 md:h-6 sm:w-5 sm:h-5" />
                                 </button>
-                                <span>Like</span>
+                                <span>Share</span>
                             </div>
                         
                     </div>
+                </div>
+                {showCommentForm && (
+                    <form onSubmit={handleCommentSubmit} className=" w-full py-2 px-[40px] md:px-[10px] sm:px-4 ">
+                        <div className="gap-3 grid-cols-3 flex justify-start items-center pt-3 w-full">
+                            <div>
+                                <Link to = "/profile" >
+                                    <img
+                                        src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
+                                        className="object-left mr-1 pt-0 sm:w-8 sm:h-8 w-10 h-9 object-cover rounded-full border-2 border-green-900 p-[2px] cursor-pointer"
+                                        alt="logo"
+                                    />
+                                </Link>
+                            </div>
+                            <input
+                                type="text"
+                                value={comment}
+                                onChange={handleCommentChange}
+                                placeholder="Enter your comment..."
+                                className="border border-gray-300 rounded-md px-3 py-1.5 ms:py-0.5 w-full outline-none focus:border-blue-500"
+                            />
+                            <button type="submit" className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">
+                                Send
+                            </button>
+                        </div>
+                            
+                    </form>
+                )}
                 </div>
                 
             </div>
