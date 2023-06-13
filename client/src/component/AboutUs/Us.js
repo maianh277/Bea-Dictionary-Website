@@ -1,8 +1,9 @@
 import React   from "react";
 import Bea from "../AboutUs/Bea.png";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import { IoChevronForward,IoChevronBack  } from "react-icons/io5";
 import ReactJS from "../AboutUs/Reactjs.png";
+import BackToTopButton from "../BackToTopButton";
 
 const Us = () => {
     const settings = {
@@ -134,6 +135,7 @@ const Us = () => {
                 </div>
                 <div className=" text-[18px] md:text-[15px] sm:text-[14px] text-green-600 font-bold  flex items-center justify-center py-5">Thank you for choosing Bea Dictionary as your language companion. Let's explore the world of words together!</div>
             </div>
+            <BackToTopButton></BackToTopButton>
         </div>
     );
 };

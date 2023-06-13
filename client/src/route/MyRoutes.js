@@ -11,6 +11,8 @@ import Us from "../component/AboutUs/Us"
 import Community from "../pages/Community";
 import React from "react";
 import MyProfile from "../component/profile/MyProfile";
+import Terms from "../component/Terms"
+
 const MyRoutes = () => {
   return (
     <div>
@@ -26,6 +28,7 @@ const MyRoutes = () => {
         <Route path="/community" element={<Community />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/aboutus" element={<Us />} />
+        <Route path="/Terms&Conditions" element={<Terms />} />
       </Routes>
     </div>
   );

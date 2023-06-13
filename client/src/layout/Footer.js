@@ -80,7 +80,7 @@ const Footer = () => {
                     
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a href="/Terms&Conditions" className="hover:underline">
                     Terms &amp; Conditions
                   </a>
                 </li>
@@ -89,9 +89,12 @@ const Footer = () => {
             <div className="ml-10 w-[500px] lg:ml-3 md:ml-3 sm:ml-0" >
               <ul>
                 <li>
-                  <i  className="fa-brands fa-facebook fa-2xl sm:fa-2x mr-5 md:mr-3 text-white"></i>
+                  <i className="fa-brands fa-facebook fa-2xl sm:fa-2x mr-5 md:mr-3 text-white"></i>
                   <i className="fa-brands fa-instagram fa-2xl mr-5 md:mr-3 text-white"></i>
-                  <i className="fa-brands fa-github fa-2xl mr-5 md:mr-3 text-white"></i>
+                  <a href="https://github.com/maianh277/Bea-Dictionary-Website.git" target="_blank" rel="noopener noreferrer">
+                    <i className="fab fa-github fa-2xl mr-5 md:mr-3 text-white"></i>
+                  </a>
+                  
                 </li>
               </ul>
             </div>
