@@ -30,7 +30,7 @@ const LoginForm = () => {
       <section>
         <div className="py-10">
           <div className="max-w-[500px] mx-auto">
-            <h1 className="text-center text-[38px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-8">
+            <h1 className="text-center text-[38px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-4">
               WELCOME TO OUR WEBSITE
             </h1>
 

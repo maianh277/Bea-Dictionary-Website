@@ -4,7 +4,7 @@ import loginBg from "../assets/LoginPage/LoginBg.png";
 
 const LogIn = () => {
     return (
-        <div className="flex bg-white min-h-[650px]">
+        <div className="flex bg-white min-h-screen">
             <div className="absolute  w-full  transform">
                 <LoginForm></LoginForm>
             </div>

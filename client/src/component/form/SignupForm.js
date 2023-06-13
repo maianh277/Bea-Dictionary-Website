@@ -33,6 +33,7 @@ const SignupForm = () => {
       <section className="bg-white pt-16">
         <div className="my-10">
           <div className="max-w-[500px] mx-auto">
+<<<<<<< HEAD
             <h1 className="text-center text-[30px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-8">
               {" "}
               CREATE NEW ACCOUNT
@@ -42,6 +43,28 @@ const SignupForm = () => {
                 You already have an account?{" "}
                 <Link to="/login" className="font-medium text-[#FFB800]">
                   Log in
+=======
+
+          
+            <h1 className="text-center text-[30px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-4">
+            {" "}
+            CREATE NEW ACCOUNT
+          </h1>
+          <div className="space-y-4 md:space-y-6" action="#">
+            <p className="text-center text-sm font-light text-gray-500">
+              You already have an account?{" "}
+              <Link to="/login" className="font-medium text-[#FFB800]">
+                Log in
+              </Link>
+            </p>
+            <div className="flex flex-wrap mb-6 items-center -mx-2">
+              <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
+                <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
+                  <i className="fa-brands fa-facebook fa-lg"></i>
+                  <span className="ml-4 text-sm font-semibold text-gray-500">
+                    Login with Facebook
+                  </span>
+>>>>>>> 9077c7438ccbf0e7e454209f944df41e871d09f4
                 </Link>
               </p>
               <div className="flex flex-wrap mb-6 items-center -mx-2">
