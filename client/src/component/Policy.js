@@ -13,7 +13,7 @@ const Policy = () => {
                     Effective Date: June 13, 2023
                 </span>
             </div>
-            <div className="mx-[120px] md:mx-[70px] sm:mx-[40px] my-5 leading-7">
+            <div className="mx-[120px] md:mx-[70px] sm:mx-[40px] my-5 leading-7 text-justify">
                 <p >At Bea Dictionary, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard the information you provide to us through our website.</p>
                 <p className="mt-4 font-bold">Information Collection and Use:</p>
                 <div className="pl-5">

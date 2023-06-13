@@ -61,11 +61,6 @@ const Footer = () => {
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    Grammar
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a href="#" className="hover:underline">
                     Community
                   </a>
                 </li>
@@ -94,7 +89,7 @@ const Footer = () => {
             <div className="ml-10 w-[500px] lg:ml-3 md:ml-3 sm:ml-0" >
               <ul>
                 <li>
-                  <i className="fa-brands fa-facebook fa-2xl sm:fa-2x mr-5 md:mr-3 text-white"></i>
+                  <i  className="fa-brands fa-facebook fa-2xl sm:fa-2x mr-5 md:mr-3 text-white"></i>
                   <i className="fa-brands fa-instagram fa-2xl mr-5 md:mr-3 text-white"></i>
                   <i className="fa-brands fa-github fa-2xl mr-5 md:mr-3 text-white"></i>
                 </li>
