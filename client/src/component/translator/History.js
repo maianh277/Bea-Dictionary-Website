@@ -26,7 +26,7 @@ const History = ({ translationHistory }) => {
   }, []);
 
   return (
-    <div className="mx-20">
+    <div className="xl:mx-20">
       {translationHistory && translationHistory.length > 0
         ? translationHistory.map((entry, index) => (
             <div

@@ -2,14 +2,14 @@ import React from "react";
 
 const InputBox = ({ setInputText, handleSubmit }) => {
   return (
-    <div className="mx-20 my-5">
+    <div className="xl:ml-20 xl:mr-5 md:mx-10 my-5  m-0">
       <div>
         <div className="relative">
           <span>From: </span>
           <span className="font-bold">English</span>
           <textarea
             type="text"
-            className="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px]"
+            className="py-2 pl-8 pr-12 bg-gray-100 w-full h-[200px] rounded-xl"
             placeholder="Enter text..."
             onChange={(e) => {
               setInputText(e.target.value);

@@ -64,7 +64,7 @@ const CommunityPost = () => {
       {isComment &&
         isComment.map((post, index) => (
           <div className="mt-[10px]" key={index}>
-            <div className="h-70 bg-white shadow-lg border-black-50 rounded-[20px] border-2 mx-[100px] lg:mx-[90px] md:mx-[20px] sm:mx-[10px] border-black-50 ">
+            <div className="h-70 bg-white shadow-lg border-black-50 rounded-xl border-2 mx-[100px] lg:mx-[90px] md:mx-[20px] sm:mx-[10px] border-black-50 ">
               <div className="">
                 <div className=" gap-3 grid-cols-3 flex justify-start items-center pt-3 ">
                   <div>
@@ -80,7 +80,7 @@ const CommunityPost = () => {
                     <h2 className="text-[15px] font-bold inline-block md:mr-2  sm:mb-0 cursor-pointer">
                       {user.fullname}
                     </h2>
-                    <h5 className="text-[12px] -ml-2">#{post.hashtag}</h5>
+                    <h5 className="text-[12px]">#{post.hashtag}</h5>
                   </div>
                   <div className="relative ml-auto mr-5">
                     <button
@@ -104,14 +104,14 @@ const CommunityPost = () => {
                   </div>
                 </div>
               </div>
-              <div className="text-left py-1 px-16 md:px-10 sm:px-7">
+              <div className="text-left mt-2 mx-10 md:px-10 sm:px-7">
                 <h5 className="text-[25px]">{post.content}</h5>
               </div>
-              <div className="py-2 text-[11px]">
-                <div className="py-2 flex gap-1 items-center text-[1.5rem] ">
-                  <IoHeart className="text-[25px] cursor-pointer ml-10" />
-                  <span className="text-gray-400 font-thin"></span>
-                  <span className="text-[1rem]">
+              <div className="text-[11px]">
+                <div className="py-2 flex gap-1 items-center">
+                  <IoHeart className="text-[1.25rem] mt-0.5 cursor-pointer ml-10 text-gray-200" />
+                  <span className="font-thin"></span>
+                  <span className="text-[1rem] text-gray-400 ">
                     {2 > 0 ? (
                       <span className="text-[13px]">
                         {isLiked ? (
@@ -132,8 +132,8 @@ const CommunityPost = () => {
                     ) : null}
                   </span>
                 </div>
-                <div className="h-0.5 w-5/5 bg-slate-300 "></div>
-                <div className="flex justify-between py-2 px-[100px] md:px-[50px] sm:px-4 md:mx-[50px] sm:mx-[30px]">
+                <hr className=" w-10/12 mx-auto bg-slate-300 my-1"></hr>
+                <div className="flex justify-between py-2 px-[100px] md:px-[50px] sm:px-4 md:mx-[50px] sm:mx-[30px] my-3">
                   <div className="cursor-pointer flex gap-2 items-center font-semibold mr-[150px] lg:mr-[120px] md:mr-[90px] sm:mr-[30px]">
                     <button
                       className={`mr-0.5 ${
@@ -141,27 +141,27 @@ const CommunityPost = () => {
                       }`}
                       onClick={handleLikeClick}
                     >
-                      <IoHeart className="w-9 h-9 md:w-6 md:h-6 sm:w-5 sm:h-5" />
+                      <IoHeart className="w-7 h-7 md:w-6 md:h-6 sm:w-5 sm:h-5" />
                     </button>
-                    <span>Like</span>
+                    <span className="text-sm">Like</span>
                   </div>
                   <div
                     className="cursor-pointer flex gap-2 items-center font-semibold mr-[150px] md:mr-[90px] sm:mr-[30px]"
                     onClick={handleCommentClick}
                   >
                     <button className="mr-0.5 text-gray-500">
-                      <IoChatboxEllipsesOutline className="w-9 h-9 md:w-6 md:h-6 sm:w-5 sm:h-5" />
+                      <IoChatboxEllipsesOutline className="w-7 h-7 md:w-6 md:h-6 sm:w-5 sm:h-5" />
                     </button>
-                    <span>Comment</span>
+                    <span className="text-sm">Comment</span>
                   </div>
-                  <div className="cursor-pointer flex gap-2 items-center font-semibold">
+                  <div className="cursor-pointer flex gap-2 items-center font-semibold ">
                     <button
                       className="text-gray-500"
                       onClick={handleShareClick}
                     >
-                      <IoShareSocial className="w-9 h-9  md:w-6 md:h-6 sm:w-5 sm:h-5" />
+                      <IoShareSocial className="w-7 h-7  md:w-6 md:h-6 sm:w-5 sm:h-5" />
                     </button>
-                    <span>Share</span>
+                    <span className="text-sm">Share</span>
                   </div>
                 </div>
               </div>

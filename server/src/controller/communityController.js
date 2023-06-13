@@ -15,12 +15,9 @@ const handleUploadPost = async (req, res) => {
 };
 const handleGetPost = async (req, res) => {
   const { id } = req.body;
-
+  // fix: fix fullname
   try {
-    const [rows] = await pool.execute(
-      "SELECT * FROM community_post WHERE id = ?",
-      [id]
-    );
+    const [rows] = await pool.execute("SELECT * FROM community_post", [id]);
 
     const results = rows.map((row) => ({
       content: row.content,

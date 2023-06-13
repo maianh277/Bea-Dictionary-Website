@@ -43,9 +43,8 @@ const Translator = () => {
   const handleSubmit = async () => {
     handleTranslation();
 
-    history();
+    history({ translationHistory });
   };
-
   return (
     <div className="bg-white min-h-screen mx-20 p-10 pt-24 shadow-xl">
       <div className="flex">
@@ -54,7 +53,7 @@ const Translator = () => {
             Translator
           </h1>
           <div className="flex sm:flex-col flex-row">
-            <div className="w-full ">
+            <div className="w-full">
               <InputBox
                 setInputText={setInputText}
                 handleSubmit={handleSubmit}

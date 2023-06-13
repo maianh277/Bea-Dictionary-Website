@@ -40,19 +40,19 @@ const CommunityCreatePost = () => {
   return (
     <div className="mt-[10px]">
       {localStorage.getItem("id") ? (
-        <div className="h-[60px] mx-[100px] lg:mx[90px] md:mx-[50px] sm:mx-[30px] bg-white shadow-lg border-black-50 rounded-[20px] border-2">
+        <div className="h-20 mx-24 lg:mx-21 md:mx-5 sm:mx-2 bg-white rounded-xl border-2">
           {!isFormVisible && (
-            <div className="flex py-2 px-10 items-center">
+            <div className="flex py-5 px-10 items-center">
               <div>
                 <img
                   src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                  className="object-left mr-5 pt-0 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
+                  className="object-left mr-3 pt-0 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
                   alt="logo"
                 />
               </div>
               <div className="w-full" onClick={handleCreatePostClick}>
                 <input
-                  className="h-8 bg-emerald-50 border-2 border-emerald-600 hover:border-emerald-400 rounded-full text-left w-full px-3"
+                  className="h-10 bg-emerald-50 border-2 border-emerald-600 hover:border-emerald-400 rounded-xl text-left w-full px-3"
                   placeholder="Create post..."
                   readOnly
                 />
@@ -77,7 +77,7 @@ const CommunityCreatePost = () => {
                         spellCheck="false"
                         id="new-posts-input-area"
                         placeholder=" import content..."
-                        className="content-input w-[300px] border-gray-900 border-[1px] rounded-lg"
+                        className="content-input border-[1px] w-[350px] rounded-lg"
                         style={{
                           overflow: "hidden",
                           overflowWrap: "break-word",
@@ -91,8 +91,8 @@ const CommunityCreatePost = () => {
                     </div>
                     <div className="media-container">
                       <div className="my-3.5">
-                        <span className="ml-20 ">
-                          <i className=" "></i>- Chọn 1 hoặc nhiều ảnh
+                        <span className="mx-24">
+                          <i className=" "></i> Chọn 1 hoặc nhiều ảnh
                           <small style={{ color: "rgb(153, 153, 153)" }}>
                             (không bắt buộc)
                           </small>{" "}
@@ -104,7 +104,7 @@ const CommunityCreatePost = () => {
                           data-toggle="tooltip"
                           data-placement="top"
                           title=""
-                          className="ml-28"
+                          className="mx-24"
                         />
                       </div>
                     </div>
@@ -113,15 +113,15 @@ const CommunityCreatePost = () => {
                       className="preview-image"
                     ></div>
                     <div id="pick-hashtag" className="prepare-hashtag">
-                      <h4 className="ml-20">
-                        - Chọn hashtag:{" "}
+                      <h4 className="mx-24">
+                        Chọn hashtag:{" "}
                         <small style={{ color: "red" }}>* bắt buộc</small>
                       </h4>
                       <select
                         multiple=""
                         id="select2-hashtag"
                         name="states[]"
-                        className="w-[60%] h-10 ml-28  border-gray-900 border-[1px] rounded-lg"
+                        className="w-[350px] h-10 mx-24 border-gray-900 border-[1px] rounded-lg"
                         tabIndex="-1"
                         aria-hidden="true"
                         onChange={(e) => {
@@ -140,24 +140,21 @@ const CommunityCreatePost = () => {
                         <option value="Other">#Other</option>
                       </select>
                     </div>
-                    <div className="post-bottom-area ml-56 mt-10">
+                    <div className="post-bottom-area my-5 flex justify-center transform -translate-x-4">
                       <button
                         type="button"
-                        className="btn post-btn mr-10 bg-teal-100 hover:bg-hoverDarkBlue hover:text-white h-8 w-20 rounded-lg"
+                        className="btn post-btn mr-3 bg-teal-100 hover:bg-teal-200 transition-all ease-in-out h-8 w-20 rounded-lg"
                         onClick={handleCancelClick}
                       >
                         <span>Hủy bỏ</span>
                       </button>
                       <button
                         type="button"
-                        className="btn post-btn text-white bg-green-700 hover:bg-hoverDarkBlue  h-8 w-20 rounded-lg"
+                        className="btn post-btn text-white bg-green-700 hover:bg-green-800 transition-all ease-in-out h-8 w-20 rounded-lg"
                         onClick={handlePostClick}
                       >
                         <span>Đăng bài</span>
-                        {/* <span style={{ display: "none" }}>Lưu <img src="https://dungmori.com/assets/img/loading.gif" className="posting-icon" /></span>
-                        <span style={{ display: "none" }}>Đã đăng bài <i className="zmdi zmdi-check-circle"></i></span> */}
                       </button>
-                      {/* <span style={{ color: "red", float: "right", margin: "4px 10px 0px 0px", display: "none" }}></span> */}
                     </div>
                   </fieldset>
                 </div>

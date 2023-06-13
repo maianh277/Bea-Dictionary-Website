@@ -25,7 +25,7 @@ const Home = () => {
           expand your vocabulary.
         </div>
         <form>
-          <div className="absolute top-[370px] 2xl:top-[320px] md:top-[350px] sm:top-[230px] sm:w-[80%] left-1/2 transform -translate-x-1/2 w-1/2  sm:text-center">
+          <div className="absolute top-[330px] 2xl:top-[320px] md:top-[350px] sm:top-[230px] sm:w-[80%] left-1/2 transform -translate-x-1/2 w-1/2  sm:text-center">
             <input
               className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white bg-opacity-70 shadow-lg"
               placeholder="Search..."
@@ -46,8 +46,8 @@ const Home = () => {
       <h1 className="text-[40px] md:text-[35px] sm:text-[30px] text-center font-Lilita">
         FINDING WORDS MORE EASIER
       </h1>
-      <div className=" gap-6 grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 sm:mx-[25%]  mx-20 mt-[40px] justify-around ">
-        <div className="h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+      <div className=" xl:mx-20 grid grid-cols-4 md:grid-cols-2 sm:mx-0 sm:my-3 sm:grid-cols-1">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-magnifying-glass mt-2.5 ml-2.5 md:text-[30px] md:mt-[0.7rem] md:ml-[0.7rem] sm:text-[40px] text-white"></i>
           </div>
@@ -58,7 +58,7 @@ const Home = () => {
             Easily to type and search.
           </p>
         </div>
-        <div className="md:h-[300px] md:w-[300px] h-[200px] w-[200px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 items-center md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-language mt-2.5 ml-2 text-white md:text-[25px] md:mt-[0.7rem] md:ml-[0.6rem] sm:text-[35px] sm:ml-[0.5rem]"></i>
           </div>
@@ -69,7 +69,7 @@ const Home = () => {
             Easily to type and search.
           </p>
         </div>
-        <div className="sm:h-[350px] sm:w-[350px] md:h-[300px] md:w-[300px] h-[200px] w-[200px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid fa-book fa-lg mt-5 ml-2.5 text-white md:text-[30px] md:mt-[1.5rem] md:ml-[0.7rem] sm:text-[40px] sm:mt-[1.7rem] sm:ml-[0.7rem]"></i>
           </div>
@@ -80,7 +80,7 @@ const Home = () => {
             Easily to type and search.
           </p>
         </div>
-        <div className="sm:h-[350px] sm:w-[350px] md:h-[300px] md:w-[300px] h-[200px] w-[200px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-globe mt-2.5 ml-2.5 text-white md:text-[30px] md:mt-[0.7rem] md:ml-[0.7rem] sm:text-[40px] "></i>
           </div>
@@ -95,7 +95,7 @@ const Home = () => {
       <h1 className="font-bold text-[40px] mt-[100px] mb-5 text-center font-Lilita md:text-[35px] sm:text-[30px]">
         A DICTIONARY FOR EVERYONE
       </h1>
-      <div className="flex  md:max-w-[50rem] md:mx-[30px] sm:mx-[10px]">
+      <div className="flex mx-20 ">
         <span className="mx-10 text-[16px] md:text-[15px] sm:text-[14px] md:mx-5 sm:mx-[10px]">
           <p className="mb-3">
             With our easy-to-use search bar, you can find definitions, synonyms,
@@ -120,7 +120,7 @@ const Home = () => {
         <img
           src={Globe}
           alt="Boy with the globe"
-          className="w-1/3 md:shrink-0 "
+          className="w-1/3 md:shrink-0 md:w-100 "
         />
       </div>
       <div>

@@ -30,7 +30,7 @@ const LoginForm = () => {
       <section>
         <div className="py-10">
           <div className="max-w-[500px] mx-auto">
-            <h1 className="text-center text-[38px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-4">
+            <h1 className="text-center text-[38px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita">
               WELCOME TO OUR WEBSITE
             </h1>
 
@@ -41,8 +41,8 @@ const LoginForm = () => {
                   Sign up
                 </Link>
               </p>
-              <div className="flex flex-wrap mb-6 items-center -mx-2">
-                <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
+              <div className="flex flex-wrap mb-2 items-center -mx-2">
+                <div className="w-full md:w-1/2 px-2 md:mb-0">
                   <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
                     <i className="fa-brands fa-facebook fa-lg"></i>
 
@@ -51,16 +51,8 @@ const LoginForm = () => {
                     </span>
                   </Link>
                 </div>
-                <div className="w-full md:w-1/2 px-2">
-                  <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
-                    <i className="fa-brands fa-google fa-lg"></i>
-                    <span className="ml-4 text-sm font-semibold text-gray-500">
-                      Login with Apple
-                    </span>
-                  </Link>
-                </div>
               </div>
-              <hr className="h-[1px] my-8 bg-gray-200 border-0 rounded dark:bg-green-500"></hr>
+              <hr className="h-[0.1px] bg-gray-200 rounded dark:bg-green-500"></hr>
               <div>
                 <input
                   name="email"
