@@ -12,17 +12,25 @@ const handleSignup = async (req, res) => {
     });
   }
 
+  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+  if (!isValidEmail) {
+    return res.status(400).json({
+      errCode: 2,
+      message: "Email is invalid",
+    });
+  }
+
   try {
-    //hashed password
+    // hashed password
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
 
-    //SQL adding user into database
+    // SQL adding user into the database
     const [result] = await pool.execute(
       "INSERT INTO users_login (fullname, email, password) VALUES (?,?,?)",
       [fullname, email, hashed]
     );
-    // console.log(result);
+
     const insertId = result.insertId;
     const saveWords = {};
     const saveTranslation = {};
@@ -57,6 +65,13 @@ const handleLogin = async (req, res) => {
   if (!email || !password) {
     return res.status(500).json({
       message: "Missing parameters",
+    });
+  }
+  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+  if (!isValidEmail) {
+    return res.status(400).json({
+      errCode: 2,
+      message: "Email is invalid",
     });
   }
 
