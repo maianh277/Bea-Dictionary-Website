@@ -1,10 +1,12 @@
 import React  from "react";
 import { IoCalendar } from "react-icons/io5";
 // import { Link, useNavigate } from "react-router-dom";
+import BackToTopButton from "../component/BackToTopButton";
 
 const Policy = () => {
 
     return (
+        <div className="">
         <div className="pt-[120px] min-h-screen bg-white  mx-[150px] md:mx-[70px] sm:mx-[40px] p-10  shadow-xl">
             <h1 className="text-[30px] md:text-[23px] sm:text-[20px] text-green-600 font-bold  flex items-center justify-center ">Privacy Policy for Bea Dictionary</h1>
             <div className="flex items-center py-2  justify-center">
@@ -71,6 +73,8 @@ const Policy = () => {
                 </div>
                 <p className="mt-4 font-bold">Thank you for reading our privacy policy.</p>
             </div>
+        </div>
+        <BackToTopButton></BackToTopButton>
         </div>
     );
 };
