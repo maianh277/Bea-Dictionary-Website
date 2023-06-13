@@ -168,9 +168,9 @@ const CommunityPost = () => {
               {showCommentForm && (
                 <form
                   onSubmit={handleCommentSubmit}
-                  className=" w-full py-2 px-[40px] md:px-[10px] sm:px-4 "
+                  className=" w-full px-[40px] mb-4 md:px-[10px] sm:px-4 "
                 >
-                  <div className="gap-3 grid-cols-3 flex justify-start items-center pt-3 w-full">
+                  <div className="gap-3 grid-cols-3 flex justify-start items-center w-full">
                     <div>
                       <Link to="/profile">
                         <img
@@ -189,7 +189,7 @@ const CommunityPost = () => {
                     />
                     <button
                       type="submit"
-                      className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+                      className="px-4 py-2 bg-teal-500 hover:bg-teal-600 active:bg-teal-800 transition-all ease-out text-white rounded-md"
                     >
                       Send
                     </button>

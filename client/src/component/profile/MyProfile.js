@@ -16,7 +16,7 @@ const MyProfile = () => {
         <h3 className="ps-[150px] text-left text-2xl  py-4 font-bold">
           My profile
         </h3>
-        <div className=" gap-5 grid-cols-4 flex justify-start items-center">
+        <div className="gap-5 grid-cols-4 flex justify-start items-center">
           {user.avatar ? (
             <img
               src={`../../../../server/${user.avatar.replace(/\\/g, "/")}`}
@@ -38,7 +38,7 @@ const MyProfile = () => {
       </div>
       <div className="mx-20 my-10">
         <h3 className="font-bold text-xl subpixel-antialiased">Account info</h3>
-        <hr className="mb-3"></hr>
+        <hr className="mb-3" />
         <div className="text-sm">{user.bio}</div>
         <div>
           <table className="text-xs text-left">
@@ -65,7 +65,7 @@ const MyProfile = () => {
         <h3 className="font-bold text-xl text-left subpixel-antialiased">
           Social accounts
         </h3>
-        <hr className="mb-3"></hr>
+        <hr className="mb-3" />
         <div>
           <table className="text-xs text-left items-center mb-10 mt-3">
             <tr>
