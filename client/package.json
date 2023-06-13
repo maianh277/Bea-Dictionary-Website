@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@google-cloud/translate": "^7.2.1",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,9 +24,15 @@
     "react-dom": "^18.2.0",
     "react-headroom": "^3.2.1",
     "react-icons": "^4.9.0",
+    "react-redux": "^8.1.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
+    "redux": "^4.2.1",
+    "redux-form": "^8.3.10",
+=======
     "react-slick": "^0.29.0",
+>>>>>>> 9077c7438ccbf0e7e454209f944df41e871d09f4
     "sort-by": "^1.2.0",
     "translate-google": "^1.5.0",
     "universal-cookie": "^4.0.4",

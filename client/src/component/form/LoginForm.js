@@ -22,6 +22,9 @@ const LoginForm = () => {
     });
   }
 
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <div className="w-2/3 md:w-3/4 sm:w-1/2 pt-24 mx-auto">
       <section>
@@ -64,9 +67,7 @@ const LoginForm = () => {
                   className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none sm:text-sm rounded-lg block w-full p-2.5"
                   required=""
                   placeholder="Email"
-                  onChange={(e) => {
-                    return setEmail(e.target.value);
-                  }}
+                  onChange={handleChangeEmail}
                 />
               </div>
               <div class="relative">

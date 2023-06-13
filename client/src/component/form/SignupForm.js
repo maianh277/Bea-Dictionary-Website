@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../api/auth";
 
@@ -8,10 +8,12 @@ const SignupForm = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  // const [isValid, setIsValid] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     signup({
       fullname,
       email,
@@ -22,11 +24,26 @@ const SignupForm = () => {
     });
   }
 
+  const handleInputEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
   return (
-<div className="w-1/3 md:w-3/4 sm:w-1/2 mx-auto">
+    <div className="w-1/3 md:w-3/4 sm:w-1/2 mx-auto">
       <section className="bg-white pt-16">
         <div className="my-10">
           <div className="max-w-[500px] mx-auto">
+<<<<<<< HEAD
+            <h1 className="text-center text-[30px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-8">
+              {" "}
+              CREATE NEW ACCOUNT
+            </h1>
+            <div className="space-y-4 md:space-y-6" action="#">
+              <p className="text-center text-sm font-light text-gray-500">
+                You already have an account?{" "}
+                <Link to="/login" className="font-medium text-[#FFB800]">
+                  Log in
+=======
 
           
             <h1 className="text-center text-[30px] md:text-[35px] sm:text-[30px] tracking-tight text-gray-900 font-Lilita mb-4">
@@ -47,95 +64,103 @@ const SignupForm = () => {
                   <span className="ml-4 text-sm font-semibold text-gray-500">
                     Login with Facebook
                   </span>
+>>>>>>> 9077c7438ccbf0e7e454209f944df41e871d09f4
                 </Link>
+              </p>
+              <div className="flex flex-wrap mb-6 items-center -mx-2">
+                <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
+                  <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
+                    <i className="fa-brands fa-facebook fa-lg"></i>
+                    <span className="ml-4 text-sm font-semibold text-gray-500">
+                      Login with Facebook
+                    </span>
+                  </Link>
+                </div>
+                <div className="w-full md:w-1/2 px-2">
+                  <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
+                    <i className="fa-brands fa-google fa-lg"></i>
+                    <span className="ml-4 text-sm font-semibold text-gray-500">
+                      Login with Apple
+                    </span>
+                  </Link>
+                </div>
               </div>
-              <div className="w-full md:w-1/2 px-2">
-                <Link className="inline-flex w-full py-3 px-4 items-center justify-center rounded-lg border border-teal-500 hover:border-gray-400 transition duration-100">
-                  <i className="fa-brands fa-google fa-lg"></i>
-                  <span className="ml-4 text-sm font-semibold text-gray-500">
-                    Login with Apple
-                  </span>
-                </Link>
-              </div>
-            </div>
-            <hr className=" h-[1px] my-2 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
-            <form>
-              <div>
+              <hr className=" h-[1px] my-2 bg-gray-200 border-0 rounded dark:bg-green-500 "></hr>
+              <form>
+                <div>
+                  <div className="my-3">
+                    <input
+                      name="fname"
+                      className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                      placeholder="First Name"
+                      required=""
+                      onChange={(e) => {
+                        setFullname(e.target.value);
+                      }}
+                      autoComplete="given-name"
+                    />
+                  </div>
+
+                  <input
+                    type="email"
+                    name="email"
+                    className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
+                    placeholder="Your email"
+                    label="Your email"
+                    required=""
+                    onChange={handleInputEmail}
+                    autoComplete="email"
+                  />
+                </div>
                 <div className="my-3">
                   <input
-                    name="fname"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
                     className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
-                    placeholder="First Name"
                     required=""
                     onChange={(e) => {
-                      setFullname(e.target.value);
+                      setPassword(e.target.value);
                     }}
-                    autoComplete="given-name"
                   />
                 </div>
-
-                <input
-                  type="email"
-                  name="email"
-                  className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="Your email"
-                  required=""
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  autoComplete="email"
-                />
-              </div>
-              <div className="my-3">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="bg-gray-100 px-5 py-4 border focus:border-teal-500 focus:outline-none  sm:text-sm rounded-lg block w-full p-2.5"
-                  required=""
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  autoComplete="new-password"
-                />
-              </div>
-              {(errorMessage || successMessage) && (
-                <div className="text-red-500 text-sm mb-2">
-                  {errorMessage || successMessage}
+                {(errorMessage || successMessage) && (
+                  <div className="text-red-500 text-sm mb-2">
+                    {errorMessage || successMessage}
+                  </div>
+                )}
+                <div className="flex my-3">
+                  <div>
+                    <input
+                      aria-describedby="remember"
+                      type="checkbox"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
+                      required=""
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label className="text-black dark:text-gray-300">
+                      I agree to receive updates my subscription, promo emails
+                      and and special offers (you can unsubscribe at any time)
+                    </label>
+                  </div>
                 </div>
-              )}
-              <div className="flex my-3">
-                <div>
-                  <input
-                    aria-describedby="remember"
-                    type="checkbox"
-                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                    required=""
-                  />
+                <div className="flex my-3">
+                  <div className="flex ">
+                    <input
+                      id="subscription"
+                      aria-describedby="remember"
+                      type="checkbox"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
+                      required=""
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label className="text-black dark:text-gray-300">
+                      I agree to Terms and Privacy Policy form Website's name
+                    </label>
+                  </div>
                 </div>
-                <div className="ml-3 text-sm">
-                  <label className="text-black dark:text-gray-300">
-                    I agree to receive updates my subscription, promo emails and
-                    and special offers (you can unsubscribe at any time)
-                  </label>
-                </div>
-              </div>
-              <div className="flex my-3">
-                <div className="flex ">
-                  <input
-                    id="subscription"
-                    aria-describedby="remember"
-                    type="checkbox"
-                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300"
-                    required=""
-                  />
-                </div>
-                <div className="ml-3 text-sm">
-                  <label className="text-black dark:text-gray-300">
-                    I agree to Terms and Privacy Policy form Website's name
-                  </label>
-                </div>
-              </div>
 
                 <button
                   type="submit"
@@ -152,5 +177,4 @@ const SignupForm = () => {
     </div>
   );
 };
-
 export default SignupForm;
