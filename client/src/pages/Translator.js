@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from "react";
 import InputBox from "../component/translator/InputBox";
 import AnswerBox from "../component/translator/AnswerBox";
-// import History from "../component/translator/History";
+import History from "../component/translator/History";
 import { history } from "../api/translation";
 import axios from "axios";
 
 const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
-  // const [translationHistory, setTranslationHistory] = useState(() => {
-  //   const savedHistory = localStorage.getItem("translationHistory");
-  //   return savedHistory ? JSON.parse(savedHistory) : [];
-  // });
-
-  // useEffect(() => {
-  //   localStorage.setItem(
-  //     "translationHistory",
-  //     JSON.stringify(translationHistory)
-  //   );
-  // }, [translationHistory]);
 
   const handleTranslation = async () => {
     try {
@@ -39,11 +28,15 @@ const Translator = () => {
     const translation = await handleTranslation();
 
     setTranslatedText(translation);
-
+    // const newTranslation = {
+    //   inputText,
+    //   translatedText: translation,
+    // };
     await history({
       inputText,
-      translatedText,
+      translatedText: translation,
     });
+    // setTranslationHistory([newTranslation, ...translationHistory]);
   };
 
   return (
@@ -60,11 +53,14 @@ const Translator = () => {
                 handleSubmit={handleSubmit}
               />
             </div>
-            <div className="w-full ">
-              <AnswerBox translatedText={translatedText} />
+            <div className="w-full">
+              <AnswerBox
+                setTranslatedText={setTranslatedText}
+                translatedText={translatedText}
+              />
             </div>
           </div>
-          {/* <History translationHistory={translationHistory} /> */}
+          <History />
         </div>
       </div>
     </div>

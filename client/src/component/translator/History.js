@@ -3,31 +3,12 @@ import axios from "axios";
 
 const History = () => {
   const [translationHistory, setTranslationHistory] = useState([]);
-  const [savedTranslations, setSavedTranslations] = useState([]);
 
   useEffect(() => {
-    fetchTranslationHistory();
-    fetchSavedTranslations();
+    savedTranslation();
   }, []);
 
-  const fetchTranslationHistory = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/get-translation",
-        {
-          id: localStorage.getItem("id"),
-        }
-      );
-
-      if (response.status === 200) {
-        setTranslationHistory(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const fetchSavedTranslations = async () => {
+  const savedTranslation = async () => {
     try {
       const response = await axios.post(
         "http://localhost:8080/getTranslation",
@@ -37,7 +18,7 @@ const History = () => {
       );
 
       if (response.status === 200) {
-        setSavedTranslations(response.data);
+        setTranslationHistory(response.data);
       }
     } catch (error) {
       console.error(error);
@@ -53,26 +34,11 @@ const History = () => {
         >
           <div>
             <div className="font-bold text-green-500 text-[18px]">
-              {entry.inputText}
+              {entry.para_before}
             </div>
-            <p className="text-sm">{entry.translatedText}</p>
+            <p className="text-sm">{entry.para_after}</p>
           </div>
-          <p className="text-sm">{entry.date}</p>
-        </div>
-      ))}
-
-      {savedTranslations.map((entry, index) => (
-        <div
-          key={index}
-          className="shadow-lg rounded-lg p-4 my-5 flex flex-row justify-between"
-        >
-          <div>
-            <div className="font-bold text-green-500 text-[18px]">
-              {entry.inputText}
-            </div>
-            <p className="text-sm">{entry.translatedText}</p>
-          </div>
-          <p className="text-sm">{entry.date}</p>
+          <p className="text-sm">{entry.time}</p>
         </div>
       ))}
     </div>
