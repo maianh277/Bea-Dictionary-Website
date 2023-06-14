@@ -8,7 +8,7 @@ import axios from "axios";
 const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
-
+  // const [translationHistory, setTranslationHistory] = useState([]);
   const handleTranslation = async () => {
     try {
       const response = await axios.post("http://localhost:8080/translate", {
@@ -35,7 +35,9 @@ const Translator = () => {
     await history({
       inputText,
       translatedText: translation,
+      // newTranslation,
     });
+    // fix
     // setTranslationHistory([newTranslation, ...translationHistory]);
   };
 

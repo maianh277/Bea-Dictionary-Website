@@ -17,10 +17,10 @@ const CommunityPost = () => {
   const handleLikeClick = () => {
     setIsLiked(!isLiked);
   };
-  getDetailUser({
-    setUser,
-    user,
-  });
+  // getDetailUser({
+  //   setUser,
+  //   user,
+  // });
   useEffect(() => {
     getpost({
       setIsComment,
@@ -78,7 +78,7 @@ const CommunityPost = () => {
                   </div>
                   <div className="ml-1 text-left content-center">
                     <h2 className="text-[15px] font-bold inline-block md:mr-2  sm:mb-0 cursor-pointer">
-                      {user.fullname}
+                      {post.fullname}
                     </h2>
                     <h5 className="text-[12px]">#{post.hashtag}</h5>
                   </div>

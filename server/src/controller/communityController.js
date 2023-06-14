@@ -17,11 +17,15 @@ const handleGetPost = async (req, res) => {
   const { id } = req.body;
   // fix: fix fullname
   try {
-    const [rows] = await pool.execute("SELECT * FROM community_post", [id]);
+    const [rows] = await pool.execute(
+      "SELECT * FROM community_post JOIN users_login ON community_post.id = users_login.id ",
+      [id]
+    );
 
     const results = rows.map((row) => ({
       content: row.content,
       hashtag: row.hashtag,
+      fullname: row.fullname,
     }));
 
     res.send(results);
