@@ -51,19 +51,25 @@ const Footer = () => {
                 </h2>
                 <ul className="text-baseBlue font-medium">
                   <li className="mb-4">
-                    <a href="#" className="hover:underline">
-                      Word
-                    </a>
+                    <Link to = "/dictionary">
+                      <a  className="hover:underline">
+                        Word
+                      </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="#" className="hover:underline">
-                      Translation
-                    </a>
+                    <Link to = "/translation">
+                      <a  className="hover:underline">
+                        Translation
+                      </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="#" className="hover:underline">
-                      Community
-                    </a>
+                    <Link to = "/community">
+                      <a  className="hover:underline">
+                        Community
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
