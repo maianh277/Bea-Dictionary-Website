@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import InputBox from "../component/translator/InputBox";
 import AnswerBox from "../component/translator/AnswerBox";
-import History from "../component/translator/History";
+// import History from "../component/translator/History";
 import { history } from "../api/translation";
 import axios from "axios";
 
 const Translator = () => {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
-  const [translationHistory, setTranslationHistory] = useState(() => {
-    const savedHistory = localStorage.getItem("translationHistory");
-    return savedHistory ? JSON.parse(savedHistory) : [];
-  });
+  // const [translationHistory, setTranslationHistory] = useState(() => {
+  //   const savedHistory = localStorage.getItem("translationHistory");
+  //   return savedHistory ? JSON.parse(savedHistory) : [];
+  // });
 
-  useEffect(() => {
-    localStorage.setItem(
-      "translationHistory",
-      JSON.stringify(translationHistory)
-    );
-  }, [translationHistory]);
+  // useEffect(() => {
+  //   localStorage.setItem(
+  //     "translationHistory",
+  //     JSON.stringify(translationHistory)
+  //   );
+  // }, [translationHistory]);
 
   const handleTranslation = async () => {
     try {
@@ -28,23 +28,24 @@ const Translator = () => {
 
       const translation = response.data.translation;
 
-      const newTranslation = {
-        inputText: inputText,
-        translatedText: translation,
-        date: new Date().toLocaleString(),
-      };
-
-      setTranslationHistory((prevHistory) => [...prevHistory, newTranslation]);
       setTranslatedText(translation);
+      return translation;
     } catch (error) {
       console.error(error);
     }
   };
-  const handleSubmit = async () => {
-    handleTranslation();
 
-    history({ translationHistory });
+  const handleSubmit = async () => {
+    const translation = await handleTranslation();
+
+    setTranslatedText(translation);
+
+    await history({
+      inputText,
+      translatedText,
+    });
   };
+
   return (
     <div className="bg-white min-h-screen mx-20 p-10 pt-24 shadow-xl">
       <div className="flex">
@@ -63,7 +64,7 @@ const Translator = () => {
               <AnswerBox translatedText={translatedText} />
             </div>
           </div>
-          <History translationHistory={translationHistory} />
+          {/* <History translationHistory={translationHistory} /> */}
         </div>
       </div>
     </div>

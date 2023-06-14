@@ -1,13 +1,13 @@
 import axios from "axios";
-const url = "http://localhost:8080/";
-
 export const history = async (data) => {
   try {
     const response = await axios.post(
       "http://localhost:8080/translatehistory",
       {
         id: localStorage.getItem("id"),
-        para: localStorage.getItem("translationHistory"),
+        para_before: data.inputText,
+        para_after: data.translatedText,
+        time: new Date().toLocaleString(),
       }
     );
 

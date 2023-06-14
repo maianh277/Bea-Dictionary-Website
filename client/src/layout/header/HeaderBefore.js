@@ -189,9 +189,7 @@ const HeaderBefore = () => {
                     {!localStorage.getItem("id") ? (
                       <li className="hover:text-hoverDarkBlue hover:font-bold flex gap-3  ease-in-out transition-all mx-4 my-6 md:my-0">
                         <div className="w-[2.5rem] items-center z-[-1] ">
-                          <Link onClick={handleMenu} to="/login">
-                            <p> Login </p>
-                          </Link>
+                          <Link to="/login">Login</Link>
                         </div>
                       </li>
                     ) : (
