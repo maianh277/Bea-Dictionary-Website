@@ -32,3 +32,13 @@ export const getpost = async (data) => {
     console.log(error);
   }
 };
+
+// export const deletepost = async (data) => {
+//   try {
+//     await axios.delete("http://localhost:8080/deletePost", {
+//       data: { data },
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

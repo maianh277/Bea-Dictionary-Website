@@ -15,7 +15,7 @@ const handleUploadPost = async (req, res) => {
 };
 const handleGetPost = async (req, res) => {
   const { id } = req.body;
-  // fix: fix fullname
+
   try {
     const [rows] = await pool.execute(
       "SELECT * FROM community_post JOIN users_login ON community_post.id = users_login.id ",
@@ -26,6 +26,7 @@ const handleGetPost = async (req, res) => {
       content: row.content,
       hashtag: row.hashtag,
       fullname: row.fullname,
+      id_post: row.id_post,
     }));
 
     res.send(results);
@@ -34,5 +35,17 @@ const handleGetPost = async (req, res) => {
     res.status(500).send("Error occurred");
   }
 };
+const handleDeletePost = async (req, res) => {
+  const { id_post } = req.body;
+  try {
+    await pool.execute("DELETE FROM community_post WHERE `id_post` = ?", [
+      id_post,
+    ]);
+    res.send("Post deleted successfully");
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Error occurred");
+  }
+};
 
-export default { handleUploadPost, handleGetPost };
+export default { handleUploadPost, handleGetPost, handleDeletePost };
