@@ -43,11 +43,11 @@ const Home = () => {
       <h1 className="text-10 sm:text-11 mt-[0px] text-center font-Lilita text-green-600">
         FEATURES{" "}
       </h1>
-      <h1 className="text-[40px] md:text-[35px] sm:text-[30px] text-center font-Lilita">
+      <h1 className="text-[40px] md:text-[35px] sm:text-[30px] text-center font-Lilita pb-10">
         FINDING WORDS MORE EASIER
       </h1>
       <div className=" xl:mx-20 grid grid-cols-4 md:grid-cols-2 sm:mx-0 sm:my-3 sm:grid-cols-1">
-        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all my-10">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-magnifying-glass mt-2.5 ml-2.5 md:text-[30px] md:mt-[0.7rem] md:ml-[0.7rem] sm:text-[40px] text-white"></i>
           </div>
@@ -58,18 +58,18 @@ const Home = () => {
             Easily to type and search.
           </p>
         </div>
-        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all my-10">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 items-center md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-language mt-2.5 ml-2 text-white md:text-[25px] md:mt-[0.7rem] md:ml-[0.6rem] sm:text-[35px] sm:ml-[0.5rem]"></i>
           </div>
-          <h1 className="text-center font-bold mt-4 mb-0 md:text-[20px] sm:text-[25px]">
+          <h1 className="text-center font-bold mt-4 mb-0 md:text-[20px] sm:text-[25px] ">
             Translation
           </h1>
           <p className="text-sm w-2/3 font-semibold text-center m-auto md:text-[15px] sm:text-[17px]">
             Easily to type and search.
           </p>
         </div>
-        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all my-10">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid fa-book fa-lg mt-5 ml-2.5 text-white md:text-[30px] md:mt-[1.5rem] md:ml-[0.7rem] sm:text-[40px] sm:mt-[1.7rem] sm:ml-[0.7rem]"></i>
           </div>
@@ -80,7 +80,7 @@ const Home = () => {
             Easily to type and search.
           </p>
         </div>
-        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all">
+        <div className="mx-auto h-[200px] w-[200px] md:h-[300px] md:w-[300px] sm:h-[350px] sm:w-[350px] bg-green-100 rounded-lg hover:ease-in-out hover:scale-125 transition-all my-10">
           <div className="h-10 w-10 rounded-md bg-green-300 mt-10 ml-20 md:h-[50px] md:w-[50px] md:mt-[4rem] md:ml-[8rem] sm:h-[60px] sm:w-[60px] sm:mt-[5rem] sm:ml-[9rem]">
             <i className="fa-solid leading-none fa-lg fa-globe mt-2.5 ml-2.5 text-white md:text-[30px] md:mt-[0.7rem] md:ml-[0.7rem] sm:text-[40px] "></i>
           </div>
