@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Word from "../../component/word/Word";
+import Beanotelist from "../../assets/notelist.png";
 
 const SearchDemo = () => {
   const [searchedWord, setSearchedWord] = useState("");
@@ -64,6 +65,15 @@ const SearchDemo = () => {
           phonetics={phonetics}
           partOfSpeech={partOfSpeech}
         />
+      )}
+      {!searchedWord && (
+      <div className="flex item-center justify-center ">
+        <img
+          className=" sm:h-[70px] sm:w-[70px] items-center"
+          src={Beanotelist}
+          alt="logo"
+        />
+      </div>
       )}
     </div>
   );

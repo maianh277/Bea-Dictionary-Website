@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Beanote from "../assets/note.png"
 
 const WordLists = () => {
   const [savedWords, setSavedWords] = useState([]);
@@ -65,10 +66,15 @@ const WordLists = () => {
           </div>
         ))
       ) : (
-        <p className="text-xl font-bold text-center my-5">
-          You have no saved words :(
-        </p>
+        <div className="flex item-center justify-center ">
+          <img
+            className=" sm:h-[70px] sm:w-[70px] items-center"
+            src={Beanote}
+            alt="logo"
+          />
+      </div>
       )}
+      
     </div>
   );
 };

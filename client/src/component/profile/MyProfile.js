@@ -83,7 +83,7 @@ const MyProfile = () => {
         <Link to="/setting">
           <button
             type="submit"
-            className="text-white w-1/4 h-10 bg-baseBlue font-bold rounded-lg hover:bg-teal-500 active:bg-teal-700 ease-in-out transition-all"
+            className="text-white w-[150px] h-10 bg-baseBlue font-bold rounded-lg hover:bg-teal-500 active:bg-teal-700 ease-in-out transition-all"
           >
             EDIT PROFILE
           </button>

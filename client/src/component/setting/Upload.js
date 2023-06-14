@@ -36,12 +36,12 @@ const Upload = () => {
   };
 
   return (
-    <div className="w-max">
-      <h1 className="text-md mx-8 my-2 text-gray-500 font-bold">
+    <div className="w-max sm:mr-3">
+      <h1 className="text-md sm:text[10px] mx-8 sm:mx-3 my-2 sm:my-3 text-gray-500 font-bold">
         Your Profile Picture
       </h1>
       <div
-        className="w-[150px] h-[150px] border-gray-500 border-2 mx-8 rounded-xl border-dashed bg-gray-100 relative cursor-pointer"
+        className="w-[150px] h-[150px] sm:w-[120px] sm:h-[120px] border-gray-500 border-2 mx-8 sm:mx-3 rounded-xl border-dashed bg-gray-100 relative cursor-pointer"
         onClick={handleDivClick}
       >
         {selectedImage ? (

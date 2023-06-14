@@ -22,7 +22,7 @@ const Form = () => {
       <section className="bg-white">
         <div className="flex justify-between md:h-screen lg:py-0">
           <div className=" bg-white md:mt-0 xl:p-0 w-full">
-            <div className="space-y-4 md:space-y-6 sm:p-8">
+            <div className="space-y-4 md:space-y-6 sm:p-0">
               <form className="space-y-4 md:space-y-6">
                 <div className=" grid grid-cols-2 gap-3">
                   {/* Fullname */}
@@ -99,7 +99,7 @@ const Form = () => {
                 <div>
                   <button
                     type="submit"
-                    className="text-white w-1/6 h-10 font-[300px] bg-baseBlue rounded-lg"
+                    className="text-white w-[150px] h-10 font-[300px] bg-baseBlue hover:bg-teal-600 rounded-lg"
                     onClick={handleSubmit}
                   >
                     Update Profile
