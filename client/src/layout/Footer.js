@@ -51,7 +51,7 @@ const Footer = () => {
                 </h2>
                 <ul className="text-baseBlue font-medium">
                   <li className="mb-4">
-                    <Link to = "/setting">
+                    <Link to = "/wordlists">
                       <a  className="hover:underline">
                         Word
                       </a>

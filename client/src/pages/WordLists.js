@@ -68,7 +68,7 @@ const WordLists = () => {
       ) : (
         <div className="flex item-center justify-center ">
           <img
-            className=" sm:h-[70px] sm:w-[70px] items-center"
+            className=" items-center"
             src={Beanote}
             alt="logo"
           />
