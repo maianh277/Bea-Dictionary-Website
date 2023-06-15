@@ -16,6 +16,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     editUser({ fullname, email, bio, phone });
+    window.location.href="http://localhost:3000/profile"
   };
   return (
     <div className="w-full h-min">

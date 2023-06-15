@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Beanote from "../assets/note.png"
+import Beanote from "../assets/note.png";
 
 const WordLists = () => {
   const [savedWords, setSavedWords] = useState([]);
@@ -44,7 +44,7 @@ const WordLists = () => {
 
   return (
     <div className="bg-white min-h-screen mx-20 md:mx-15 sm:mx-10 p-10 pt-24 shadow-xl">
-    <h1 className="text-[2.25rem] font-bold text-center text-green-500">
+      <h1 className="text-[2.25rem] font-bold text-center text-teal-500">
         Your Wordlists
       </h1>
       {savedWords.length > 0 ? (
@@ -67,14 +67,9 @@ const WordLists = () => {
         ))
       ) : (
         <div className="flex item-center justify-center ">
-          <img
-            className=" items-center"
-            src={Beanote}
-            alt="logo"
-          />
-      </div>
+          <img className=" items-center" src={Beanote} alt="logo" />
+        </div>
       )}
-      
     </div>
   );
 };

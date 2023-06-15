@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
-
 const Dictionary = () => {
   const [word, setWord] = useState("");
   const [definitions, setDefinitions] = useState([]);
@@ -24,7 +23,7 @@ const Dictionary = () => {
   return (
     <div className="bg-white  min-h-screen p-10 shadow-xl py-40 ">
       <div className="">
-        <h1 className="mx-20 md:mx-[80px] sm:mx-[30px] -mb-3 text-[35px] text-green-600 font-bold">
+        <h1 className="mx-20 md:mx-[80px] sm:mx-[30px] -mb-3 text-[35px] text-teal-600 font-bold">
           Dictionary
         </h1>
         <form className="w-3/4 m-auto" onSubmit={handleSubmit}>

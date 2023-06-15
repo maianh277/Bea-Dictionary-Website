@@ -40,7 +40,7 @@ const History = ({ setTranslationHistory, translationHistory }) => {
             className="shadow-lg rounded-lg p-4 my-5 flex flex-row justify-between"
           >
             <div>
-              <div className="font-bold text-green-500 text-[18px]">
+              <div className="font-bold text-teal-500 text-[18px]">
                 {trans.para_before}
               </div>
               <p className="text-sm">{trans.para_after}</p>

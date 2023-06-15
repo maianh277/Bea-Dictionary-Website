@@ -6,16 +6,11 @@ import BackToTopButton from "../component/BackToTopButton";
 const Home = () => {
   return (
     <div className=" ">
-    
-      <div className="relative -mt-4 pt-3 w-[100%] mb-[50px] h-[500px] mx-auto bg-gradient-to-r from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% bg-cover ">
+      <div className="relative -mt-4 pt-3 w-[100%] mb-[50px] sm:h-[500px] h-[750px] mx-auto bg-gradient-to-r from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% bg-cover ">
         {/* <img src = {logo} alt = "" className = "h-10 w-10"/> */}
-        <div className="md:flex lg:flex xl:flex 2xl:flex sm:ml-[50px] ">
+        <div className="mt-[100px] md:flex lg:flex xl:flex 2xl:flex sm:ml-[50px] ">
           <div className=" md:w-[600px] mt-[50px] md:mt-[90px] sm:mt-[110px] sm:hidden mx-5">
-            <img
-                src={Book}
-                alt="Bg"
-                className="w-full "
-              />
+            <img src={Book} alt="Bg" className="w-full " />
           </div>
           <div className="mt-[100px]  ">
             <div className=" mt-[10px] top-[90px] sm:mt-5 sm:top-[70px] md:top-[80px] text-[17px] sm:text-[15px] md:text-[16px]  font-bold text-teal-600 font-Lilita md:flex">
@@ -26,8 +21,8 @@ const Home = () => {
             </div>
             <div className="  mb-[20px] top-[230px] sm:top-[290px] md:top-[230px] lg:top-[220px] text-[19px] sm:text-[15px] md:text-[17px] text-green-800 font-semibold mr-[50px]">
               Our dictionary is a comprehensive resource for all your language
-              needs. Whether you're a student, a professional, or simply looking to
-              expand your vocabulary.
+              needs. Whether you're a student, a professional, or simply looking
+              to expand your vocabulary.
             </div>
             <form>
               <div className=" top-[330px] 2xl:top-[320px] md:top-[350px] sm:top-[230px] sm:text-center flex ">
@@ -44,15 +39,13 @@ const Home = () => {
                 </button>
               </div>
             </form>
+          </div>
         </div>
-        
-        </div>
-        
       </div>
-      <h1 className="text-10 sm:text-11 mt-[0px] text-center font-Lilita text-green-600">
+      <h1 className="pt-10 text-10 sm:text-11 mt-[0px] text-center font-Lilita text-green-600">
         FEATURES{" "}
       </h1>
-      <h1 className="text-[40px] md:text-[35px] sm:text-[30px] text-center font-Lilita pb-10">
+      <h1 className="text-[40px] md:text-[35px] sm:text-[30px] text-center font-Lilita">
         FINDING WORDS MORE EASIER
       </h1>
       <div className=" xl:mx-20 grid grid-cols-4 md:grid-cols-2 sm:mx-0 sm:my-3 sm:grid-cols-1">

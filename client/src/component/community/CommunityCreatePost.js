@@ -47,13 +47,13 @@ const CommunityCreatePost = () => {
               <div>
                 <img
                   src="https://mdbootstrap.com//img/Photos/Square/1.jpg"
-                  className="object-left mr-3 pt-0 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-green-900 p-[2px]"
+                  className="object-left mr-3 pt-0 sm:w-8 sm:h-8 w-10 h-10 object-cover rounded-full border-2 border-teal-900 p-[2px]"
                   alt="logo"
                 />
               </div>
               <div className="w-full" onClick={handleCreatePostClick}>
                 <input
-                  className="h-10 bg-emerald-50 border-2 border-emerald-600 hover:border-emerald-400 rounded-xl text-left w-full px-3"
+                  className="h-10 bg-emerald-50 border-2  hover:border-emerald-400 rounded-xl text-left w-full px-3"
                   placeholder="Create post..."
                   readOnly
                 />
@@ -151,7 +151,7 @@ const CommunityCreatePost = () => {
                       </button>
                       <button
                         type="button"
-                        className="btn post-btn text-white bg-green-700 hover:bg-green-800 transition-all ease-in-out h-8 w-20 rounded-lg"
+                        className="btn post-btn text-white bg-teal-700 hover:bg-teal-800 transition-all ease-in-out h-8 w-20 rounded-lg"
                         onClick={handlePostClick}
                       >
                         <span>Đăng bài</span>

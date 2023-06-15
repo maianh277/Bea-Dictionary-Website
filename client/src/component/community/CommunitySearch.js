@@ -18,7 +18,7 @@ const CommunitySearch = () => {
         </div>
 
         <div className="text-left px-5  text-sm  ml-[10px] item-center">
-          <h1 className="sm:text-[1.5rem] text-[2.25rem] font-bold text-center text-green-500">
+          <h1 className="sm:text-[1.5rem] text-[2.25rem] font-bold text-center text-teal-500">
             Community Bea
           </h1>
         </div>

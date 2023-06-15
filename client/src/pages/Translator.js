@@ -51,7 +51,7 @@ const Translator = () => {
     <div className="bg-white min-h-screen mx-20 p-10 pt-24 shadow-xl">
       <div className="flex">
         <div className="flex-auto">
-          <h1 className="text-[2.25rem] -mb-4 font-bold text-center text-green-500">
+          <h1 className="text-[2.25rem] -mb-4 font-bold text-center text-teal-500">
             Translator
           </h1>
           <div className="flex sm:flex-col flex-row">

@@ -38,11 +38,11 @@ const Footer = () => {
                       </a>
                     </Link>
                   </li>
-                  <li className="mb-4">
+                  {/* <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Services
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div>
@@ -51,24 +51,18 @@ const Footer = () => {
                 </h2>
                 <ul className="text-baseBlue font-medium">
                   <li className="mb-4">
-                    <Link to = "/wordlists">
-                      <a  className="hover:underline">
-                        Word
-                      </a>
+                    <Link to="/dictionary">
+                      <a className="hover:underline">Dictionary</a>
                     </Link>
                   </li>
                   <li className="mb-4">
-                    <Link to = "/translation">
-                      <a  className="hover:underline">
-                        Translation
-                      </a>
+                    <Link to="/translation">
+                      <a className="hover:underline">Translation</a>
                     </Link>
                   </li>
                   <li className="mb-4">
-                    <Link to = "/community">
-                      <a  className="hover:underline">
-                        Community
-                      </a>
+                    <Link to="/community">
+                      <a className="hover:underline">Community</a>
                     </Link>
                   </li>
                 </ul>
@@ -84,9 +78,11 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline">
-                      Terms &amp; Conditions
-                    </a>
+                    <Link to="/Terms&Conditions">
+                      <a href="#" className="hover:underline">
+                        Terms &amp; Conditions
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

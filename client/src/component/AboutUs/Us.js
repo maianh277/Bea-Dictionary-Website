@@ -59,14 +59,14 @@ const Us = () => {
                   src={Bea}
                   alt="logo"
                 />
-                <div className="py-10 self-center text-2xl dark:text-white whitespace-nowrap text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
+                <div className="self-center text-2xl whitespace-nowrap text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
                   Bea Dictionary{" "}
                 </div>
               </div>
             </div>
           </div>
 
-          <h1 className="text-[50px] md:text-[33px] sm:text-[20px] text-green-600 mt-[90px] font-bold flex items-center justify-center ">
+          <h1 className="text-[50px] md:text-[33px] sm:text-[20px] text-teal-600  font-bold flex items-center justify-center ">
             Let's talk about Bea Dictionary
           </h1>
           <div className="mx-[120px] md:mx-[70px] sm:mx-[40px] my-5 leading-8">
@@ -86,12 +86,12 @@ const Us = () => {
             </p>
           </div>
           <div className="flex items-center justify-center ">
-            <button
+            {/* <button
               type="button"
               class="h-[50px] w-[150px] bg-gradient-to-r from-cyan-400 to-violet-400 hover:from-rose-500 hover:to-orange-300 rounded-xl font-bold text-white"
             >
               Contact Bea
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ const InputBox = ({ setInputText, handleSubmit }) => {
           ></textarea>
 
           <button
-            className="absolute right-0 top-[30%] rounded-l-full w-10 h-20 bg-green-200 transition duration-150 ease-out hover:ease-in hover:bg-green-500 hover:scale-150 hover:shadow-md hover:-translate-x-2.5"
+            className="absolute right-0 top-[30%] rounded-l-full w-10 h-20 bg-teal-200 transition duration-150 ease-out hover:ease-in hover:bg-teal-500 hover:scale-150 hover:shadow-md hover:-translate-x-2.5"
             type="submit"
             onClick={handleSubmit}
           >
