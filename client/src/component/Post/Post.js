@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import getDetailUser from "../../api/user";
-import { getpost } from "../../api/community";
+import { getpost, deletepost } from "../../api/community";
 import {
   IoHeart,
   IoChatboxEllipsesOutline,
@@ -14,18 +14,28 @@ const CommunityPost = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isComment, setIsComment] = useState([]);
   const [user, setUser] = useState({});
+  const [selectedPost, setSelectedPost] = useState("");
   const handleLikeClick = () => {
     setIsLiked(!isLiked);
   };
-  // getDetailUser({
-  //   setUser,
-  //   user,
-  // });
+
   useEffect(() => {
     getpost({
       setIsComment,
     });
+    // deletepost(isComment.id_post);
   }, []);
+
+  const handleDeletePost = async (id_post) => {
+    try {
+      await axios.delete("http://localhost:8080/deletePost", {
+        data: { id_post },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleShareClick = () => {
     // Xử lý chia sẻ
     // Điều hướng đến trang chia sẻ trên Facebook
@@ -64,7 +74,10 @@ const CommunityPost = () => {
       {isComment &&
         isComment.map((post, index) => (
           <div className="mt-[10px]" key={index}>
-            <div className="h-70 bg-white shadow-lg border-black-50 rounded-xl border-2 mx-[100px] lg:mx-[90px] md:mx-[20px] sm:mx-[10px] border-black-50 ">
+            <div
+              onClick={() => setSelectedPost(post)}
+              className="h-70 bg-white shadow-lg border-black-50 rounded-xl border-2 mx-[100px] lg:mx-[90px] md:mx-[20px] sm:mx-[10px] border-black-50 "
+            >
               <div className="">
                 <div className=" gap-3 grid-cols-3 flex justify-start items-center pt-3 ">
                   <div>
@@ -89,10 +102,13 @@ const CommunityPost = () => {
                     >
                       <IoEllipsisHorizontal className="w-5 h-5 md:w-4 md:h-4 sm:w-3 sm:h-3" />
                     </button>
-                    {showOptions && (
+                    {selectedPost === post && showOptions && (
                       <div className="  absolute top-[5px] text-[1.1rem] flex flex-col bg-gray-200 font-medium right-[20px] shadow-lg rounded-[8px] w-[160px] overflow-hidden z-10">
                         <ul className="py-1">
-                          <li className="px-10 py-1 text-[13px] hover:bg-blue-300">
+                          <li
+                            className="px-10 py-1 text-[13px] hover:bg-blue-300"
+                            onClick={() => handleDeletePost(post.id_post)}
+                          >
                             Delete Post
                           </li>
                           <li className="px-10 py-1 text-[13px] hover:bg-blue-300">
@@ -165,7 +181,7 @@ const CommunityPost = () => {
                   </div>
                 </div>
               </div>
-              {showCommentForm && (
+              {selectedPost === post && showCommentForm && (
                 <form
                   onSubmit={handleCommentSubmit}
                   className=" w-full px-[40px] mb-4 md:px-[10px] sm:px-4 "

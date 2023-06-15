@@ -190,8 +190,8 @@ const HeaderBefore = () => {
                       <><li className="flex gap-3 hover:text-hoverDarkBlue hover:font-semibold ease-in-out transition-all mx-4 my-6 md:my-0">
                         <i className="fa-solid leading-none fa-lg fa-globe"></i>
                         <div className="w-[4rem]">
-                          <Link onClick={handleMenu} to="/community">
-                            Community
+                          <Link onClick={handleMenu} to="/wordlists">
+                            Word Lists
                           </Link>
                         </div>
                       </li><li className="hover:text-hoverDarkBlue hover:font-bold flex gap-3  ease-in-out transition-all mx-4 my-6 md:my-0">

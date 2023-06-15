@@ -17,7 +17,8 @@ const initWebRoute = (app) => {
   router.post("/getTranslation", dictController.handleGetTranslation);
 
   router.post("/uploadPost", communityController.handleUploadPost);
-  router.post("/getPost", communityController.handleGetPost)
+  router.post("/getPost", communityController.handleGetPost);
+  router.delete("/deletePost", communityController.handleDeletePost);
   app.use("/", router);
 };
 
