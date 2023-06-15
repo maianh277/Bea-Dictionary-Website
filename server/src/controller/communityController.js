@@ -1,11 +1,11 @@
 import pool from "../configs/connectDB.js";
 
 const handleUploadPost = async (req, res) => {
-  const { content, hashtag, id } = req.body;
+  const { content, hashtag, time, id } = req.body;
   try {
     await pool.execute(
-      "INSERT INTO community_post (`content`, `hashtag`, `id`) VALUES (?, ?, ?)",
-      [content, hashtag, id]
+      "INSERT INTO community_post (`content`, `time`, `hashtag`, `id`) VALUES (?,?, ?, ?)",
+      [content, time, hashtag, id]
     );
     res.sendStatus(200);
   } catch (e) {
@@ -27,6 +27,7 @@ const handleGetPost = async (req, res) => {
       hashtag: row.hashtag,
       fullname: row.fullname,
       id_post: row.id_post,
+      time: row.time,
     }));
 
     res.send(results);

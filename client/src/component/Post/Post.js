@@ -13,8 +13,9 @@ import { Link, useNavigate } from "react-router-dom";
 const CommunityPost = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isComment, setIsComment] = useState([]);
-  const [user, setUser] = useState({});
   const [selectedPost, setSelectedPost] = useState("");
+  const [commentForm, setCommentForm] = useState([]);
+
   const handleLikeClick = () => {
     setIsLiked(!isLiked);
   };
@@ -54,7 +55,6 @@ const CommunityPost = () => {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [comment, setComment] = useState("");
 
-  
   const handleCommentClick = () => {
     setShowCommentForm(!showCommentForm);
   };
@@ -65,8 +65,11 @@ const CommunityPost = () => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    // Xử lý logic khi người dùng nhấn gửi comment
-    console.log("Submitted comment:", comment);
+    const newComment = {
+      id_post: selectedPost.id_post,
+      comment: comment,
+    };
+    setCommentForm((prevComments) => [newComment, ...prevComments]);
     setComment("");
     setShowCommentForm(false);
   };
@@ -91,12 +94,17 @@ const CommunityPost = () => {
                       />
                     </Link>
                   </div>
-                  <div className="ml-1 text-left content-center">
-                    <h2 className="text-[15px] font-bold inline-block md:mr-2  sm:mb-0 cursor-pointer">
+
+                  <div className="ml-1 mt-2 text-left content-center">
+                    <h2 className="text-[1rem] font-bold inline-block md:mr-2  sm:mb-0 cursor-pointer">
                       {post.fullname}
                     </h2>
+                    <div className="text-[0.75rem] text-gray-400">
+                      {post.time}
+                    </div>
                     <h5 className="text-[12px]">#{post.hashtag}</h5>
                   </div>
+
                   <div className="relative ml-auto mr-5">
                     <button
                       className="text-gray-500 h-5 w-5"
@@ -129,6 +137,7 @@ const CommunityPost = () => {
                 <div className="py-2 flex gap-1 items-center">
                   <IoHeart className="text-[1.25rem] mt-0.5 cursor-pointer ml-10 text-gray-200" />
                   <span className="font-thin"></span>
+
                   <span className="text-[1rem] text-gray-400 ">
                     {2 > 0 ? (
                       <span className="text-[13px]">
@@ -153,6 +162,7 @@ const CommunityPost = () => {
                 <hr className=" w-10/12 mx-auto bg-slate-300 my-1"></hr>
                 <div className="flex justify-between py-2 px-[100px] md:px-[50px] sm:px-4 md:mx-[50px] sm:mx-[30px] my-3">
                   <div className="cursor-pointer flex gap-2 items-center font-semibold mr-[150px] lg:mr-[120px] md:mr-[90px] sm:mr-[30px]">
+                    {/* {selectedPost === post && ( */}
                     <button
                       className={`mr-0.5 ${
                         isLiked ? "text-red-500" : "text-gray-400 "
@@ -161,6 +171,7 @@ const CommunityPost = () => {
                     >
                       <IoHeart className="w-7 h-7 md:w-6 md:h-6 sm:w-5 sm:h-5" />
                     </button>
+                    {/* )} */}
                     <span className="text-sm">Like</span>
                   </div>
                   <div

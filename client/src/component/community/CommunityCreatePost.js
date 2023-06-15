@@ -23,6 +23,7 @@ const CommunityCreatePost = () => {
       content,
       hashtag,
     });
+    window.location.href = "http://localhost:3000/community";
     // Xử lý việc đăng bài
     console.log("Đã đăng bài:", postContent);
     // Reset nội dung bài viết sau khi đăng

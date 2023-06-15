@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const History = () => {
-  const [translationHistory, setTranslationHistory] = useState([]);
-
+const History = ({ setTranslationHistory, translationHistory }) => {
   useEffect(() => {
     savedTranslation();
   }, []);
@@ -18,7 +16,15 @@ const History = () => {
       );
 
       if (response.status === 200) {
-        setTranslationHistory(response.data);
+        const translationHistory = response.data;
+
+        if (translationHistory.length > 0) {
+          const sortedPosts = translationHistory.sort(
+            (a, b) => new Date(b.time) - new Date(a.time)
+          );
+
+          setTranslationHistory(sortedPosts);
+        }
       }
     } catch (error) {
       console.error(error);
@@ -27,20 +33,21 @@ const History = () => {
 
   return (
     <div className="xl:mx-20">
-      {translationHistory.map((entry, index) => (
-        <div
-          key={index}
-          className="shadow-lg rounded-lg p-4 my-5 flex flex-row justify-between"
-        >
-          <div>
-            <div className="font-bold text-green-500 text-[18px]">
-              {entry.para_before}
+      {translationHistory &&
+        translationHistory.map((trans, index) => (
+          <div
+            key={index}
+            className="shadow-lg rounded-lg p-4 my-5 flex flex-row justify-between"
+          >
+            <div>
+              <div className="font-bold text-green-500 text-[18px]">
+                {trans.para_before}
+              </div>
+              <p className="text-sm">{trans.para_after}</p>
             </div>
-            <p className="text-sm">{entry.para_after}</p>
+            <p className="text-sm">{trans.time}</p>
           </div>
-          <p className="text-sm">{entry.time}</p>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };
