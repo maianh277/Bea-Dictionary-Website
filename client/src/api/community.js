@@ -8,6 +8,7 @@ export const upload = async (data) => {
       id: id,
       content: data.content,
       hashtag: data.hashtag,
+      time: new Date().toLocaleString(),
     });
     console.log("Post uploaded successfully");
   } catch (error) {
@@ -25,20 +26,14 @@ export const getpost = async (data) => {
     );
     const results = response.data;
     if (results.length > 0) {
-      data.setIsComment(results);
+      const sortedPosts = results.sort(
+        (a, b) => new Date(b.time) - new Date(a.time)
+      );
+
+      data.setIsComment(sortedPosts);
       //   console.log(results);
     }
   } catch (error) {
     console.log(error);
   }
 };
-
-// export const deletepost = async (data) => {
-//   try {
-//     await axios.delete("http://localhost:8080/deletePost", {
-//       data: { data },
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };

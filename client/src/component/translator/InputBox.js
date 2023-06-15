@@ -14,6 +14,7 @@ const InputBox = ({ setInputText, handleSubmit }) => {
             onChange={(e) => {
               setInputText(e.target.value);
             }}
+            autocomplete="off"
           ></textarea>
 
           <button

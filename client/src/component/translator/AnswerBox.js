@@ -13,6 +13,7 @@ const AnswerBox = ({ translatedText }) => {
                 placeholder="Translate to..."
                 value={translatedText}
                 readOnly
+                autocomplete="off"
               ></textarea>
             </div>
           </form>

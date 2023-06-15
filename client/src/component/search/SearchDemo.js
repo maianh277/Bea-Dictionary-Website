@@ -38,7 +38,7 @@ const SearchDemo = () => {
     <div>
       {!searchedWord && (
         <h1 className="text-[2.25rem] font-bold text-center -mt-4 text-green-500">
-          Find your words
+          Dictionary
         </h1>
       )}
       <form className="flex my-2 mt-3">
@@ -67,13 +67,9 @@ const SearchDemo = () => {
         />
       )}
       {!searchedWord && (
-      <div className="flex item-center justify-center ">
-        <img
-          className=" items-center"
-          src={Beanotelist}
-          alt="logo"
-        />
-      </div>
+        <div className="flex item-center justify-center ">
+          <img className=" items-center" src={Beanotelist} alt="logo" />
+        </div>
       )}
     </div>
   );
