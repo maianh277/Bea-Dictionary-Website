@@ -18,7 +18,7 @@ const Home = () => {
               />
           </div>
           <div className="mt-[100px]  ">
-            <div className=" mt-[10px] top-[90px] sm:mt-5 sm:top-[70px] md:top-[80px] text-[17px] sm:text-[15px] md:text-[16px]  font-bold text-green-600 font-Lilita md:flex">
+            <div className=" mt-[10px] top-[90px] sm:mt-5 sm:top-[70px] md:top-[80px] text-[17px] sm:text-[15px] md:text-[16px]  font-bold text-teal-600 font-Lilita md:flex">
               ALL-IN-ONE-DICTIONARY{" "}
             </div>
             <div className=" top-[120px] sm:top-[100px]  md:top-[90px]  text-[70px] sm:text-[60px] md:text-[55px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
