@@ -53,21 +53,21 @@ const Us = () => {
         <div className="pt-[100px] min-h-screen  mx-[150px] md:mx-[70px] sm:mx-[40px] p-10  ">
           <div className="flex justify-center ">
             <div className="flex items-center  ">
-              <div className="place-items-center grid grid-rows-2 grid-flow-col">
+              <div className="grid place-items-center">
                 <img
-                  className="h-[200px] w-[200px] sm:h-[70px] sm:w-[70px] items-center"
+                  className="h-[300px] w-[300px] sm:h-[70px] sm:w-[70px] items-center"
                   src={Bea}
                   alt="logo"
                 />
-                <div className="top-[120px] sm:top-[100px]  md:top-[105px] md:w-[100%] sm:w-[100%] md:text-center sm:text-center my-[15px] left-1/2 sm:left-1/5 transform -translate-x-1/2 text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
+                <div className="py-10 self-center text-2xl dark:text-white whitespace-nowrap text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
                   Bea Dictionary{" "}
                 </div>
               </div>
             </div>
           </div>
 
-          <h1 className="text-[50px] md:text-[33px] sm:text-[20px] text-green-600  font-bold flex items-center justify-center ">
-            Let's task about Bea Dictionary
+          <h1 className="text-[50px] md:text-[33px] sm:text-[20px] text-green-600 mt-[90px] font-bold flex items-center justify-center ">
+            Let's talk about Bea Dictionary
           </h1>
           <div className="mx-[120px] md:mx-[70px] sm:mx-[40px] my-5 leading-8">
             <p className="text-center text-[18px] md:text-[15px] sm:text-[14px]">

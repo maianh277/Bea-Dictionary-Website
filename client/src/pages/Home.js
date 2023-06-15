@@ -7,38 +7,38 @@ const Home = () => {
   return (
     <div className=" ">
     
-      <div className="relative mt-10  w-[100%]  h-screen mx-auto flex flex-col sm:h-30%">
+      <div className="relative -mt-4 pt-3 w-[100%] mb-[50px] h-[500px] mx-auto bg-gradient-to-r from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90% bg-cover ">
         {/* <img src = {logo} alt = "" className = "h-10 w-10"/> */}
-        <div classaName="grid grid-cols-4 gap-4">
-          <div className="w-1/3 ">
+        <div className="md:flex lg:flex xl:flex 2xl:flex sm:ml-[50px] ">
+          <div className=" md:w-[600px] mt-[50px] md:mt-[90px] sm:mt-[110px] sm:hidden mx-5">
             <img
                 src={Book}
                 alt="Bg"
-                className=" h-[400px] mx-auto"
+                className="w-full "
               />
           </div>
-          <div className="">
-            <div className="my-[15px] absolute top-[90px] sm:top-[70px] md:top-[80px] sm:w-[100%] sm:text-center left-1/2  transform -translate-x-1/2 text-[17px] sm:text-[15px] md:text-[16px] p-2 font-bold text-green-600 font-Lilita md:flex">
+          <div className="mt-[100px]  ">
+            <div className=" mt-[10px] top-[90px] sm:mt-5 sm:top-[70px] md:top-[80px] text-[17px] sm:text-[15px] md:text-[16px]  font-bold text-green-600 font-Lilita md:flex">
               ALL-IN-ONE-DICTIONARY{" "}
             </div>
-            <div className="absolute top-[120px] sm:top-[100px]  md:top-[105px] md:w-[100%] sm:w-[100%] md:text-center sm:text-center my-[15px] left-1/2 sm:left-1/5 transform -translate-x-1/2 text-[70px] sm:text-[60px] md:text-[65px] md:py-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
+            <div className=" top-[120px] sm:top-[100px]  md:top-[90px]  text-[70px] sm:text-[60px] md:text-[55px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-500 hover:to-yellow-500 font-Lilita">
               Bea Dictionary
             </div>
-            <div className=" absolute my-[15px] top-[230px] sm:top-[290px] md:top-[230px] lg:top-[220px] sm:w-[80%] max-[414px]:text-center left-1/2 transform -translate-x-1/2 text-[19px] sm:text-[15px] md:text-[17px] w-1/2 text-green-800 font-semibold text-center md:max-w-[90%]">
+            <div className="  mb-[20px] top-[230px] sm:top-[290px] md:top-[230px] lg:top-[220px] text-[19px] sm:text-[15px] md:text-[17px] text-green-800 font-semibold mr-[50px]">
               Our dictionary is a comprehensive resource for all your language
               needs. Whether you're a student, a professional, or simply looking to
               expand your vocabulary.
             </div>
             <form>
-              <div className="absolute top-[330px] 2xl:top-[320px] md:top-[350px] sm:top-[230px] sm:w-[80%] left-1/2 transform -translate-x-1/2 w-1/2  sm:text-center">
+              <div className=" top-[330px] 2xl:top-[320px] md:top-[350px] sm:top-[230px] sm:text-center flex ">
                 <input
-                  className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white bg-opacity-70 shadow-lg"
+                  className=" w-full mr-4 p-4 pl-10  text-gray-900 border border-gray-300 rounded-lg bg-white bg-opacity-70 shadow-lg"
                   placeholder="Search..."
                   required
                 ></input>
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+                  className="text-white mr-[50px] right-2.5 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
                 >
                   Search
                 </button>
