@@ -42,6 +42,7 @@ const handleDeletePost = async (req, res) => {
       id_post,
     ]);
     res.send("Post deleted successfully");
+    res.send("http://localhost:3000/community");
   } catch (e) {
     console.log(e);
     res.status(500).send("Error occurred");

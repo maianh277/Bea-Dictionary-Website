@@ -31,6 +31,7 @@ const CommunityPost = () => {
       await axios.delete("http://localhost:8080/deletePost", {
         data: { id_post },
       });
+      window.location.href = "http://localhost:3000/community";
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +53,8 @@ const CommunityPost = () => {
 
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [comment, setComment] = useState("");
-  const [hashtag, setHashtag] = useState("");
+
+  
   const handleCommentClick = () => {
     setShowCommentForm(!showCommentForm);
   };
